@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="With DTO for application. Old code">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/RequestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/convert/RequestConvert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/convert/UserConvert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/dto/RequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/dto/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/NewBuilding.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/NewBuildingDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/RealEstate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/RealEstateBanner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Company/CompanyInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Company/Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Enum/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Request.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/User/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/RequestRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/RequestService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/InvalidEmailException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/InvalidPhoneNumberException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/MissingDescriptionException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/MissingDescriptionLengthException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/MissingUserNameException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/RegEx.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Latcarf/RoyalHouse.git",
+    "accountId": "0dfea01b-db67-4db2-ace1-45ab256f1345"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2hoaUwHJJuTJsYrdSvJIjtuSke6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.TestProjectApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Pricols/Java/projects/Latcarf",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="TestProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="RoyalHouse" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="RoyalHouse.TestProjectApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="RoyalHouse.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.TestProjectApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="" />
+      <created>1718262903075</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718262903075</updated>
+      <workItem from="1718262904120" duration="9000" />
+      <workItem from="1718262943225" duration="48000" />
+      <workItem from="1718262998761" duration="34000" />
+      <workItem from="1718263037918" duration="62000" />
+      <workItem from="1718263111391" duration="526000" />
+      <workItem from="1718263745769" duration="9770000" />
+      <workItem from="1718297762684" duration="62000" />
+      <workItem from="1718298761947" duration="840000" />
+      <workItem from="1718299804438" duration="35000" />
+      <workItem from="1718299849397" duration="16000" />
+      <workItem from="1718299878049" duration="3000" />
+      <workItem from="1718299909744" duration="2021000" />
+      <workItem from="1718360229267" duration="6126000" />
+      <workItem from="1718398164655" duration="9943000" />
+      <workItem from="1718435239095" duration="6649000" />
+      <workItem from="1718467910344" duration="614000" />
+      <workItem from="1718470323155" duration="1000" />
+      <workItem from="1720196366239" duration="1314000" />
+      <workItem from="1720247349718" duration="1493000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="With DTO for application. Old code" />
+    <option name="LAST_COMMIT_MESSAGE" value="With DTO for application. Old code" />
+  </component>
+</project>
