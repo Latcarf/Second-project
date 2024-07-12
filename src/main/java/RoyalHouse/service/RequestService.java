@@ -1,7 +1,5 @@
 package RoyalHouse.service;
 
-import RoyalHouse.dto.RequestDTO;
-import RoyalHouse.convert.RequestConvert;
 import RoyalHouse.model.Request;
 import RoyalHouse.model.User.User;
 import RoyalHouse.repository.RequestRepository;
@@ -24,82 +22,63 @@ public class RequestService {
     private static final Logger logger = LoggerFactory.getLogger(RequestService.class);
 
     private final RequestRepository requestRepository;
-    private final UserRepository userRepository;
-    private final RequestConvert requestConvert;
 
-    public RequestService(RequestRepository requestRepository, UserRepository userRepository, RequestConvert requestConvert) {
+    public RequestService(RequestRepository requestRepository) {
         this.requestRepository = requestRepository;
-        this.userRepository = userRepository;
-        this.requestConvert = requestConvert;
     }
 
-    public void createRequest(RequestDTO requestDto) {
-        logger.info("Creating a request for a user with email: {}", requestDto.getUserDTO().getEmail());
+    public void createRequest(Request request) {
+        logger.info("Creating a request for a user with email: {}", request.getEmail());
 
-        validateRequest(requestDto);
+        validateRequest(request);
 
-        Request request = new Request();
-        request.setDescription(requestDto.getDescription());
-        request.setStatus(Status.NEW.name());
-        request.setDate(LocalDateTime.now());
-        request.setUser(getUser(requestDto));
+        Request newRequest = Request.builder()
+                .userName(request.getUserName())
+                .phone(request.getPhone())
+                .email(request.getEmail())
+                .description(request.getDescription())
+                .date(LocalDateTime.now())
+                .status(Status.NEW.name())
+                .build();
 
-        Request savedRequest = requestRepository.save(request);
+        Request savedRequest = requestRepository.save(newRequest);
 
         logger.info("Request successfully created with ID: {}", savedRequest.getId());
     }
 
-    public RequestDTO getRequestDTOById(Long requestId) {
-//?       Optional<Request> request = requestRepository.findById(requestId);
-        Request request = requestRepository.findById(requestId)
+    public Request getRequestById(Long requestId) {
+        return requestRepository.findById(requestId)
                 .orElseThrow(() -> new IllegalArgumentException("Request with ID: " + requestId + " not found"));
-        return requestConvert.convertRequestDTO(request);
     }
 
-    public List<RequestDTO> getAllRequestDTO() {
-        List<Request> request = requestRepository.findAll();
-        return request.stream().map(requestConvert::convertRequestDTO).collect(Collectors.toList());
+    public List<Request> getAllRequest() {
+        return requestRepository.findAll();
     }
 
     public void deleteRequest(Long requestId) {
         requestRepository.deleteById(requestId);
     }
 
-    private User getUser(RequestDTO requestDto) {
-        Optional<User> optionalUser = userRepository.findByEmail(requestDto.getUserDTO().getEmail());
-        User user;
-
-        if (optionalUser.isPresent()) {
-            user = optionalUser.get();
-        } else {
-            user = new User();
-            user.setUserName(requestDto.getUserDTO().getUserName());
-            user.setEmail(requestDto.getUserDTO().getEmail());
-            user.setPhone(requestDto.getUserDTO().getPhone());
-            user = userRepository.save(user);
-        }
-        return user;
-    }
-
-    private void validateRequest(RequestDTO requestDto) {
-        if (Objects.isNull(requestDto.getDescription()) || requestDto.getDescription().trim().isEmpty()) {
+    private void validateRequest(Request request) {
+        if (Objects.isNull(request.getDescription()) || request.getDescription().trim().isEmpty()) {
             throw new MissingDescriptionException("Description is required.");
         }
 
-        if (requestDto.getDescription().length() < 10 || requestDto.getDescription().length() > 500) {
+        if (request.getDescription().length() < 10 || request.getDescription().length() > 500) {
             throw new MissingDescriptionLengthException("Description must be between 10 and 500 characters.");
         }
 
-        if (!RegEx.USERNAME_REGEX.matcher(requestDto.getUserDTO().getUserName()).matches()) {
+        if (!RegEx.USERNAME_REGEX.matcher(request.getUserName()).matches()) {
             throw new MissingUserNameException("User name format is invalid.");
         }
 
-        if (Objects.isNull(requestDto.getUserDTO().getEmail()) || !RegEx.EMAIL_REGEX.matcher(requestDto.getUserDTO().getEmail()).matches()) {
+        if (Objects.isNull(request.getEmail()) || !RegEx.EMAIL_REGEX.matcher(request.getEmail()).matches()) {
             throw new InvalidEmailException("Invalid email format.");
         }
 
-        if (Objects.isNull(requestDto.getUserDTO().getPhone()) || !RegEx.PHONE_REGEX.matcher(requestDto.getUserDTO().getPhone()).matches()) {
+        if (Objects.isNull(request.getPhone()) || !RegEx.PHONE_REGEX.matcher(request.getPhone()).matches()) {
             throw new InvalidPhoneNumberException("Invalid phone number format.");
         }
     }
 }
+

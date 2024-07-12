@@ -1,16 +1,14 @@
 package RoyalHouse.controller;
 
-import RoyalHouse.dto.RequestDTO;
+import RoyalHouse.model.Request;
 import RoyalHouse.service.RequestService;
-import RoyalHouse.util.Exception.InvalidEmailException;
-import RoyalHouse.util.Exception.InvalidPhoneNumberException;
-import RoyalHouse.util.Exception.MissingDescriptionException;
-import RoyalHouse.util.Exception.MissingUserNameException;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+import java.util.List;
+
+@Controller
 @RequestMapping("/requests")
 public class RequestController {
 
@@ -20,37 +18,44 @@ public class RequestController {
         this.requestService = requestService;
     }
 
+    @GetMapping("/new")
+    public String showCreateForm(Model model) {
+        model.addAttribute("request", new Request());
+        return "create-request";
+    }
+
     @PostMapping
-    public ResponseEntity<RequestDTO> createRequest(@RequestBody RequestDTO requestDto) {
+    public String createRequest(@ModelAttribute Request request, Model model) {
         try {
-            requestService.createRequest(requestDto);
-            return ResponseEntity.status(HttpStatus.CREATED).body(requestDto);
-        } catch (MissingDescriptionException | MissingUserNameException | InvalidEmailException | InvalidPhoneNumberException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+            requestService.createRequest(request);
+            return "redirect:/requests";
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return "create-request";
         }
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<RequestDTO> getRequestById(@PathVariable Long id) {
-        try {
-            RequestDTO requestDto = requestService.getRequestDTOById(id);
-            return ResponseEntity.ok(requestDto);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
+    @GetMapping
+    public String getAllRequests(Model model) {
+        List<Request> requests = requestService.getAllRequest();
+        model.addAttribute("requests", requests);
+        return "requests-list";
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteRequest(@PathVariable Long id) {
+    @GetMapping("/requests/{id}")
+    public String getRequests(@PathVariable Long id, Model model) {
+        Request request = requestService.getRequestById(id);
+        model.addAttribute("request", request);
+        return "requests-list";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteRequest(@PathVariable Long id, Model model) {
         try {
             requestService.deleteRequest(id);
-            return ResponseEntity.noContent().build();
+            return "redirect:/requests";
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            model.addAttribute("error", "Ошибка при удалении заявки: " + e.getMessage());
+            return "requests-list";
         }
     }
 }

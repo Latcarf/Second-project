@@ -5,36 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="With DTO for application. Old code">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/RequestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/convert/RequestConvert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/convert/UserConvert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/dto/RequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/dto/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/NewBuilding.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/NewBuildingDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/RealEstate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/RealEstateBanner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Company/CompanyInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Company/Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Enum/Status.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Request.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/User/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/RequestRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/RequestService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/InvalidEmailException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/InvalidPhoneNumberException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/MissingDescriptionException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/MissingDescriptionLengthException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/MissingUserNameException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/RegEx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/RequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/convert/RequestConvert.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/dto/RequestDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/RequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/RequestService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,12 +29,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Latcarf/RoyalHouse.git",
-    "accountId": "0dfea01b-db67-4db2-ace1-45ab256f1345"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Latcarf&quot;
   }
-}]]></component>
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Latcarf/RoyalHouse.git&quot;,
+    &quot;accountId&quot;: &quot;0dfea01b-db67-4db2-ace1-45ab256f1345&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -69,30 +51,30 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.TestProjectApplication.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Pricols/Java/projects/Latcarf",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.TestProjectApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Pricols/Java/projects/Latcarf&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="TestProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="RoyalHouse" />
@@ -148,6 +130,14 @@
       <workItem from="1718470323155" duration="1000" />
       <workItem from="1720196366239" duration="1314000" />
       <workItem from="1720247349718" duration="1493000" />
+      <workItem from="1720554577198" duration="387000" />
+      <workItem from="1720554986128" duration="4729000" />
+      <workItem from="1720559806724" duration="64000" />
+      <workItem from="1720595883563" duration="4479000" />
+      <workItem from="1720776337263" duration="2000" />
+      <workItem from="1720786480279" duration="505000" />
+      <workItem from="1720787168851" duration="14000" />
+      <workItem from="1720805883537" duration="681000" />
     </task>
     <servers />
   </component>

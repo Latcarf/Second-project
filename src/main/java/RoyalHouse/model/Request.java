@@ -1,11 +1,17 @@
 package RoyalHouse.model;
 
-import RoyalHouse.model.User.User;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "requests")
 public class Request {
@@ -15,16 +21,21 @@ public class Request {
     @Column(name = "request_id")
     private Long id;
 
+    @Column(name = "user_name", nullable = false, length = 50)
+    private String userName;
+
+    @Column(name = "phone", nullable = false, length = 15)
+    private String phone;
+
+    @Column(name = "email", nullable = false, unique = true, length = 100)
+    private String email;
+
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
-
-    @Column(name = "status", nullable = false, length = 50)
-    private String status;
 
     @Column(name = "date", nullable = false)
     private LocalDateTime date;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @Column(name = "status", nullable = false, length = 50)
+    private String status;
 }
