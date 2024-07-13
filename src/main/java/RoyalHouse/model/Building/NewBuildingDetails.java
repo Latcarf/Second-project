@@ -9,24 +9,29 @@ import lombok.Data;
 public class NewBuildingDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "new_building_id")
-    private Long newBuildingId;
-
-    @Column(name = "project_description", columnDefinition = "TEXT")
-    private String projectDescription;
-
-    @Column(name = "location", columnDefinition = "TEXT")
-    private String location;
-
-    @Column(name = "infrastructure", columnDefinition = "TEXT")
-    private String infrastructure;
-
-    @Column(name = "specification", columnDefinition = "TEXT")
-    private String specification;
+    private Long id;
 
     @OneToOne
     @MapsId
     @JoinColumn(name = "new_building_id")
     private NewBuilding newBuilding;
+
+    @Column(name = "year_built", nullable = false)
+    private int yearBuilt;
+
+    @Column(name = "num_floors", nullable = false)
+    private int numFloors;
+
+    @Column(name = "num_parking_spaces", nullable = false)
+    private int numParkingSpaces;
+
+    @Column(name = "playground", nullable = false)
+    private boolean playground;
+
+    @Column(name = "fitness", nullable = false)
+    private boolean fitness;
+
+    @Column(name = "swimming_pool", nullable = false)
+    private boolean swimmingPool;
 }

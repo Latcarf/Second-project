@@ -27,12 +27,6 @@ public class RealEstate {
     @Column(name = "area_sq_m", nullable = false)
     private int areaSqM;
 
-    @Column(name = "city", nullable = false, length = 100)
-    private String city;
-
-    @Column(name = "district", nullable = false, length = 100)
-    private String district;
-
     @Column(name = "year_built", nullable = false)
     private int yearBuilt;
 
@@ -52,5 +46,8 @@ public class RealEstate {
     @ManyToOne
     @JoinColumn(name = "new_building_id")
     private NewBuilding newBuilding;
-}
 
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+}
