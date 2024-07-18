@@ -1,7 +1,7 @@
 package RoyalHouse.convert;
 
 import RoyalHouse.dto.UserDTO;
-import RoyalHouse.model.User.User;
+import RoyalHouse.model.User;
 import org.springframework.stereotype.Component;
 
 @Component

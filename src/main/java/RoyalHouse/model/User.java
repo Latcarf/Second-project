@@ -1,4 +1,4 @@
-package RoyalHouse.model.User;
+package RoyalHouse.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

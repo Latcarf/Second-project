@@ -1,6 +1,6 @@
 package RoyalHouse.dto;
 
-import RoyalHouse.model.User.User;
+import RoyalHouse.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

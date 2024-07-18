@@ -4,13 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="Request service and controller 66%">
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/NewBuildingInfo.java" afterDir="false" />
+    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="upd: model/Building">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/MenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/NewBuildingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/ObjectController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/ServiceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/setting/AboutCompanyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/setting/ContactController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/setting/EditServiceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/setting/SecondaryMarketController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/setting/SnapObjectController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-buildings.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/objects.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/requestСard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/services.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/setting/about-company.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/setting/contacts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/setting/edit-services.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/setting/secondary-market.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/setting/snap-objects.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/favicon.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/convert/UserConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/convert/UserConvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/dto/UserDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/NewBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/NewBuilding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/NewBuildingDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/NewBuildingDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/RealEstate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/RealEstate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/RequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/RequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Royal House.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/Royal House.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +50,10 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -51,30 +82,46 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.TestProjectApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Pricols/Java/projects/Latcarf&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.TestProjectApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Java/projects/MAIN-PROJECT",
+    "list.type.of.created.stylesheet": "SCSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Java\projects\RoyalHouse\src\main\resources\templates\admin\main" />
+      <recent name="D:\Java\projects\RoyalHouse\src\main\resources\templates" />
+      <recent name="D:\Java\projects\RoyalHouse\src\main\resources" />
+      <recent name="D:\Java\projects\RoyalHouse\src\main\resources\templates\admin" />
+      <recent name="D:\Java\projects\RoyalHouse\src\main\resources\templates\frontend\request" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="TestProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="RoyalHouse" />
@@ -140,7 +187,14 @@
       <workItem from="1720805883537" duration="1433000" />
       <workItem from="1720814424807" duration="2327000" />
       <workItem from="1720847871705" duration="930000" />
-      <workItem from="1720854553994" duration="3378000" />
+      <workItem from="1720854553994" duration="3944000" />
+      <workItem from="1720860583398" duration="4598000" />
+      <workItem from="1721110779494" duration="2687000" />
+      <workItem from="1721221786625" duration="125000" />
+      <workItem from="1721221975404" duration="1000" />
+      <workItem from="1721228722114" duration="8718000" />
+      <workItem from="1721239870376" duration="8827000" />
+      <workItem from="1721287883664" duration="21273000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />
@@ -150,7 +204,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720806667123</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="upd: model/Building">
+      <option name="closed" value="true" />
+      <created>1720859923882</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1720859923882</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +232,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="With DTO for application. Old code" />
     <MESSAGE value="Request service and controller 66%" />
-    <option name="LAST_COMMIT_MESSAGE" value="Request service and controller 66%" />
+    <MESSAGE value="upd: model/Building" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd: model/Building" />
   </component>
 </project>

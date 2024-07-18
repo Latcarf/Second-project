@@ -32,6 +32,7 @@ public class NewBuilding {
     @OneToOne(mappedBy = "newBuilding", cascade = CascadeType.ALL)
     private NewBuildingInfo newBuildingInfo;
 
-    @OneToOne(mappedBy = "newBuilding", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "address_id")
     private Address address;
 }

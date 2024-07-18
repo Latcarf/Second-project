@@ -1,4 +1,4 @@
-package RoyalHouse.controller;
+package RoyalHouse.controller.admin.main;
 
 import RoyalHouse.model.Request;
 import RoyalHouse.service.RequestService;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/requests")
+@RequestMapping("/admin/main/requests")
 public class RequestController {
 
     private final RequestService requestService;
@@ -21,16 +21,16 @@ public class RequestController {
     @GetMapping("/new")
     public String showCreateForm(Model model) {
         model.addAttribute("request", new Request());
-        return "create-request";
+        return "admin/main/create-request";
     }
 
-    @PostMapping
+    @PostMapping("/new")
     public String createRequest(@ModelAttribute Request request, Model model) {
         try {
             requestService.createRequest(request);
-            return "redirect:/requests";
+            return "redirect:/admin/main/requests";
         } catch (Exception e) {
-            return "create-request";
+            return "admin/main/create-request";
         }
     }
 
@@ -38,24 +38,24 @@ public class RequestController {
     public String getAllRequests(Model model) {
         List<Request> requests = requestService.getAllRequest();
         model.addAttribute("requests", requests);
-        return "requests-list";
+        return "admin/main/request/requests";
     }
 
-    @GetMapping("/requests/{id}")
+    @GetMapping("/{id}")
     public String getRequests(@PathVariable Long id, Model model) {
         Request request = requestService.getRequestById(id);
         model.addAttribute("request", request);
-        return "requests-list";
+        return "admin/main/request";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteRequest(@PathVariable Long id, Model model) {
         try {
             requestService.deleteRequest(id);
-            return "redirect:/requests";
+            return "redirect:/admin/main/requests";
         } catch (Exception e) {
             model.addAttribute("error", "Ошибка при удалении заявки: " + e.getMessage());
-            return "requests-list";
+            return "admin/main/requests-list";
         }
     }
 }

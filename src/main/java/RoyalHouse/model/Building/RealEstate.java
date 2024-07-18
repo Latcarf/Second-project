@@ -1,6 +1,6 @@
 package RoyalHouse.model.Building;
 
-import RoyalHouse.model.User.User;
+import RoyalHouse.model.User;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;

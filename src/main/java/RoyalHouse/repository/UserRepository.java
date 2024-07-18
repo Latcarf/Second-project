@@ -1,6 +1,6 @@
 package RoyalHouse.repository;
 
-import RoyalHouse.model.User.User;
+import RoyalHouse.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
