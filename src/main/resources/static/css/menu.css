@@ -1,0 +1,116 @@
+/* Подключение шрифта */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+
+/* Основные стили */
+* {
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  color: #333;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+body {
+  background-color: #2e2e2e;
+  margin: 0;
+  padding: 0;
+  color: #f1f1f1;
+}
+
+/* Стили для верхней панели */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #1f1f1f;
+  border-bottom: 1px solid #444;
+  position: relative;
+}
+
+.menu-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #f1f1f1;
+  margin-right: 10px;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  color: #f1f1f1;
+  margin: 0 auto;
+  text-align: center;
+  flex: 1;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+}
+
+.header-user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.header-user-name {
+  font-size: 1rem;
+  color: #f1f1f1;
+}
+
+/* Стили для бокового меню */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -220px;
+  width: 220px;
+  height: 100%;
+  background-color: #1f1f1f;
+  border-right: 1px solid #444;
+  padding-top: 60px;
+  transition: left 0.3s ease;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.menu.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu.sidebar-nav .menu-item {
+  padding: 10px 20px;
+}
+
+.menu.sidebar-nav .menu-item a,
+.menu.sidebar-nav .opener {
+  text-decoration: none;
+  color: #f1f1f1;
+  display: block;
+  cursor: pointer;
+}
+
+.menu.sidebar-nav .menu-item a:hover,
+.menu.sidebar-nav .opener:hover {
+  background-color: #444;
+}
+
+.menu.sidebar-nav .opener::after {
+  content: " ▼";
+}
+
+.sub-menu {
+  display: none;
+  padding-left: 20px;
+}
+
+.sub-menu .menu-item {
+  padding: 10px 0;
+}

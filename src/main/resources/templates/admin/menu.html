@@ -8,11 +8,9 @@
 </head>
 
 <body>
-<div th:fragment="content">
+<div th:fragment="menu">
     <header class="header">
-        <div class="header-logo">
-            <img th:src="@{/images/logo.svg}" alt="Royal House Logo"/>
-        </div>
+        <button class="menu-toggle">☰</button>
         <h1 class="header-title">Admin Panel</h1>
         <div class="header-user">
             <img th:src="@{/images/avatar.svg}" alt="User Avatar"/>
@@ -21,44 +19,30 @@
     </header>
 
     <aside class="sidebar">
-        <nav class="sidebar-nav">
-            <ul class="sidebar-list">
-                <li class="sidebar-item">
-                    <a th:href="@{/admin/main/requests}" class="sidebar-link">Requests</a>
-                </li>
-                <li class="sidebar-item">
-                    <a th:href="@{/admin/main/objects}" class="sidebar-link">Objects</a>
-                </li>
-                <li class="sidebar-item">
-                    <a th:href="@{/admin/main/new-buildings}" class="sidebar-link">New buildings</a>
-                </li>
-                <li class="sidebar-item">
-                    <a th:href="@{/admin/main/services}" class="sidebar-link">Services</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Settings</a>
-                    <ul class="sidebar-submenu">
-                        <li class="sidebar-submenu-item">
-                            <a th:href="@{/admin/setting/contacts}" class="sidebar-submenu-link">Contacts</a>
-                        </li>
-                        <li class="sidebar-submenu-item">
-                            <a th:href="@{/admin/setting/snap-objects}" class="sidebar-submenu-link">Snap objects</a>
-                        </li>
-                        <li class="sidebar-submenu-item">
-                            <a th:href="@{/admin/setting/secondary-market}" class="sidebar-submenu-link">Secondary market</a>
-                        </li>
-                        <li class="sidebar-submenu-item">
-                            <a th:href="@{/admin/setting/edit-services}" class="sidebar-submenu-link">Edit services</a>
-                        </li>
-                        <li class="sidebar-submenu-item">
-                            <a th:href="@{/admin/setting/about-company}" class="sidebar-submenu-link">About company</a>
-                        </li>
+        <nav class="menu sidebar-nav">
+            <ul>
+                <li class="menu-item"><a th:href="@{/admin/main/requests}">Requests</a></li>
+                <li class="menu-item"><a th:href="@{/admin/main/objects}">Objects</a></li>
+                <li class="menu-item"><a th:href="@{/admin/main/new-buildings}">New buildings</a></li>
+                <li class="menu-item"><a th:href="@{/admin/main/services}">Services</a></li>
+                <li class="menu-item">
+                    <span class="opener">Settings</span>
+                    <ul class="sub-menu">
+                        <li class="menu-item"><a th:href="@{/admin/setting/contacts}">Contacts</a></li>
+                        <li class="menu-item"><a th:href="@{/admin/setting/snap-objects}">Snap objects</a></li>
+                        <li class="menu-item"><a th:href="@{/admin/setting/secondary-market}">Secondary market</a></li>
+                        <li class="menu-item"><a th:href="@{/admin/setting/edit-services}">Edit services</a></li>
+                        <li class="menu-item"><a th:href="@{/admin/setting/about-company}">About company</a></li>
+                        <li class="menu-item"><a th:href="@{/admin/setting/contacts}">Contact</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </aside>
 </div>
-</body>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/menu-toggle.js"></script>
+<script src="/js/submenu-toggle.js"></script>
+</body>
 </html>

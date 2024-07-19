@@ -5,8 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Buildings</title>
+    <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/menu.css}"/>
 </head>
-<body th:replace="~{admin/menu :: content}"></body>
-<h1>New Building</h1>
 
+<body>
+<div th:replace="~{admin/menu :: menu}"></div>
+<h1>New Building</h1>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/menu-toggle.js"></script>
+</body>
 </html>
