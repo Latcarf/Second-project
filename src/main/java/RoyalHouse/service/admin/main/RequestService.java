@@ -1,4 +1,4 @@
-package RoyalHouse.service;
+package RoyalHouse.service.admin.main;
 
 import RoyalHouse.model.Request;
 import RoyalHouse.repository.RequestRepository;
@@ -7,6 +7,8 @@ import RoyalHouse.util.Exception.*;
 import RoyalHouse.util.RegEx;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -53,6 +55,10 @@ public class RequestService {
 
     public void deleteRequest(Long requestId) {
         requestRepository.deleteById(requestId);
+    }
+
+    public Page<Request> findPaginated(PageRequest of) {
+        return null;
     }
 
     private void validateRequest(Request request) {

@@ -4,98 +4,84 @@
     <meta charset="UTF-8">
     <title>Requests</title>
     <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
     <link rel="stylesheet" th:href="@{/css/menu.css}"/>
     <link rel="stylesheet" th:href="@{/css/request.css}"/>
 </head>
 
 <body>
 <div th:replace="~{admin/menu :: menu}"></div>
-    <h2>Responsive Table</h2>
-    <div class="table-wrapper">
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h2 class="page-title">Requests</h2>
+        <div class="breadcrumb">
+            <a th:href="@{/admin/menu}">Home</a> >
+            <a th:href="@{/admin/main/requests}">Requests</a>
+        </div>
+    </div>
+
+    <div class="actions">
+        <button class="btn-export" th:onclick="|window.location.href='@{/admin/requests/export}'|">Export to Excel</button>
+    </div>
+
+    <div class="table-container">
         <table class="fl-table">
             <thead>
             <tr>
-                <th>Header 1</th>
-                <th>Header 2</th>
-                <th>Header 3</th>
-                <th>Header 4</th>
-                <th>Header 5</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Comment</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            <tr class="filters">
+                <td><input type="text" class="filter-input"/></td>
+                <td><input type="text" class="filter-input" /></td>
+                <td><input type="text" class="filter-input"/></td>
+                <td></td>
+                <td>
+                    <input type="date" class="filter-date" />
+                </td>
+                <td>
+                    <select class="filter-select" >
+                        <option value="">All</option>
+                        <option value="new">New</option>
+                        <option value="answered">Answered</option>
+                    </select>
+                </td>
+                <td><button class="btn-clear" th:onclick="|window.location.href='@{/admin/requests/clear-filters}'|">Clear</button></td>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
+            <tr th:each="request : ${pageRequests}">
+                <td th:text="${request.userName}">Muzychuk Dmytro</td>
+                <td th:text="${request.phone}">+380987654321</td>
+                <td th:text="${request.email}">testmail@gmail.com</td>
+                <td th:text="${request.description}">TestTextTestTextTestTextTestTextTestText</td>
+                <td th:text="${#dates.format(request.date, 'dd.MM.yyyy - HH:mm')}">24.09.2018 - 15:04</td>
+                <td>
+                    <span class="status" th:classappend="${request.status} == 'new' ? 'new' : request.status == 'answered' ? 'answered' : 'closed'" th:text="${request.status}">New</span>
+                </td>
+                <td>
+                    <button class="btn-action" th:onclick="|window.location.href='@{/admin/requests/view/{id}(id=${request.id})}'|">View</button>
+                    <button class="btn-delete" th:onclick="|window.location.href='@{/admin/requests/delete/{id}(id=${request.id})}'|">Delete</button>
+                </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-                <td>Content</td>
-            </tr>
-            <tbody>
+            </tbody>
         </table>
+
+        <div class="pagination">
+<!--            <a th:each="i : ${#numbers.sequence(1, totalPages)}"-->
+<!--               th:href="@{/admin/requests/pages(page=${i})}"-->
+<!--               th:text="${i}"-->
+<!--               th:classappend="${i == currentPage} ? 'active' : ''">1</a>-->
+            <a th:href="@{/admin/main/requests/}" th:text="1"></a>
+        </div>
     </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/menu-toggle.js"></script>

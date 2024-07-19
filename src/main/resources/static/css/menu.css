@@ -1,7 +1,5 @@
-/* Подключение шрифта */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
 
-/* Основные стили */
 * {
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
@@ -62,7 +60,6 @@ body {
     color: #f1f1f1;
 }
 
-/* Стили для бокового меню */
 .sidebar {
     position: fixed;
     top: 0;
