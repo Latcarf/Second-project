@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="create all for frontend">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/frontend/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/menu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/menu.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/request.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/menu-toggle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/submenu-toggle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/menu-old.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/main.html" afterDir="false" />
+    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="upd: menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-buildings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-buildings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/menu.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/menu-toggle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/menu-toggle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/requests.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/requests.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/frontend/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/frontend/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +24,11 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="SCSS File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="Less File" />
         <option value="HTML File" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -76,7 +71,7 @@
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Java/projects/MAIN-PROJECT",
-    "list.type.of.created.stylesheet": "Less",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,11 +91,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Java\projects\RoyalHouse\src\main\resources\static\css" />
       <recent name="D:\Java\projects\RoyalHouse\src\main\resources\templates\admin" />
       <recent name="D:\Java\projects\RoyalHouse\src\main\resources\templates\admin\main" />
       <recent name="D:\Java\projects\RoyalHouse\src\main\resources\templates" />
       <recent name="D:\Java\projects\RoyalHouse\src\main\resources" />
-      <recent name="D:\Java\projects\RoyalHouse\src\main\resources\templates\frontend\request" />
     </key>
   </component>
   <component name="RunManager">
@@ -177,7 +172,7 @@
       <workItem from="1721239870376" duration="8827000" />
       <workItem from="1721287883664" duration="24884000" />
       <workItem from="1721347812411" duration="241000" />
-      <workItem from="1721377681850" duration="12720000" />
+      <workItem from="1721377681850" duration="16297000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />
@@ -203,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721342209232</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="upd: menu">
+      <option name="closed" value="true" />
+      <created>1721393718078</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721393718078</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +229,7 @@
     <MESSAGE value="Request service and controller 66%" />
     <MESSAGE value="upd: model/Building" />
     <MESSAGE value="create all for frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="create all for frontend" />
+    <MESSAGE value="upd: menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd: menu" />
   </component>
 </project>
