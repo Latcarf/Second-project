@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -55,6 +56,10 @@ public class RequestService {
 
     public void deleteRequest(Long requestId) {
         requestRepository.deleteById(requestId);
+    }
+
+    public List<Request> getFilteredRequests(Request request) {
+        return null;
     }
 
     public Page<Request> findPaginated(PageRequest of) {

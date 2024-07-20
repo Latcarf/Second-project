@@ -2,12 +2,15 @@ package RoyalHouse.controller.admin.main;
 
 import RoyalHouse.model.Request;
 import RoyalHouse.service.admin.main.RequestService;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -37,10 +40,27 @@ public class RequestController {
     }
 
     @GetMapping
-    public String getAllRequests(Model model) {
+    public String getAllRequests(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "phone", required = false) String phone,
+            @RequestParam(value = "email", required = false) String email,
+            @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+            @RequestParam(value = "status", required = false) String status,
+            Model model) {
+        // Логика фильтрации
+//        List<Request> requests = requestService.getFilteredRequests(name, phone, email, date, status);
         List<Request> requests = requestService.getAllRequest();
-        model.addAttribute("requests", requests);
+        model.addAttribute("pageRequests", requests);
         return "admin/main/request/requests";
+    }
+
+    @PostMapping("/clear-filters")
+    public String clearFilters() {
+        return "redirect:/admin/main/request/requests";
+    }
+
+    @GetMapping("/export")
+    public void exportToExcel(HttpServletResponse response) {
     }
 
     @GetMapping("/pages")
@@ -61,7 +81,7 @@ public class RequestController {
     public String getRequests(@PathVariable Long id, Model model) {
         Request request = requestService.getRequestById(id);
         model.addAttribute("request", request);
-        return "admin/main/request";
+        return "admin/main/request/requestСard";
     }
 
     @GetMapping("/delete/{id}")
@@ -71,7 +91,7 @@ public class RequestController {
             return "redirect:/admin/main/requests";
         } catch (Exception e) {
             model.addAttribute("error", "Ошибка при удалении заявки: " + e.getMessage());
-            return "admin/main/requests-list";
+            return "admin/main/requests";
         }
     }
 }

@@ -144,11 +144,9 @@ body {
     border-radius: 3px;
 }
 
-.status.closed {
-    background-color: #f44336;
-    color: white;
-    padding: 5px;
-    border-radius: 3px;
+.btn-group {
+    display: flex;
+    justify-content: space-around;
 }
 
 .btn-action {
@@ -158,6 +156,7 @@ body {
     padding: 5px 10px;
     cursor: pointer;
     font-size: 12px;
+    margin-right: 5px; /* Добавлено для разделения кнопок */
 }
 
 .btn-action:hover {
@@ -186,11 +185,9 @@ body {
 
 .pagination a {
     color: #4FC3A1;
-    padding: 8px 16px;
+    padding: 4px 12px;
     text-decoration: none;
-    border: 1px solid #4FC3A1;
     margin: 0 4px;
-    border-radius: 3px;
 }
 
 .pagination a.active {
@@ -201,4 +198,14 @@ body {
 
 .pagination a:hover:not(.active) {
     background-color: #ddd;
+}
+
+.filter-select .status-option.new {
+    background-color: #ff9800;
+    color: white;
+}
+
+.filter-select .status-option.answered {
+    background-color: #4CAF50;
+    color: white;
 }

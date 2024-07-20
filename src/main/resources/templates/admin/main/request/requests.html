@@ -22,7 +22,9 @@
     </div>
 
     <div class="actions">
-        <button class="btn-export" th:onclick="|window.location.href='@{/admin/requests/export}'|">Export to Excel</button>
+        <form th:action="@{/admin/requests/export}" method="get" style="display:inline;">
+            <button class="btn-export" type="submit">Export to Excel</button>
+        </form>
     </div>
 
     <div class="table-container">
@@ -38,47 +40,55 @@
                 <th></th>
             </tr>
             <tr class="filters">
-                <td><input type="text" class="filter-input"/></td>
-                <td><input type="text" class="filter-input" /></td>
-                <td><input type="text" class="filter-input"/></td>
+                <td><input type="text" class="filter-input" name="name"/></td>
+                <td><input type="text" class="filter-input" name="phone"/></td>
+                <td><input type="text" class="filter-input" name="email"/></td>
                 <td></td>
+                <td><input type="date" class="filter-date" name="date"/></td>
                 <td>
-                    <input type="date" class="filter-date" />
-                </td>
-                <td>
-                    <select class="filter-select" >
+                    <select class="filter-select" name="status">
                         <option value="">All</option>
-                        <option value="new">New</option>
-                        <option value="answered">Answered</option>
+                        <option value="NEW" class="status-option new">New</option>
+                        <option value="ANSWERED" class="status-option answered">Answered</option>
                     </select>
                 </td>
-                <td><button class="btn-clear" th:onclick="|window.location.href='@{/admin/requests/clear-filters}'|">Clear</button></td>
+                <td><button class="btn-clear" th:action="@{/admin/requests/clear-filters}" type="submit">Clear</button></td>
             </tr>
             </thead>
             <tbody>
             <tr th:each="request : ${pageRequests}">
-                <td th:text="${request.userName}">Muzychuk Dmytro</td>
-                <td th:text="${request.phone}">+380987654321</td>
-                <td th:text="${request.email}">testmail@gmail.com</td>
-                <td th:text="${request.description}">TestTextTestTextTestTextTestTextTestText</td>
-                <td th:text="${#dates.format(request.date, 'dd.MM.yyyy - HH:mm')}">24.09.2018 - 15:04</td>
+                <td th:text="${request.userName}"></td>
+                <td th:text="${request.phone}"></td>
+                <td th:text="${request.email}"></td>
+                <td th:utext="${#strings.abbreviate(request.description, 30)}"></td>
+                <td th:text="${#temporals.format(request.date, 'dd.MM.yyyy - HH:mm')}"></td>
                 <td>
-                    <span class="status" th:classappend="${request.status} == 'new' ? 'new' : request.status == 'answered' ? 'answered' : 'closed'" th:text="${request.status}">New</span>
+                    <span th:classappend="'status ' + ${request.status.toLowerCase()}" th:text="${request.status}"></span>
+
                 </td>
                 <td>
-                    <button class="btn-action" th:onclick="|window.location.href='@{/admin/requests/view/{id}(id=${request.id})}'|">View</button>
-                    <button class="btn-delete" th:onclick="|window.location.href='@{/admin/requests/delete/{id}(id=${request.id})}'|">Delete</button>
+                    <div class="btn-group">
+                        <form th:action="@{/admin/main/requests/view/{id}(id=${request.id})}" method="get" style="display:inline;">
+                            <button class="btn-action" type="submit">View</button>
+                        </form>
+                        <form th:action="@{/admin/main/requests/delete/{id}(id=${request.id})}" method="post" style="display:inline;">
+                            <button class="btn-delete" type="submit">Delete</button>
+                        </form>
+                    </div>
                 </td>
             </tr>
             </tbody>
         </table>
 
         <div class="pagination">
-<!--            <a th:each="i : ${#numbers.sequence(1, totalPages)}"-->
-<!--               th:href="@{/admin/requests/pages(page=${i})}"-->
-<!--               th:text="${i}"-->
-<!--               th:classappend="${i == currentPage} ? 'active' : ''">1</a>-->
-            <a th:href="@{/admin/main/requests/}" th:text="1"></a>
+        <!--&lt;!&ndash;            <a th:each="i : ${#numbers.sequence(1, totalPages)}"&ndash;&gt;-->
+        <!--&lt;!&ndash;               th:href="@{/admin/requests/pages(page=${i})}"&ndash;&gt;-->
+        <!--&lt;!&ndash;               th:text="${i}"&ndash;&gt;-->
+        <!--&lt;!&ndash;               th:classappend="${i == currentPage} ? 'active' : ''">1</a>&ndash;&gt;-->
+            <a th:href="@{/admin/main/requests}" th:text="1"></a>
+            <a th:href="@{/admin/main/requests}" th:text="2"></a>
+            <a th:href="@{/admin/main/requests}" th:text="3"></a>
+
         </div>
     </div>
 </div>

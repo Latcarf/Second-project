@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="upd: menu, requests">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/diagrams/OOP.drawio" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/normalize.css" afterDir="false" />
+    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="upd: requests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RequestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/RequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RequestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Project.drawio" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/diagrams/Royal House.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/menu.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/diagrams/OOP.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/OOP.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/request.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/request.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/requests.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/requests.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/menu-old.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +173,8 @@
       <workItem from="1721347812411" duration="241000" />
       <workItem from="1721377681850" duration="16576000" />
       <workItem from="1721399932594" duration="636000" />
-      <workItem from="1721400638875" duration="22869000" />
+      <workItem from="1721400638875" duration="23089000" />
+      <workItem from="1721454476036" duration="13736000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />
@@ -222,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721399667792</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="upd: requests">
+      <option name="closed" value="true" />
+      <created>1721427364071</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1721427364071</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +249,7 @@
     <MESSAGE value="create all for frontend" />
     <MESSAGE value="upd: menu" />
     <MESSAGE value="upd: menu, requests" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd: menu, requests" />
+    <MESSAGE value="upd: requests" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd: requests" />
   </component>
 </project>
