@@ -5,13 +5,13 @@ import RoyalHouse.service.admin.main.RequestService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Controller
 @RequestMapping("/admin/main/requests")
@@ -40,58 +40,72 @@ public class RequestController {
     }
 
     @GetMapping
-    public String getAllRequests(
-            @RequestParam(value = "name", required = false) String name,
-            @RequestParam(value = "phone", required = false) String phone,
-            @RequestParam(value = "email", required = false) String email,
-            @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
-            @RequestParam(value = "status", required = false) String status,
-            Model model) {
-        // Логика фильтрации
-//        List<Request> requests = requestService.getFilteredRequests(name, phone, email, date, status);
-        List<Request> requests = requestService.getAllRequest();
-        model.addAttribute("pageRequests", requests);
-        return "admin/main/request/requests";
-    }
+    public String getRequests(@RequestParam(defaultValue = "1") int page,
+                              @RequestParam(defaultValue = "5") int size,
+                              @RequestParam(value = "name", required = false) String name,
+                              @RequestParam(value = "phone", required = false) String phone,
+                              @RequestParam(value = "email", required = false) String email,
+                              @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+                              @RequestParam(value = "status", required = false) String status,
+                              Model model) {
+        PageRequest pageRequest = PageRequest.of(page - 1, size, Sort.by(Sort.Direction.DESC, "date"));
+        Page<Request> requests = requestService.getRequests(name, phone, email, date, status, pageRequest);
 
-    @PostMapping("/clear-filters")
-    public String clearFilters() {
-        return "redirect:/admin/main/request/requests";
+        int startPage = Math.max(1, (page - 1) / 10 * 10 + 1);
+        int endPage = Math.min(startPage + 9, requests.getTotalPages());
+
+        model.addAttribute("requests", requests.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", requests.getTotalPages());
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
+        model.addAttribute("name", name);
+        model.addAttribute("phone", phone);
+        model.addAttribute("email", email);
+        model.addAttribute("date", date);
+        model.addAttribute("status", status);
+        return "/admin/main/request/requests";
     }
 
     @GetMapping("/export")
     public void exportToExcel(HttpServletResponse response) {
     }
 
-    @GetMapping("/pages")
-    public String getRequests(
-            @RequestParam(defaultValue = "1") int page,
-            @RequestParam(defaultValue = "5") int size,
-            Model model) {
-
-        Page<Request> requestPage = requestService.findPaginated(PageRequest.of(page - 1, size));
-        model.addAttribute("pageRequests", requestPage.getContent());
-        model.addAttribute("currentPage", page);
-        model.addAttribute("totalPages", requestPage.getTotalPages());
-
-        return "admin/main/request/requests";
-    }
-
     @GetMapping("/{id}")
-    public String getRequests(@PathVariable Long id, Model model) {
+    public String getRequest(@PathVariable Long id, Model model) {
         Request request = requestService.getRequestById(id);
         model.addAttribute("request", request);
-        return "admin/main/request/requestСard";
+        return "/admin/main/request/request-details";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/changeStatus/{id}")
+    public String changeStatus(@PathVariable Long id,
+                               @RequestParam(defaultValue = "1") int page,
+                               @RequestParam(defaultValue = "5") int size,
+                               @RequestParam(value = "name", required = false) String name,
+                               @RequestParam(value = "phone", required = false) String phone,
+                               @RequestParam(value = "email", required = false) String email,
+                               @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+                               @RequestParam(value = "status", required = false) String status) {
+        requestService.changeStatus(id);
+
+        String dateParam = (date != null) ? date.toString() : "";
+
+        return String.format("redirect:/admin/main/requests?page=%d&size=%d&name=%s&phone=%s&email=%s&date=%s&status=%s",
+                page, size, name, phone, email, dateParam, status);
+    }
+
+
+
+
+    @PostMapping("/delete/{id}")
     public String deleteRequest(@PathVariable Long id, Model model) {
         try {
             requestService.deleteRequest(id);
             return "redirect:/admin/main/requests";
         } catch (Exception e) {
-            model.addAttribute("error", "Ошибка при удалении заявки: " + e.getMessage());
-            return "admin/main/requests";
+            model.addAttribute("error", "Delete error: " + e.getMessage());
+            return "redirect:/admin/main/requests";
         }
     }
 }

@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="upd: requests">
+    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="upd: requests and OOP">
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/specification/RequestSpecification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/request-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/RequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/RequestRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RequestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/diagrams/OOP.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/OOP.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/normalize.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/normalize.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/request.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/request.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/menu-toggle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/menu-toggle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/requests.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/requests.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/requestСard.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,38 +62,39 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.TestProjectApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Java/projects/MAIN-PROJECT&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.requests.html.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.TestProjectApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/IT/Java/projects/RoyalHouse",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Java\projects\RoyalHouse\src\main\resources\static\css" />
@@ -174,7 +181,11 @@
       <workItem from="1721377681850" duration="16576000" />
       <workItem from="1721399932594" duration="636000" />
       <workItem from="1721400638875" duration="23089000" />
-      <workItem from="1721454476036" duration="13736000" />
+      <workItem from="1721454476036" duration="16116000" />
+      <workItem from="1721631567056" duration="777000" />
+      <workItem from="1721632435827" duration="14162000" />
+      <workItem from="1721717131409" duration="23109000" />
+      <workItem from="1721808981288" duration="18454000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />
@@ -224,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721427364071</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="upd: requests and OOP">
+      <option name="closed" value="true" />
+      <created>1721469178871</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1721469178871</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +269,7 @@
     <MESSAGE value="upd: menu" />
     <MESSAGE value="upd: menu, requests" />
     <MESSAGE value="upd: requests" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd: requests" />
+    <MESSAGE value="upd: requests and OOP" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd: requests and OOP" />
   </component>
 </project>

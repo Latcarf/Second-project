@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Request Details</title>
+    <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
+    <link rel="stylesheet" th:href="@{/css/menu.css}"/>
+    <link rel="stylesheet" th:href="@{/css/request.css}"/>
+</head>
+<body>
+<div th:replace="~{admin/menu :: menu}"></div>
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h2 class="page-title">Request Details</h2>
+        <div class="breadcrumb">
+            <a th:href="@{/admin/menu}">Home</a> >
+            <a th:href="@{/admin/main/requests}">Requests</a> >
+            <a th:href="@{/admin/main/requests/{id}(id=${request.id})}">Request Details</a>
+        </div>
+    </div>
+
+    <div class="request-details">
+        <table class="details-table">
+            <tr class="details-row">
+                <th class="header-blue">Name</th>
+                <td th:text="${request.userName}"></td>
+            </tr>
+            <tr class="details-row">
+                <th class="header-green">Phone</th>
+                <td><a th:href="'tel:' + ${request.phone}" th:text="${request.phone}"></a></td>
+            </tr>
+            <tr class="details-row">
+                <th class="header-blue">Email</th>
+                <td><span class="email" th:text="${request.email}"></span></td>
+            </tr>
+            <tr class="details-row">
+                <th class="header-green">Comment</th>
+                <td th:text="${request.description}"></td>
+            </tr>
+            <tr class="details-row">
+                <th class="header-blue">Date</th>
+                <td th:text="${#temporals.format(request.date, 'dd.MM.yyyy - HH:mm')}"></td>
+            </tr>
+            <tr class="details-row">
+                <th class="header-green">Status</th>
+                <td>
+                    <span class="status" th:classappend="${request.status.toLowerCase()}" th:text="${request.status}"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/menu-toggle.js"></script>
+<script src="/js/submenu-toggle.js"></script>
+</body>
+</html>

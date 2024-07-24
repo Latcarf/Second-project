@@ -3,17 +3,19 @@ package RoyalHouse.service.admin.main;
 import RoyalHouse.model.Request;
 import RoyalHouse.repository.RequestRepository;
 import RoyalHouse.model.Enum.Status;
+import RoyalHouse.specification.RequestSpecification;
 import RoyalHouse.util.Exception.*;
 import RoyalHouse.util.RegEx;
+import io.micrometer.common.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -50,20 +52,40 @@ public class RequestService {
                 .orElseThrow(() -> new IllegalArgumentException("Request with ID: " + requestId + " not found"));
     }
 
-    public List<Request> getAllRequest() {
-        return requestRepository.findAll();
+    public Page<Request> getRequests(String name, String phone, String email, LocalDate date, String status, PageRequest pageRequest) {
+        Specification<Request> spec = Specification.where(null);
+
+        if (StringUtils.isNotBlank(name)) {
+            spec = spec.and(RequestSpecification.hasName(name));
+        }
+        if (StringUtils.isNotBlank(phone)) {
+            spec = spec.and(RequestSpecification.hasPhone(phone));
+        }
+        if (StringUtils.isNotBlank(email)) {
+            spec = spec.and(RequestSpecification.hasEmail(email));
+        }
+        if (Objects.nonNull(date)) {
+            spec = spec.and(RequestSpecification.hasDate(date));
+        }
+        if (StringUtils.isNotBlank(status)) {
+            spec = spec.and(RequestSpecification.hasStatus(status));
+        }
+
+        return requestRepository.findAll(spec, pageRequest);
+    }
+
+    public void changeStatus(Long requestId) {
+        Request request = getRequestById(requestId);
+        if (request.getStatus().equals(Status.NEW.toString())) {
+            request.setStatus(String.valueOf(Status.ANSWERED));
+        } else {
+            request.setStatus(String.valueOf(Status.NEW));
+        }
+        requestRepository.save(request);
     }
 
     public void deleteRequest(Long requestId) {
         requestRepository.deleteById(requestId);
-    }
-
-    public List<Request> getFilteredRequests(Request request) {
-        return null;
-    }
-
-    public Page<Request> findPaginated(PageRequest of) {
-        return null;
     }
 
     private void validateRequest(Request request) {
