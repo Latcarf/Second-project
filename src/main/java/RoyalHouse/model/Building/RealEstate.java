@@ -1,6 +1,5 @@
 package RoyalHouse.model.Building;
 
-import RoyalHouse.model.User;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
@@ -38,10 +37,6 @@ public class RealEstate {
 
     @Column(name = "num_terraces_balconies", nullable = false)
     private int numTerracesBalconies;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 
     @ManyToOne
     @JoinColumn(name = "new_building_id")

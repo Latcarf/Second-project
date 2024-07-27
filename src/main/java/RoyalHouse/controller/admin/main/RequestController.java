@@ -96,16 +96,20 @@ public class RequestController {
     }
 
 
-
-
     @PostMapping("/delete/{id}")
-    public String deleteRequest(@PathVariable Long id, Model model) {
-        try {
-            requestService.deleteRequest(id);
-            return "redirect:/admin/main/requests";
-        } catch (Exception e) {
-            model.addAttribute("error", "Delete error: " + e.getMessage());
-            return "redirect:/admin/main/requests";
-        }
+    public String deleteRequest(@PathVariable Long id,
+                                @RequestParam(defaultValue = "1") int page,
+                                @RequestParam(defaultValue = "5") int size,
+                                @RequestParam(value = "name", required = false) String name,
+                                @RequestParam(value = "phone", required = false) String phone,
+                                @RequestParam(value = "email", required = false) String email,
+                                @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+                                @RequestParam(value = "status", required = false) String status) {
+        requestService.deleteRequest(id);
+
+        String dateParam = (date != null) ? date.toString() : "";
+
+        return String.format("redirect:/admin/main/requests?page=%d&size=%d&name=%s&phone=%s&email=%s&date=%s&status=%s",
+                page, size, name, phone, email, dateParam, status);
     }
 }
