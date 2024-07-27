@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name = "request_email")
-public class RequestEmail {
+    public class RequestEmail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

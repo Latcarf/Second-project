@@ -4,33 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="Fully completed and working: menu, requests, request detail">
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/RequestEmail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/RequestEmailRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/setting/ContactService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/InvalidAddressException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/InvalidFacebookException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/InvalidInstagramException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/InvalidPasswordException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/InvalidTelegramException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/Exception/InvalidViberException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/contact.css" afterDir="false" />
+    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="UPD: Contact">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/config/WebSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RequestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/setting/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/setting/ContactController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/convert/UserConvert.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/dto/UserDTO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/RealEstate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/RealEstate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Contact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/ContactRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/RegEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/util/RegEx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Contact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/RequestEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/RequestEmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/RequestEmailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/RequestEmailRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/setting/ContactService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/setting/ContactService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/requests.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/requests.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/setting/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/setting/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/diagrams/OOP.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/OOP.drawio" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +185,7 @@
       <workItem from="1721808981288" duration="18585000" />
       <workItem from="1721900973931" duration="22090000" />
       <workItem from="1721977100387" duration="26576000" />
-      <workItem from="1722061003655" duration="3305000" />
+      <workItem from="1722061003655" duration="9010000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />
@@ -269,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721853808389</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="UPD: Contact">
+      <option name="closed" value="true" />
+      <created>1722064692604</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1722064692604</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +287,7 @@
     <MESSAGE value="upd: requests" />
     <MESSAGE value="upd: requests and OOP" />
     <MESSAGE value="Fully completed and working: menu, requests, request detail" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully completed and working: menu, requests, request detail" />
+    <MESSAGE value="UPD: Contact" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPD: Contact" />
   </component>
 </project>

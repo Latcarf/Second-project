@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "contact")
+    @Table(name = "contact")
 public class Contact {
 
     @Id
@@ -25,7 +25,7 @@ public class Contact {
     private String email;
 
     @Column(name = "phone", nullable = false, length = 17)
-    private String phone;   
+    private String phone;
 
     @Column(name = "telegram", nullable = false, length = 50)
     private String telegram;

@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 public class ContactService {
     private static final Logger logger = LoggerFactory.getLogger(ContactService.class);
     private final PasswordEncoder passwordEncoder;
+
     private final ContactRepository contactRepository;
     private final RequestEmailRepository requestEmailRepository;
 
@@ -93,7 +94,7 @@ public class ContactService {
         logger.info("Contact successfully updated with ID: {}", contact.getId());
     }
 
-    public void changePassword(Contact contact, String currentPassword, String newPassword, String confirmPassword) {
+        public void changePassword(Contact contact, String currentPassword, String newPassword, String confirmPassword) {
         if (Objects.isNull(currentPassword) || StringUtils.isBlank(currentPassword)) {
             throw new InvalidPasswordException("Current password cannot be null or blank.");
         }
