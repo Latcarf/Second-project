@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Settings</title>
+    <title>Contacts</title>
     <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
     <link rel="stylesheet" th:href="@{/css/menu.css}"/>
     <link rel="stylesheet" th:href="@{/css/contact.css}"/>
@@ -19,46 +19,46 @@
         </div>
     </div>
 
-    <form th:action="@{/admin/setting/contacts/create}" th:object="${contact}" method="post" th:if="${createMode}">
+    <form th:if="${createMode}" th:action="@{/admin/setting/contacts/create}" th:object="${contact}" method="post">
         <div class="settings-container">
             <div class="section contacts">
                 <h3>Contacts</h3>
                 <div class="form-row-four">
                     <div class="form-group" th:classappend="${#fields.hasErrors('phone')} ? 'has-error'">
-                        <label for="phone">Phone</label>
-                        <input type="text" id="phone" th:field="*{phone}" placeholder="Phone"/>
+                        <label for="create-phone">Phone</label>
+                        <input type="text" th:field="*{phone}" id="create-phone" placeholder="Phone"/>
                         <div class="error" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
                     </div>
                     <div class="form-group" th:classappend="${#fields.hasErrors('viber')} ? 'has-error'">
-                        <label for="viber">Viber</label>
-                        <input type="text" id="viber" th:field="*{viber}" placeholder="Viber"/>
+                        <label for="create-viber">Viber</label>
+                        <input type="text" th:field="*{viber}" id="create-viber" placeholder="Viber"/>
                         <div class="error" th:if="${#fields.hasErrors('viber')}" th:errors="*{viber}"></div>
                     </div>
                     <div class="form-group" th:classappend="${#fields.hasErrors('telegram')} ? 'has-error'">
-                        <label for="telegram">Telegram</label>
-                        <input type="text" id="telegram" th:field="*{telegram}" placeholder="Telegram"/>
+                        <label for="create-telegram">Telegram</label>
+                        <input type="text" th:field="*{telegram}" id="create-telegram" placeholder="Telegram"/>
                         <div class="error" th:if="${#fields.hasErrors('telegram')}" th:errors="*{telegram}"></div>
                     </div>
                     <div class="form-group" th:classappend="${#fields.hasErrors('email')} ? 'has-error'">
-                        <label for="email">Email</label>
-                        <input type="text" id="email" th:field="*{email}" placeholder="Email"/>
+                        <label for="create-email">Email</label>
+                        <input type="text" th:field="*{email}" id="create-email" placeholder="Email"/>
                         <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group large-input" th:classappend="${#fields.hasErrors('instagram')} ? 'has-error'">
-                        <label for="instagram">Instagram</label>
-                        <input type="text" id="instagram" th:field="*{instagram}" placeholder="Instagram"/>
+                        <label for="create-instagram">Instagram</label>
+                        <input type="text" th:field="*{instagram}" id="create-instagram" placeholder="Instagram"/>
                         <div class="error" th:if="${#fields.hasErrors('instagram')}" th:errors="*{instagram}"></div>
                     </div>
                     <div class="form-group large-input" th:classappend="${#fields.hasErrors('facebook')} ? 'has-error'">
-                        <label for="facebook">Facebook</label>
-                        <input type="text" id="facebook" th:field="*{facebook}" placeholder="Facebook"/>
+                        <label for="create-facebook">Facebook</label>
+                        <input type="text" th:field="*{facebook}" id="create-facebook" placeholder="Facebook"/>
                         <div class="error" th:if="${#fields.hasErrors('facebook')}" th:errors="*{facebook}"></div>
                     </div>
                     <div class="form-group large-input" th:classappend="${#fields.hasErrors('address')} ? 'has-error'">
-                        <label for="address">Address</label>
-                        <input type="text" id="address" th:field="*{address}" placeholder="Address"/>
+                        <label for="create-address">Address</label>
+                        <input type="text" th:field="*{address}" id="create-address" placeholder="Address"/>
                         <div class="error" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
                     </div>
                 </div>
@@ -76,14 +76,14 @@
 
                 <div class="section create-password">
                     <h3>Create Password</h3>
-                    <div class="form-group" th:classappend="${confirmPasswordError != null} ? 'has-error'">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Password" required/>
-                        <div class="error" th:if="${confirmPasswordError != null}" th:text="${confirmPasswordError}"></div>
+                    <div class="form-group password" th:classappend="${#fields.hasErrors('password')} ? 'has-error'">
+                        <label for="create-password">Password</label>
+                        <input type="password" th:name="password" id="create-password" placeholder="Password" required/>
+                        <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="password"></div>
                     </div>
-                    <div class="form-group" th:classappend="${confirmPasswordError != null} ? 'has-error'">
-                        <label for="confirmPassword">Confirm Password</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required/>
+                    <div class="form-group password" th:classappend="${confirmPasswordError != null} ? 'has-error'">
+                        <label for="create-confirmPassword">Confirm Password</label>
+                        <input type="password" th:name="confirmPassword" id="create-confirmPassword" placeholder="Confirm Password" required/>
                         <div class="error" th:if="${confirmPasswordError != null}" th:text="${confirmPasswordError}"></div>
                     </div>
                 </div>
@@ -104,40 +104,40 @@
                 <h3>Contacts</h3>
                 <div class="form-row-four">
                     <div class="form-group" th:classappend="${#fields.hasErrors('phone')} ? 'has-error'">
-                        <label for="phone">Phone</label>
-                        <input type="text" id="phone" th:field="*{phone}" placeholder="Phone"/>
+                        <label for="update-phone">Phone</label>
+                        <input type="text" th:field="*{phone}" id="update-phone" placeholder="Phone"/>
                         <div class="error" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
                     </div>
                     <div class="form-group" th:classappend="${#fields.hasErrors('viber')} ? 'has-error'">
-                        <label for="viber">Viber</label>
-                        <input type="text" id="viber" th:field="*{viber}" placeholder="Viber"/>
+                        <label for="update-viber">Viber</label>
+                        <input type="text" th:field="*{viber}" id="update-viber" placeholder="Viber"/>
                         <div class="error" th:if="${#fields.hasErrors('viber')}" th:errors="*{viber}"></div>
                     </div>
                     <div class="form-group" th:classappend="${#fields.hasErrors('telegram')} ? 'has-error'">
-                        <label for="telegram">Telegram</label>
-                        <input type="text" id="telegram" th:field="*{telegram}" placeholder="Telegram"/>
+                        <label for="update-telegram">Telegram</label>
+                        <input type="text" th:field="*{telegram}" id="update-telegram" placeholder="Telegram"/>
                         <div class="error" th:if="${#fields.hasErrors('telegram')}" th:errors="*{telegram}"></div>
                     </div>
                     <div class="form-group" th:classappend="${#fields.hasErrors('email')} ? 'has-error'">
-                        <label for="email">Email</label>
-                        <input type="text" id="email" th:field="*{email}" placeholder="Email"/>
+                        <label for="update-email">Email</label>
+                        <input type="text" th:field="*{email}" id="update-email" placeholder="Email"/>
                         <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group large-input" th:classappend="${#fields.hasErrors('instagram')} ? 'has-error'">
-                        <label for="instagram">Instagram</label>
-                        <input type="text" id="instagram" th:field="*{instagram}" placeholder="Instagram"/>
+                        <label for="update-instagram">Instagram</label>
+                        <input type="text" th:field="*{instagram}" id="update-instagram" placeholder="Instagram"/>
                         <div class="error" th:if="${#fields.hasErrors('instagram')}" th:errors="*{instagram}"></div>
                     </div>
                     <div class="form-group large-input" th:classappend="${#fields.hasErrors('facebook')} ? 'has-error'">
-                        <label for="facebook">Facebook</label>
-                        <input type="text" id="facebook" th:field="*{facebook}" placeholder="Facebook"/>
+                        <label for="update-facebook">Facebook</label>
+                        <input type="text" th:field="*{facebook}" id="update-facebook" placeholder="Facebook"/>
                         <div class="error" th:if="${#fields.hasErrors('facebook')}" th:errors="*{facebook}"></div>
                     </div>
                     <div class="form-group large-input" th:classappend="${#fields.hasErrors('address')} ? 'has-error'">
-                        <label for="address">Address</label>
-                        <input type="text" id="address" th:field="*{address}" placeholder="Address"/>
+                        <label for="update-address">Address</label>
+                        <input type="text" th:field="*{address}" id="update-address" placeholder="Address"/>
                         <div class="error" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
                     </div>
                 </div>
@@ -153,23 +153,23 @@
                     <button type="button" class="btn-add" onclick="addRequestEmail()">Add Email</button>
                 </div>
 
-                <div class="section change-password">
+                <div class="section change-password" th:object="${passwordForm}">
                     <h3>Change Password</h3>
-                    <div class="form-group" th:classappend="${confirmPasswordError != null} ? 'has-error'">
-                        <label for="currentPassword">Current Password</label>
-                        <input type="password" id="currentPassword" name="currentPassword" placeholder="Current Password"/>
-                        <div class="error" th:if="${confirmPasswordError != null}" th:text="${confirmPasswordError}"></div>
+                    <div class="form-group" th:classappend="${#fields.hasErrors('currentPassword')} ? 'has-error'">
+                        <label for="update-currentPassword">Current Password</label>
+                        <input type="password" th:field="*{currentPassword}" id="update-currentPassword" placeholder="Current Password"/>
+                        <div class="error" th:if="${#fields.hasErrors('currentPassword')}" th:errors="*{currentPassword}"></div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group" th:classappend="${confirmPasswordError != null} ? 'has-error'">
-                            <label for="newPassword">New Password</label>
-                            <input type="password" id="newPassword" name="newPassword" placeholder="New Password"/>
-                            <div class="error" th:if="${confirmPasswordError != null}" th:text="${confirmPasswordError}"></div>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('newPassword')} ? 'has-error'">
+                            <label for="update-newPassword">New Password</label>
+                            <input type="password" th:field="*{newPassword}" id="update-newPassword" placeholder="New Password"/>
+                            <div class="error" th:if="${#fields.hasErrors('newPassword')}" th:errors="*{newPassword}"></div>
                         </div>
-                        <div class="form-group" th:classappend="${confirmPasswordError != null} ? 'has-error'">
-                            <label for="confirmPassword">Confirm Password</label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"/>
-                            <div class="error" th:if="${confirmPasswordError != null}" th:text="${confirmPasswordError}"></div>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('confirmPassword')} ? 'has-error'">
+                            <label for="update-confirmPassword">Confirm Password</label>
+                            <input type="password" th:field="*{confirmPassword}" id="update-confirmPassword" placeholder="Confirm Password"/>
+                            <div class="error" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></div>
                         </div>
                     </div>
                 </div>

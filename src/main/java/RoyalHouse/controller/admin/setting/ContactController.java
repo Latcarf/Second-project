@@ -1,5 +1,6 @@
 package RoyalHouse.controller.admin.setting;
 
+import RoyalHouse.service.admin.setting.PasswordForm;
 import RoyalHouse.model.Contact;
 import RoyalHouse.service.admin.setting.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,10 @@ public class ContactController {
             List<String> requestEmails = contactService.getRequestEmails(contact.getId());
             model.addAttribute("requestEmails", requestEmails);
             model.addAttribute("createMode", false);
+            model.addAttribute("passwordForm", new PasswordForm());
         } else {
             model.addAttribute("contact", new Contact());
-            model.addAttribute("requestEmails", List.of(""));
+            model.addAttribute("requestEmails", List.of());
             model.addAttribute("createMode", true);
         }
         return "admin/setting/contacts";
@@ -43,22 +45,28 @@ public class ContactController {
     public String createContact(
             @Valid @ModelAttribute Contact contact,
             BindingResult bindingResult,
-            @RequestParam("requestEmails") List<String> requestEmails,
+            @RequestParam(value = "requestEmails", required = false) List<String> requestEmails,
             @RequestParam(value = "password") String password,
             @RequestParam(value = "confirmPassword") String confirmPassword,
             Model model) {
 
-        if (bindingResult.hasErrors() || !password.equals(confirmPassword)) {
-            model.addAttribute("createMode", true);
-            model.addAttribute("requestEmails", requestEmails);
-            if (!password.equals(confirmPassword)) {
-                model.addAttribute("confirmPasswordError", "Password and Confirm Password do not match");
-            }
-            return "admin/setting/contacts";
+        if (!password.equals(confirmPassword)) {
+            bindingResult.rejectValue("confirmPassword", "password.mismatch", "Password and Confirm Password do not match");
         }
 
-        contact.setPassword(password);
-        contactService.createContact(contact, requestEmails);
+        if (requestEmails == null) {
+            requestEmails = List.of();
+        }
+
+        if (!bindingResult.hasErrors()) {
+            contactService.createContact(contact, requestEmails, password, bindingResult);
+        }
+
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("createMode", true);
+            model.addAttribute("requestEmails", requestEmails);
+            return "admin/setting/contacts";
+        }
 
         return "redirect:/admin/setting/contacts";
     }
@@ -67,29 +75,30 @@ public class ContactController {
     public String updateContact(
             @Valid @ModelAttribute Contact contact,
             BindingResult bindingResult,
-            @RequestParam("requestEmails") List<String> requestEmails,
-            @RequestParam(value = "currentPassword", required = false) String currentPassword,
-            @RequestParam(value = "newPassword", required = false) String newPassword,
-            @RequestParam(value = "confirmPassword", required = false) String confirmPassword,
+            @RequestParam(value = "requestEmails", required = false) List<String> requestEmails,
+            @Valid @ModelAttribute PasswordForm passwordForm,
+            BindingResult passwordBindingResult,
             Model model) {
 
-        if (bindingResult.hasErrors() || (newPassword != null && !newPassword.equals(confirmPassword))) {
+        if (Objects.isNull(requestEmails)) {
+            requestEmails = List.of();
+        }
+
+        if (Objects.nonNull(passwordForm.getNewPassword()) && !passwordForm.getNewPassword().isEmpty() && !passwordForm.getNewPassword().equals(passwordForm.getConfirmPassword())) {
+            passwordBindingResult.rejectValue("confirmPassword", "password.mismatch", "New Password and Confirm Password do not match");
+        }
+
+        if (!bindingResult.hasErrors() && !passwordBindingResult.hasErrors()) {
+            contactService.updateContact(contact, requestEmails, passwordForm.getCurrentPassword(), passwordForm.getNewPassword(), passwordForm.getConfirmPassword(), passwordBindingResult);
+        }
+
+        if (bindingResult.hasErrors() || passwordBindingResult.hasErrors()) {
             model.addAttribute("createMode", false);
             model.addAttribute("requestEmails", requestEmails);
-            if (Objects.nonNull(newPassword) && !newPassword.equals(confirmPassword)) {
-                model.addAttribute("confirmPasswordError", "New Password and Confirm Password do not match");
-            }
+            model.addAttribute("passwordForm", passwordForm);
             return "admin/setting/contacts";
         }
 
-        if (Objects.nonNull(newPassword) && !newPassword.isEmpty()) {
-            contactService.changePassword(contact, currentPassword, newPassword, confirmPassword);
-        }
-
-        contactService.updateContact(contact, requestEmails);
-
         return "redirect:/admin/setting/contacts";
     }
-
 }
-

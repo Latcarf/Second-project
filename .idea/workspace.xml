@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="UPD: Contact">
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/setting/PasswordForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/RealEstate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/RealEstate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Contact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/RequestEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/RequestEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/RequestEmailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/RequestEmailRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/setting/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/setting/ContactController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/setting/ContactService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/setting/ContactService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/diagrams/OOP.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/OOP.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/contact.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/setting/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/setting/contacts.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,13 +23,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="SCSS File" />
-        <option value="JavaScript File" />
         <option value="Less File" />
         <option value="HTML File" />
         <option value="Enum" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -45,7 +45,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Latcarf/RoyalHouse.git&quot;,
-    &quot;accountId&quot;: &quot;0dfea01b-db67-4db2-ace1-45ab256f1345&quot;
+    &quot;accountId&quot;: &quot;973a5e33-146f-4661-8498-4b193b5343ca&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -73,7 +73,7 @@
     &quot;Spring Boot.TestProjectApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IT/Java/projects/RoyalHouse&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/IT/Java/Projects/Spring_project/Latcarf&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -186,6 +186,10 @@
       <workItem from="1721900973931" duration="22090000" />
       <workItem from="1721977100387" duration="26576000" />
       <workItem from="1722061003655" duration="9010000" />
+      <workItem from="1722423233265" duration="615000" />
+      <workItem from="1722424098896" duration="22332000" />
+      <workItem from="1722506867642" duration="8310000" />
+      <workItem from="1722521690940" duration="3129000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />

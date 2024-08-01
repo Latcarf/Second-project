@@ -1,16 +1,17 @@
 package RoyalHouse.service.admin.setting;
 
+import RoyalHouse.service.admin.setting.PasswordForm;
 import RoyalHouse.model.Contact;
 import RoyalHouse.model.RequestEmail;
 import RoyalHouse.repository.ContactRepository;
 import RoyalHouse.repository.RequestEmailRepository;
 import RoyalHouse.util.RegEx;
-import RoyalHouse.util.Exception.*;
 import io.micrometer.common.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 import java.util.List;
 import java.util.Objects;
@@ -20,7 +21,6 @@ import java.util.stream.Collectors;
 public class ContactService {
     private static final Logger logger = LoggerFactory.getLogger(ContactService.class);
     private final PasswordEncoder passwordEncoder;
-
     private final ContactRepository contactRepository;
     private final RequestEmailRepository requestEmailRepository;
 
@@ -35,7 +35,6 @@ public class ContactService {
         if (contacts.isEmpty()) {
             return null;
         }
-
         return contacts.get(0);
     }
 
@@ -47,7 +46,6 @@ public class ContactService {
     }
 
     public void saveRequestEmails(Contact contact, List<String> requestEmails) {
-        requestEmailRepository.deleteByContact(contact);
         requestEmails.forEach(email -> {
             RequestEmail requestEmail = RequestEmail.builder()
                     .email(email)
@@ -61,32 +59,34 @@ public class ContactService {
         requestEmailRepository.deleteByContact(contact);
     }
 
-    public void createContact(Contact contact, List<String> requestEmails) {
+    public void createContact(Contact contact, List<String> requestEmails, String password, BindingResult bindingResult) {
         logger.info("Creating a contact with email: {}", contact.getEmail());
 
-        validateContact(contact);
+        validateContact(contact, bindingResult);
 
-        Contact newContact = Contact.builder()
-                .email(contact.getEmail())
-                .phone(contact.getPhone())
-                .telegram(contact.getTelegram())
-                .viber(contact.getViber())
-                .instagram(contact.getInstagram())
-                .facebook(contact.getFacebook())
-                .address(contact.getAddress())
-                .password(passwordEncoder.encode(contact.getPassword()))
-                .build();
+        if (bindingResult.hasErrors()) {
+            return;
+        }
 
-        Contact savedContact = contactRepository.save(newContact);
-        saveRequestEmails(savedContact, requestEmails);
+        contact.setPassword(passwordEncoder.encode(password));
+        Contact newContact = contactRepository.save(contact);
+        saveRequestEmails(newContact, requestEmails);
 
-        logger.info("Contact successfully created with ID: {}", savedContact.getId());
+        logger.info("Contact successfully created with ID: {}", newContact.getId());
     }
 
-    public void updateContact(Contact contact, List<String> requestEmails) {
+    public void updateContact(Contact contact, List<String> requestEmails, String currentPassword, String newPassword, String confirmPassword, BindingResult bindingResult) {
         logger.info("Updating contact with ID: {}", contact.getId());
 
-        validateContact(contact);
+        validateContact(contact, bindingResult);
+
+        if (newPassword != null && !newPassword.isEmpty()) {
+            changePassword(contact, currentPassword, newPassword, confirmPassword, bindingResult);
+        }
+
+        if (bindingResult.hasErrors()) {
+            return;
+        }
 
         contactRepository.save(contact);
         saveRequestEmails(contact, requestEmails);
@@ -94,106 +94,96 @@ public class ContactService {
         logger.info("Contact successfully updated with ID: {}", contact.getId());
     }
 
-        public void changePassword(Contact contact, String currentPassword, String newPassword, String confirmPassword) {
+    public void changePassword(Contact contact, String currentPassword, String newPassword, String confirmPassword, BindingResult bindingResult) {
         if (Objects.isNull(currentPassword) || StringUtils.isBlank(currentPassword)) {
-            throw new InvalidPasswordException("Current password cannot be null or blank.");
+            bindingResult.rejectValue("currentPassword", "password.empty", "Current password cannot be blank.");
+        } else if (!passwordEncoder.matches(currentPassword, contact.getPassword())) {
+            bindingResult.rejectValue("currentPassword", "password.invalid", "Current password is incorrect.");
+        } else if (Objects.isNull(newPassword) || StringUtils.isBlank(newPassword)) {
+            bindingResult.rejectValue("newPassword", "password.empty", "New password cannot be blank.");
+        } else if (!newPassword.equals(confirmPassword)) {
+            bindingResult.rejectValue("confirmPassword", "password.mismatch", "New password and confirm password do not match.");
+        } else {
+            validatePassword(newPassword, bindingResult);
         }
 
-        if (!passwordEncoder.matches(currentPassword, contact.getPassword())) {
-            throw new InvalidPasswordException("Current password is incorrect.");
+        if (bindingResult.hasErrors()) {
+            return;
         }
-
-        if (Objects.isNull(newPassword) || StringUtils.isBlank(newPassword)) {
-            throw new InvalidPasswordException("New password cannot be null or blank.");
-        }
-
-        if (!newPassword.equals(confirmPassword)) {
-            throw new InvalidPasswordException("New password and confirm password do not match.");
-        }
-
-        validatePassword(newPassword);
 
         contact.setPassword(passwordEncoder.encode(newPassword));
         contactRepository.save(contact);
     }
 
-    private void validateContact(Contact contact) {
-        validateEmail(contact.getEmail());
-        validatePhone(contact.getPhone());
-        validatePassword(contact.getPassword());
-        validateTelegram(contact.getTelegram());
-        validateViber(contact.getViber());
-        validateInstagram(contact.getInstagram());
-        validateFacebook(contact.getFacebook());
-        validateAddress(contact.getAddress());
+    private void validateContact(Contact contact, BindingResult bindingResult) {
+        validateEmail(contact.getEmail(), bindingResult);
+        validatePhone(contact.getPhone(), bindingResult);
+        validateTelegram(contact.getTelegram(), bindingResult);
+        validateViber(contact.getViber(), bindingResult);
+        validateInstagram(contact.getInstagram(), bindingResult);
+        validateFacebook(contact.getFacebook(), bindingResult);
+        validateAddress(contact.getAddress(), bindingResult);
     }
 
-    private void validateEmail(String email) {
+    private void validateEmail(String email, BindingResult bindingResult) {
         if (Objects.isNull(email) || StringUtils.isBlank(email)) {
-            throw new InvalidEmailException("Email cannot be null or blank.");
-        }
-        if (!RegEx.EMAIL_REGEX.matcher(email).matches()) {
-            throw new InvalidEmailException("Invalid email format.");
+            bindingResult.rejectValue("email", "email.empty", "Email cannot be blank.");
+        } else if (!RegEx.EMAIL_REGEX.matcher(email).matches()) {
+            bindingResult.rejectValue("email", "email.invalid", "Email must be in the format: example@example.com");
         }
     }
 
-    private void validatePhone(String phone) {
+    private void validatePhone(String phone, BindingResult bindingResult) {
         if (Objects.isNull(phone) || StringUtils.isBlank(phone)) {
-            throw new InvalidPhoneNumberException("Phone number cannot be null or blank.");
-        }
-        if (!RegEx.PHONE_REGEX.matcher(phone).matches()) {
-            throw new InvalidPhoneNumberException("Invalid phone number format.");
+            bindingResult.rejectValue("phone", "phone.empty", "Phone number cannot be blank.");
+        } else if (!RegEx.PHONE_REGEX.matcher(phone).matches()) {
+            bindingResult.rejectValue("phone", "phone.invalid", "Phone number must be in the format: 380-XX-XXX-XX-XX");
         }
     }
 
-    private void validatePassword(String password) {
+    private void validatePassword(String password, BindingResult bindingResult) {
         if (Objects.isNull(password) || StringUtils.isBlank(password)) {
-            throw new InvalidPasswordException("Password cannot be null or blank.");
-        }
-        if (!RegEx.PASSWORD_REGEX.matcher(password).matches()) {
-            throw new InvalidPasswordException("Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.");
+            bindingResult.rejectValue("password", "password.empty", "Password cannot be blank.");
+        } else if (!RegEx.PASSWORD_REGEX.matcher(password).matches()) {
+            bindingResult.rejectValue("password", "password.invalid", "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.");
         }
     }
 
-    private void validateTelegram(String telegram) {
+    private void validateTelegram(String telegram, BindingResult bindingResult) {
         if (Objects.isNull(telegram) || StringUtils.isBlank(telegram)) {
-            throw new InvalidTelegramException("Telegram username cannot be null or blank.");
-        }
-        if (!RegEx.TELEGRAM_REGEX.matcher(telegram).matches()) {
-            throw new InvalidTelegramException("Invalid Telegram username format.");
+            bindingResult.rejectValue("telegram", "telegram.empty", "Telegram username cannot be blank.");
+        } else if (!RegEx.TELEGRAM_REGEX.matcher(telegram).matches()) {
+            bindingResult.rejectValue("telegram", "telegram.invalid", "Telegram username must be in the format: @username");
         }
     }
 
-    private void validateViber(String viber) {
+    private void validateViber(String viber, BindingResult bindingResult) {
         if (Objects.isNull(viber) || StringUtils.isBlank(viber)) {
-            throw new InvalidViberException("Viber phone number cannot be null or blank.");
-        }
-        if (!RegEx.PHONE_REGEX.matcher(viber).matches()) {
-            throw new InvalidViberException("Invalid Viber phone number format.");
+            bindingResult.rejectValue("viber", "viber.empty", "Viber phone number cannot be blank.");
+        } else if (!RegEx.PHONE_REGEX.matcher(viber).matches()) {
+            bindingResult.rejectValue("viber", "viber.invalid", "Viber phone number must be in the format: 380-XX-XXX-XX-XX");
         }
     }
 
-    private void validateInstagram(String instagram) {
+    private void validateInstagram(String instagram, BindingResult bindingResult) {
         if (Objects.isNull(instagram) || StringUtils.isBlank(instagram)) {
-            throw new InvalidInstagramException("Instagram link cannot be null or blank.");
-        }
-        if (!RegEx.INSTAGRAM_REGEX.matcher(instagram).matches()) {
-            throw new InvalidInstagramException("Invalid Instagram link format.");
+            bindingResult.rejectValue("instagram", "instagram.empty", "Instagram link cannot be blank.");
+        } else if (!RegEx.INSTAGRAM_REGEX.matcher(instagram).matches()) {
+            bindingResult.rejectValue("instagram", "instagram.invalid", "Instagram link must be in the format: https://www.instagram.com/username/");
         }
     }
 
-    private void validateFacebook(String facebook) {
+    private void validateFacebook(String facebook, BindingResult bindingResult) {
         if (Objects.isNull(facebook) || StringUtils.isBlank(facebook)) {
-            throw new InvalidFacebookException("Facebook link cannot be null or blank.");
-        }
-        if (!RegEx.FACEBOOK_REGEX.matcher(facebook).matches()) {
-            throw new InvalidFacebookException("Invalid Facebook link format.");
+            bindingResult.rejectValue("facebook", "facebook.empty", "Facebook link cannot be blank.");
+        } else if (!RegEx.FACEBOOK_REGEX.matcher(facebook).matches()) {
+            bindingResult.rejectValue("facebook", "facebook.invalid", "Facebook link must be in the format: https://www.facebook.com/username/");
         }
     }
 
-    private void validateAddress(String address) {
-        if (Objects.isNull(address) || address.length() > 255) {
-            throw new InvalidAddressException("Address length must be less than or equal to 255 characters.");
+    private void validateAddress(String address, BindingResult bindingResult) {
+        if (Objects.isNull(address) || StringUtils.isBlank(address) || address.length() > 255) {
+            bindingResult.rejectValue("address", "address.invalid", "Address length must be less than or equal to 255 characters.");
         }
     }
 }

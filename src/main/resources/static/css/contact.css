@@ -119,6 +119,10 @@ h3 {
     flex: 1;
 }
 
+.form-group.password input {
+    width: 590px;
+}
+
 /* Кнопки */
 .btn-add, .btn-remove, .btn-save, .btn-cancel {
     display: inline-block;
