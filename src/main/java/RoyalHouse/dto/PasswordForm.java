@@ -1,4 +1,4 @@
-package RoyalHouse.service.admin.setting;
+package RoyalHouse.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -18,5 +18,4 @@ public class PasswordForm {
 
     @NotBlank(message = "Confirm password cannot be blank.")
     private String confirmPassword;
-
 }

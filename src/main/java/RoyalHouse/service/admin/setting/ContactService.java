@@ -1,20 +1,22 @@
 package RoyalHouse.service.admin.setting;
 
-import RoyalHouse.service.admin.setting.PasswordForm;
 import RoyalHouse.model.Contact;
 import RoyalHouse.model.RequestEmail;
 import RoyalHouse.repository.ContactRepository;
 import RoyalHouse.repository.RequestEmailRepository;
 import RoyalHouse.util.RegEx;
 import io.micrometer.common.util.StringUtils;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -45,20 +47,37 @@ public class ContactService {
                 .collect(Collectors.toList());
     }
 
-    public void saveRequestEmails(Contact contact, List<String> requestEmails) {
-        requestEmails.forEach(email -> {
-            RequestEmail requestEmail = RequestEmail.builder()
-                    .email(email)
-                    .contact(contact)
-                    .build();
-            requestEmailRepository.save(requestEmail);
-        });
+    public void addRequestEmail(Contact contact, String email, BindingResult bindingResult) {
+        validateEmail(email, bindingResult);
+        if (bindingResult.hasErrors()) {
+            return;
+        }
+
+        RequestEmail requestEmail = RequestEmail.builder()
+                .email(email)
+                .contact(contact)
+                .build();
+        requestEmailRepository.save(requestEmail);
     }
 
-    public void deleteRequestEmails(Contact contact) {
-        requestEmailRepository.deleteByContact(contact);
+    @Transactional
+    public void removeRequestEmail(Long contactId, String email) {
+        RequestEmail requestEmail = requestEmailRepository.findByEmailAndContactId(email, contactId);
+        if (requestEmail != null) {
+            requestEmailRepository.delete(requestEmail);
+            logger.info("RequestEmail with email {} removed", email);
+        } else {
+            logger.warn("RequestEmail with email {} not found", email);
+        }
     }
 
+
+
+    public Contact findContactById(Long id) {
+        return contactRepository.findById(id).orElse(null);
+    }
+
+    @Transactional
     public void createContact(Contact contact, List<String> requestEmails, String password, BindingResult bindingResult) {
         logger.info("Creating a contact with email: {}", contact.getEmail());
 
@@ -70,31 +89,71 @@ public class ContactService {
 
         contact.setPassword(passwordEncoder.encode(password));
         Contact newContact = contactRepository.save(contact);
-        saveRequestEmails(newContact, requestEmails);
+
+        for (String email : requestEmails) {
+            RequestEmail requestEmail = RequestEmail.builder()
+                    .email(email)
+                    .contact(newContact)
+                    .build();
+            requestEmailRepository.save(requestEmail);
+        }
 
         logger.info("Contact successfully created with ID: {}", newContact.getId());
     }
 
-    public void updateContact(Contact contact, List<String> requestEmails, String currentPassword, String newPassword, String confirmPassword, BindingResult bindingResult) {
+    @Transactional
+    public void updateContact(Contact contact, List<String> requestEmails, BindingResult bindingResult) {
         logger.info("Updating contact with ID: {}", contact.getId());
 
-        validateContact(contact, bindingResult);
-
-        if (newPassword != null && !newPassword.isEmpty()) {
-            changePassword(contact, currentPassword, newPassword, confirmPassword, bindingResult);
+        Contact existingContact = findContactById(contact.getId());
+        if (existingContact == null) {
+            bindingResult.rejectValue("id", "contact.notfound", "Contact not found.");
+            return;
         }
+
+        existingContact.setEmail(contact.getEmail());
+        existingContact.setPhone(contact.getPhone());
+        existingContact.setTelegram(contact.getTelegram());
+        existingContact.setViber(contact.getViber());
+        existingContact.setInstagram(contact.getInstagram());
+        existingContact.setFacebook(contact.getFacebook());
+        existingContact.setAddress(contact.getAddress());
+
+        validateContact(existingContact, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return;
         }
 
-        contactRepository.save(contact);
-        saveRequestEmails(contact, requestEmails);
+        contactRepository.save(existingContact);
 
-        logger.info("Contact successfully updated with ID: {}", contact.getId());
+        Set<String> existingEmails = new HashSet<>(getRequestEmails(contact.getId()));
+
+        for (String email : requestEmails) {
+            if (!existingEmails.contains(email)) {
+                RequestEmail requestEmail = RequestEmail.builder()
+                        .email(email)
+                        .contact(existingContact)
+                        .build();
+                requestEmailRepository.save(requestEmail);
+            }
+            existingEmails.remove(email);
+        }
+
+        for (String email : existingEmails) {
+            RequestEmail requestEmail = requestEmailRepository.findByEmailAndContactId(email, contact.getId());
+            if (requestEmail != null) {
+                requestEmailRepository.delete(requestEmail);
+            }
+        }
+
+        logger.info("Contact successfully updated with ID: {}", existingContact.getId());
     }
 
-    public void changePassword(Contact contact, String currentPassword, String newPassword, String confirmPassword, BindingResult bindingResult) {
+    public void updatePassword(Contact contact, String currentPassword, String newPassword, String confirmPassword, BindingResult bindingResult) {
+        logger.info("Changing password for contact ID: {}", contact.getId());
+        logger.info("Current password (encoded): {}", contact.getPassword());
+
         if (Objects.isNull(currentPassword) || StringUtils.isBlank(currentPassword)) {
             bindingResult.rejectValue("currentPassword", "password.empty", "Current password cannot be blank.");
         } else if (!passwordEncoder.matches(currentPassword, contact.getPassword())) {
