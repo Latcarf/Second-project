@@ -21,10 +21,16 @@
     </div>
 
     <div class="actions">
-        <form th:action="@{/admin/requests/export}" method="get" style="display:inline;">
+        <form th:action="@{/admin/main/requests/export}" method="get">
+            <input type="hidden" name="name" th:value="${name}"/>
+            <input type="hidden" name="phone" th:value="${phone}"/>
+            <input type="hidden" name="email" th:value="${email}"/>
+            <input type="hidden" name="date" th:value="${date != null ? #temporals.format(date, 'yyyy-MM-dd') : ''}"/>
+            <input type="hidden" name="status" th:value="${status}"/>
             <button class="btn-export" type="submit">Export to Excel</button>
         </form>
     </div>
+
 
     <div class="table-container">
         <table class="fl-table">

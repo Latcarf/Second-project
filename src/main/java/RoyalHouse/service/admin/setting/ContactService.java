@@ -7,6 +7,7 @@ import RoyalHouse.repository.RequestEmailRepository;
 import RoyalHouse.util.RegEx;
 import io.micrometer.common.util.StringUtils;
 import jakarta.transaction.Transactional;
+import lombok.extern.log4j.Log4j2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,6 +20,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Log4j2
 @Service
 public class ContactService {
     private static final Logger logger = LoggerFactory.getLogger(ContactService.class);
@@ -40,8 +42,8 @@ public class ContactService {
         return contacts.get(0);
     }
 
-    public List<String> getRequestEmails(Long contactId) {
-        return requestEmailRepository.findByContactId(contactId)
+    public List<String> getRequestEmails() {
+        return requestEmailRepository.findAll()
                 .stream()
                 .map(RequestEmail::getEmail)
                 .collect(Collectors.toList());
@@ -127,7 +129,7 @@ public class ContactService {
 
         contactRepository.save(existingContact);
 
-        Set<String> existingEmails = new HashSet<>(getRequestEmails(contact.getId()));
+        Set<String> existingEmails = new HashSet<>(getRequestEmails());
 
         for (String email : requestEmails) {
             if (!existingEmails.contains(email)) {

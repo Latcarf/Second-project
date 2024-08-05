@@ -47,13 +47,14 @@ body {
     text-decoration: underline;
 }
 
-/* Кнопки действий */
+/* Контейнер для кнопок действий */
 .actions {
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
+    justify-content: flex-end; /* Выравнивание элементов вправо */
+    margin-bottom: 20px; /* Отступ снизу, чтобы отделить от других элементов */
 }
 
+/* Кнопки действий */
 .btn-export {
     background-color: #4CAF50;
     color: white;

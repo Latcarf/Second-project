@@ -23,7 +23,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .anyRequest().permitAll()
                 )
+                .oauth2Login(oauth2Login -> oauth2Login
+                        .defaultSuccessUrl("/admin/main/requests", true)
+                )
                 .csrf(csrf -> csrf.disable());
         return http.build();
     }
+
+
 }

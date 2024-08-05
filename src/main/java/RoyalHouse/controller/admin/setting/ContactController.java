@@ -32,7 +32,7 @@ public class ContactController {
         Contact contact = contactService.getContact();
         if (Objects.nonNull(contact)) {
             model.addAttribute("contact", contact);
-            List<String> requestEmails = contactService.getRequestEmails(contact.getId());
+            List<String> requestEmails = contactService.getRequestEmails();
             model.addAttribute("requestEmails", requestEmails);
             model.addAttribute("createMode", false);
             model.addAttribute("passwordForm", new PasswordForm());
@@ -123,7 +123,7 @@ public class ContactController {
         if (passwordBindingResult.hasErrors()) {
             model.addAttribute("createMode", false);
             model.addAttribute("contact", contact);
-            List<String> requestEmails = contactService.getRequestEmails(contact.getId());
+            List<String> requestEmails = contactService.getRequestEmails();
             model.addAttribute("requestEmails", requestEmails);
             model.addAttribute("passwordForm", passwordForm);
             return "admin/setting/contacts";
@@ -149,7 +149,7 @@ public class ContactController {
         if (bindingResult.hasErrors()) {
             model.addAttribute("createMode", false);
             model.addAttribute("contact", contact);
-            List<String> requestEmails = contactService.getRequestEmails(contact.getId());
+            List<String> requestEmails = contactService.getRequestEmails();
             model.addAttribute("requestEmails", requestEmails);
             model.addAttribute("passwordForm", new PasswordForm());
             return "admin/setting/contacts";

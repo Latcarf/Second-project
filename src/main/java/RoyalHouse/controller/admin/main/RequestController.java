@@ -1,26 +1,41 @@
 package RoyalHouse.controller.admin.main;
 
 import RoyalHouse.model.Request;
+import RoyalHouse.service.admin.main.EmailService;
+import RoyalHouse.service.admin.main.ExportService;
 import RoyalHouse.service.admin.main.RequestService;
-import jakarta.servlet.http.HttpServletResponse;
+import RoyalHouse.service.admin.setting.ContactService;
+import jakarta.mail.MessagingException;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin/main/requests")
 public class RequestController {
 
     private final RequestService requestService;
+    private final ExportService exportService;
+    private final EmailService emailService;
+    private final ContactService contactService;
 
-    public RequestController(RequestService requestService) {
+    public RequestController(RequestService requestService, ExportService exportService, EmailService emailService, ContactService contactService) {
         this.requestService = requestService;
+        this.exportService = exportService;
+        this.emailService = emailService;
+        this.contactService = contactService;
     }
 
     @GetMapping("/new")
@@ -35,6 +50,7 @@ public class RequestController {
             requestService.createRequest(request);
             return "redirect:/admin/main/requests";
         } catch (Exception e) {
+            model.addAttribute("error", "Failed to create request. Please try again.");
             return "admin/main/create-request";
         }
     }
@@ -64,18 +80,44 @@ public class RequestController {
         model.addAttribute("email", email);
         model.addAttribute("date", date);
         model.addAttribute("status", status);
-        return "/admin/main/request/requests";
+        return "admin/main/request/requests";
     }
 
     @GetMapping("/export")
-    public void exportToExcel(HttpServletResponse response) {
+    public ResponseEntity<ByteArrayResource> exportToExcel(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "phone", required = false) String phone,
+            @RequestParam(value = "email", required = false) String email,
+            @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+            @RequestParam(value = "status", required = false) String status) {
+        try {
+            PageRequest pageRequest = PageRequest.of(0, Integer.MAX_VALUE, Sort.by(Sort.Direction.DESC, "date"));
+            Page<Request> requestsPage = requestService.getRequests(name, phone, email, date, status, pageRequest);
+            byte[] excelData = exportService.exportRequestsToExcel(requestsPage.getContent());
+
+            ByteArrayResource resource = new ByteArrayResource(excelData);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=requests.xlsx");
+            headers.add(HttpHeaders.CONTENT_TYPE, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+
+            return ResponseEntity.ok()
+                    .headers(headers)
+                    .contentLength(excelData.length)
+                    .body(resource);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
+
 
     @GetMapping("/{id}")
     public String getRequest(@PathVariable Long id, Model model) {
         Request request = requestService.getRequestById(id);
         model.addAttribute("request", request);
-        return "/admin/main/request/request-details";
+        return "admin/main/request/request-details";
     }
 
     @GetMapping("/changeStatus/{id}")
@@ -94,7 +136,6 @@ public class RequestController {
         return String.format("redirect:/admin/main/requests?page=%d&size=%d&name=%s&phone=%s&email=%s&date=%s&status=%s",
                 page, size, name, phone, email, dateParam, status);
     }
-
 
     @PostMapping("/delete/{id}")
     public String deleteRequest(@PathVariable Long id,
