@@ -34,4 +34,4 @@ This is a Spring Boot Java web application developed using the MVC architecture.
 
 ## My LinkeIn
 
--- **www.linkedin.com/in/muzychuk-dmytro**
+**www.linkedin.com/in/muzychuk-dmytro**
