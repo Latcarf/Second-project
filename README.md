@@ -16,8 +16,9 @@ This is a Spring Boot Java web application developed using the MVC architecture.
 
 ## Additional Resources
 
-- **UML Diagrams**: The project includes comprehensive UML diagrams for **the entire database schema** and **object-oriented programming (OOP) classes and their relationships.**
+- **UML Diagrams**: The project includes comprehensive **ERD diagrams for the entire database schema** and **UML diagrams for the object-oriented programming (OOP) classes and their relationships.**
 - **Project Timeline**: A summary table detailing the planned versus actual time spent on the project.
+- **Screenshot of the entire site and various details on app.moqups**: https://app.moqups.com/x8MG8MGLC8DvPtEwgbXnQbxCRWoSFKUh/view/page/ad64222d5
 
 ## Technologies Used
 
