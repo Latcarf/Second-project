@@ -32,6 +32,6 @@ This is a Spring Boot Java web application developed using the MVC architecture.
 - **Apache POI for Excel**
 - **Lombok**
 
-## My LinkeIn
+## My LinkedIn
 
 **www.linkedin.com/in/muzychuk-dmytro**
