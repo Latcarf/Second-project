@@ -7,7 +7,7 @@ This is a Spring Boot Java web application developed using the MVC architecture.
 - **Admin and User Interfaces**: Separate sections for admin and user interactions.
 - **CRUD Operations**: Create, read, update, and delete functionalities for various entities.
 - **Tables with Information**: Dynamic tables displaying different types of information with filtering options for sorting.
-- **Export to Excel**: Ability to export table data to an Excel file, **which is then emailed to you.**
+- **Export to Excel**: Ability to export table data to an Excel file, which is then emailed to you.
 - **Pagination**: Efficient handling of large datasets with pagination.
 - **Photo Uploading**: Users can upload and manage photos.
 - **Field Validation**: Robust field validation using regular expressions.
