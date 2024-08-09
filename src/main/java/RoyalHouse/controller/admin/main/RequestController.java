@@ -5,7 +5,6 @@ import RoyalHouse.service.admin.main.EmailService;
 import RoyalHouse.service.admin.main.ExportService;
 import RoyalHouse.service.admin.main.RequestService;
 import RoyalHouse.service.admin.setting.ContactService;
-import jakarta.mail.MessagingException;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.List;
 
 @Controller
 @RequestMapping("/admin/main/requests")
@@ -28,14 +26,10 @@ public class RequestController {
 
     private final RequestService requestService;
     private final ExportService exportService;
-    private final EmailService emailService;
-    private final ContactService contactService;
 
-    public RequestController(RequestService requestService, ExportService exportService, EmailService emailService, ContactService contactService) {
+    public RequestController(RequestService requestService, ExportService exportService) {
         this.requestService = requestService;
         this.exportService = exportService;
-        this.emailService = emailService;
-        this.contactService = contactService;
     }
 
     @GetMapping("/new")
