@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/admin/main")
-public class ObjectController {
+public class RealEstateController {
 
-    @GetMapping("/objects")
+    @GetMapping("/real-estate")
     public String objects() {
-        return "admin/main/objects";
+        return "admin/main/real-estate";
     }
 }
