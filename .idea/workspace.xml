@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="UPD: password for contacts">
+    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="UPD: ERD">
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/specification/RealEstateSpecification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/real-estate.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/setting/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/setting/ContactController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/RequestEmailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/RequestEmailRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/setting/ContactService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/setting/ContactService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/setting/PasswordForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/dto/PasswordForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/setting/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/setting/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/RealEstate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/RealEstate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/RealEstateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/RealEstateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RealEstate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RealEstateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/specification/RequestSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/specification/RequestSpecification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/request.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/request.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/objects.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estates.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,13 +27,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="SCSS File" />
+        <option value="JavaScript File" />
         <option value="Less File" />
         <option value="HTML File" />
         <option value="Enum" />
-        <option value="CSS File" />
         <option value="Interface" />
-        <option value="JavaScript File" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -43,7 +49,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Latcarf/RoyalHouse.git&quot;,
-    &quot;accountId&quot;: &quot;973a5e33-146f-4661-8498-4b193b5343ca&quot;
+    &quot;accountId&quot;: &quot;0dfea01b-db67-4db2-ace1-45ab256f1345&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -71,7 +77,7 @@
     &quot;Spring Boot.TestProjectApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IT/Java/Projects/Spring_project/Latcarf&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/IT/Java/projects/RoyalHouse&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -184,12 +190,14 @@
       <workItem from="1721900973931" duration="22090000" />
       <workItem from="1721977100387" duration="26576000" />
       <workItem from="1722061003655" duration="9010000" />
-      <workItem from="1722423233265" duration="615000" />
-      <workItem from="1722424098896" duration="22332000" />
-      <workItem from="1722506867642" duration="8310000" />
-      <workItem from="1722521690940" duration="18818000" />
-      <workItem from="1722583934214" duration="14880000" />
-      <workItem from="1722618791486" duration="3039000" />
+      <workItem from="1722879681236" duration="823000" />
+      <workItem from="1722934727817" duration="249000" />
+      <workItem from="1722934990982" duration="2253000" />
+      <workItem from="1723195265958" duration="2374000" />
+      <workItem from="1723484775155" duration="6183000" />
+      <workItem from="1723550279902" duration="11620000" />
+      <workItem from="1723614060232" duration="1023000" />
+      <workItem from="1723803084911" duration="7082000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />
@@ -263,15 +271,7 @@
       <option name="project" value="LOCAL" />
       <updated>1722064692604</updated>
     </task>
-    <task id="LOCAL-00010" summary="UPD: password for contacts">
-      <option name="closed" value="true" />
-      <created>1722524869841</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1722524869841</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,7 +282,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -300,7 +312,6 @@
     <MESSAGE value="upd: requests and OOP" />
     <MESSAGE value="Fully completed and working: menu, requests, request detail" />
     <MESSAGE value="UPD: Contact" />
-    <MESSAGE value="UPD: password for contacts" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPD: password for contacts" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPD: Contact" />
   </component>
 </project>
