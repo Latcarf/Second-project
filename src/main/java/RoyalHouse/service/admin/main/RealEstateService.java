@@ -41,4 +41,8 @@ public class RealEstateService {
         return realEstateRepository.findAll(spec, pageRequest);
     }
 
+    public RealEstate getRealEstateDetails(Long realEstateId) {
+        return realEstateRepository.findById(realEstateId)
+                .orElseThrow(() -> new IllegalArgumentException("RealEstateId: " + realEstateId + " Not Found"));
+    }
 }

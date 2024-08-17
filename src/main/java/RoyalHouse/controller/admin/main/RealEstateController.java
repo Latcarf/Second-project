@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -43,6 +44,14 @@ public class RealEstateController {
         model.addAttribute("type", type);
         model.addAttribute("room", room);
 
-        return "admin/main/real-estates";
+        return "admin/main/real-estate/real-estates";
     }
+
+    @GetMapping("/{id}")
+    public String getRealEstate(@PathVariable Long id,  Model model) {
+        RealEstate realEstates = realEstateService.getRealEstateById(id);
+        model.addAttribute("realEstate", realEstates);
+        return "admin/main/real-estate/real-estate-details";
+    }
+
 }

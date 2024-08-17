@@ -1,3 +1,4 @@
+/* General styles */
 * {
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
@@ -12,10 +13,12 @@ body {
     padding: 0;
 }
 
+/* Content container */
 .content-wrapper {
     padding: 20px;
 }
 
+/* Page header styles */
 .page-header {
     display: flex;
     justify-content: space-between;
@@ -87,7 +90,7 @@ body {
     text-align: center;
     padding: 8px;
     color: #f1f1f1;
-    width: 15%; /* Set a uniform width for all columns */
+    width: 15%;
 }
 
 .fl-table thead th {
@@ -112,17 +115,17 @@ body {
 
 /* Specific input widths */
 .filter-input.filter-name {
-    width: 90%; /* Wide field for name */
+    width: 90%;
 }
 
 .filter-input.filter-room {
-    width: 60%; /* Narrow field for rooms */
+    width: 60%;
 }
 
 /* Button Group */
 .btn-group {
     display: flex;
-    gap: 10px; /* Increased gap between buttons */
+    gap: 10px;
 }
 
 /* Filter Button */
@@ -217,19 +220,19 @@ body {
 
 /* Specific styles for each real estate type */
 .real-estate-label.apartment {
-    background-color: #2196F3; /* Blue */
+    background-color: #2196F3;
 }
 
 .real-estate-label.house {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
 }
 
 .real-estate-label.commercial {
-    background-color: #FF9800; /* Orange */
+    background-color: #FF9800;
 }
 
 .real-estate-label.plot {
-    background-color: #9C27B0; /* Purple */
+    background-color: #9C27B0;
 }
 
 /* Real Estate Types in Select */
@@ -251,4 +254,81 @@ body {
 .filter-select option[value="PLOT"] {
     background-color: #9C27B0;
     color: white;
+}
+
+/* Styles specific to the Real Estate Details page */
+.real-estate-details {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+}
+
+.details-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.details-table th,
+.details-table td {
+    padding: 10px;
+    border: 1px solid #444;
+    text-align: left;
+}
+
+.details-table th {
+    color: #f1f1f1;
+    width: 13%;
+}
+
+.details-table tr:nth-child(odd) th {
+    background-color: #324960;
+}
+
+.details-table tr:nth-child(even) th {
+    background-color: #4FC3A1;
+}
+
+.details-table tr:nth-child(odd) td {
+    background-color: #2e2e2e;
+}
+
+.details-table tr:nth-child(even) td {
+    background-color: #3e3e3e;
+}
+
+.details-table td {
+    color: #f1f1f1;
+    word-wrap: break-word;
+}
+
+.details-table td a {
+    text-decoration: none;
+    color: #4FC3A1;
+}
+
+/* Header colors for specific rows */
+.header-blue {
+    background-color: #324960;
+}
+
+.header-green {
+    background-color: #4FC3A1;
+}
+
+/* Status labels */
+.status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: white;
+    font-size: 14px;
+}
+
+.status.new {
+    background-color: #ff9800;
+}
+
+.status.answered {
+    background-color: #4CAF50;
 }

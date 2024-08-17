@@ -82,7 +82,7 @@
                 <td th:text="${#temporals.format(realEstate.date, 'dd.MM.yyyy - HH:mm')}"></td>
                 <td>
                     <div class="btn-group">
-                        <form th:action="@{/admin/main/realEstates/{id}(id=${realEstate.id})}" method="get"
+                        <form th:action="@{/admin/main/real-estates/{id}(id=${realEstate.id})}" method="get"
                               style="display:inline;">
                             <button class="btn-action" type="submit">View</button>
                         </form>
