@@ -86,14 +86,14 @@
                               style="display:inline;">
                             <button class="btn-action" type="submit">View</button>
                         </form>
-                        <form th:action="@{/admin/main/realEstates/delete/{id}(id=${realEstate.id})}" method="post"
-                              style="display:inline;">
+                        <form th:action="@{/admin/main/real-estates/delete/{id}(id=${realEstate.id})}" method="post" style="display:inline;">
                             <input type="hidden" name="page" th:value="${currentPage}"/>
                             <input type="hidden" name="name" th:value="${name}"/>
-                            <input type="hidden" name="phone" th:value="${type}"/>
-                            <input type="hidden" name="email" th:value="${room}"/>
+                            <input type="hidden" name="type" th:value="${type}"/>
+                            <input type="hidden" name="room" th:value="${room}"/>
                             <button class="btn-delete" type="submit">Delete</button>
                         </form>
+
                     </div>
                 </td>
             </tr>

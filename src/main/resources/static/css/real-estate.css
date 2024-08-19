@@ -125,7 +125,8 @@ body {
 /* Button Group */
 .btn-group {
     display: flex;
-    gap: 10px;
+    justify-content: space-around;
+    gap: 22px;
 }
 
 /* Filter Button */

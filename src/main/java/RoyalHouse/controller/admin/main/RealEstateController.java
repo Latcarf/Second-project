@@ -7,10 +7,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/admin/main/real-estates")
@@ -23,19 +20,19 @@ public class RealEstateController {
     }
 
     @GetMapping
-    public String getRealEstate(@RequestParam(defaultValue = "1") int page,
-                                @RequestParam(defaultValue = "5") int size,
-                                @RequestParam(value = "name", required = false) String name,
-                                @RequestParam(value = "type", required = false) String type,
-                                @RequestParam(value = "room", required = false) Integer room,
-                                Model model) {
+    public String getRealEstates(@RequestParam(defaultValue = "1") int page,
+                                 @RequestParam(defaultValue = "5") int size,
+                                 @RequestParam(value = "name", required = false) String name,
+                                 @RequestParam(value = "type", required = false) String type,
+                                 @RequestParam(value = "room", required = false) Integer room,
+                                 Model model) {
         PageRequest pageRequest = PageRequest.of(page - 1, size, Sort.by(Sort.Direction.DESC, "date"));
         Page<RealEstate> realEstates = realEstateService.getRealEstates(name, type, room, pageRequest);
 
         int startPage = Math.max(1, (page - 1) / 10 * 10 + 1);
         int endPage = Math.min(startPage + 9, realEstates.getTotalPages());
 
-        model.addAttribute("realEstates", realEstates);
+        model.addAttribute("realEstates", realEstates.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", realEstates.getTotalPages());
         model.addAttribute("startPage", startPage);
@@ -48,10 +45,22 @@ public class RealEstateController {
     }
 
     @GetMapping("/{id}")
-    public String getRealEstate(@PathVariable Long id,  Model model) {
-        RealEstate realEstates = realEstateService.getRealEstateById(id);
-        model.addAttribute("realEstate", realEstates);
+    public String getRealEstate(@PathVariable Long id, Model model) {
+        RealEstate realEstate = realEstateService.getRealEstateById(id);
+        model.addAttribute("realEstate", realEstate);
         return "admin/main/real-estate/real-estate-details";
     }
 
+    @PostMapping("/delete/{id}")
+    public String deleteRealEstate(@PathVariable Long id,
+                                   @RequestParam(defaultValue = "1") int page,
+                                   @RequestParam(defaultValue = "5") int size,
+                                   @RequestParam(value = "name", required = false) String name,
+                                   @RequestParam(value = "type", required = false) String type,
+                                   @RequestParam(value = "room", required = false) Integer room) {
+        realEstateService.deleteRealEstate(id);
+
+        return String.format("redirect:/admin/main/real-estates?page=%d&size=%d&name=%s&type=%s&room=%s",
+                page, size, name, type, room != null ? room.toString() : "");
+    }
 }
