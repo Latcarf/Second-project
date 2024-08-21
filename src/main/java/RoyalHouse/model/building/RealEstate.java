@@ -1,8 +1,8 @@
-package RoyalHouse.model.Building;
+package RoyalHouse.model.building;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.math.BigDecimal;
+
 import java.time.LocalDateTime;
 
 @Data

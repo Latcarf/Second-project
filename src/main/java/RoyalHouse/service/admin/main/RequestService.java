@@ -2,7 +2,7 @@ package RoyalHouse.service.admin.main;
 
 import RoyalHouse.model.Request;
 import RoyalHouse.repository.RequestRepository;
-import RoyalHouse.model.Enum.Status;
+import RoyalHouse.model.modelEnum.Status;
 import RoyalHouse.specification.RequestSpecification;
 import RoyalHouse.util.Exception.*;
 import RoyalHouse.util.RegEx;

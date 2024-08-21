@@ -1,4 +1,4 @@
-package RoyalHouse.model.Company;
+package RoyalHouse.model.company;
 
 import jakarta.persistence.*;
 import lombok.Data;

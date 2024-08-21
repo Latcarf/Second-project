@@ -1,10 +1,8 @@
 package RoyalHouse.specification;
 
-import RoyalHouse.model.Building.RealEstate;
+import RoyalHouse.model.building.RealEstate;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.StringUtils;
-
-import java.util.Objects;
 
 public class RealEstateSpecification {
 

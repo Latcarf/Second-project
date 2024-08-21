@@ -1,4 +1,4 @@
-package RoyalHouse.model.Enum;
+package RoyalHouse.model.modelEnum;
 
 public enum Status {
     NEW, ANSWERED;

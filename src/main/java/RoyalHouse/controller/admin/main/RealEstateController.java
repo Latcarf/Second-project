@@ -1,22 +1,32 @@
 package RoyalHouse.controller.admin.main;
 
-import RoyalHouse.model.Building.RealEstate;
+import RoyalHouse.model.building.Address;
+import RoyalHouse.model.building.RealEstate;
+import RoyalHouse.model.Photo;
+import RoyalHouse.model.modelEnum.EntityType;
 import RoyalHouse.service.admin.main.RealEstateService;
+import RoyalHouse.service.admin.main.NewBuildingService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin/main/real-estates")
 public class RealEstateController {
 
     private final RealEstateService realEstateService;
+    private final NewBuildingService newBuildingService;
 
-    public RealEstateController(RealEstateService realEstateService) {
+    public RealEstateController(RealEstateService realEstateService, NewBuildingService newBuildingService) {
         this.realEstateService = realEstateService;
+        this.newBuildingService = newBuildingService;
     }
 
     @GetMapping
@@ -51,6 +61,34 @@ public class RealEstateController {
         return "admin/main/real-estate/real-estate-details";
     }
 
+    @GetMapping("/new")
+    public String showCreateForm(Model model) {
+        model.addAttribute("realEstate", new RealEstate());
+        model.addAttribute("address", new Address());
+//        model.addAttribute("newBuildings", newBuildingService.getAllNewBuildings());
+        return "admin/main/real-estate/create-real-estate";
+    }
+
+    @PostMapping("/new")
+    public String createRealEstate(@ModelAttribute RealEstate realEstate,
+                                   @ModelAttribute Address address,
+                                   @RequestParam(value = "newBuildingId", required = false) Long newBuildingId,
+                                   @RequestParam("photos") MultipartFile[] photos) {
+
+        List<Photo> photoList = new ArrayList<>();
+        for (MultipartFile file : photos) {
+            String photoUrl = savePhotoFile(file);
+            Photo photo = new Photo();
+            photo.setUrl(photoUrl);
+            photo.setEntityType(EntityType.REAL_ESTATE);
+            photoList.add(photo);
+        }
+
+        realEstateService.createRealEstate(realEstate, address, newBuildingId, photoList);
+
+        return "redirect:/admin/main/real-estates";
+    }
+
     @PostMapping("/delete/{id}")
     public String deleteRealEstate(@PathVariable Long id,
                                    @RequestParam(defaultValue = "1") int page,
@@ -62,5 +100,11 @@ public class RealEstateController {
 
         return String.format("redirect:/admin/main/real-estates?page=%d&size=%d&name=%s&type=%s&room=%s",
                 page, size, name, type, room != null ? room.toString() : "");
+    }
+
+    private String savePhotoFile(MultipartFile file) {
+        // Реализация логики сохранения файла и генерации URL
+        // Например, сохранение на диск или в облачное хранилище и возвращение URL
+        return "url_of_saved_photo";
     }
 }
