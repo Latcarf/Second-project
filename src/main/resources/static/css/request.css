@@ -196,7 +196,7 @@ body {
     padding: 5px 10px;
     cursor: pointer;
     font-size: 12px;
-    margin-right: 5px; /* Added for button separation */
+    margin-right: 5px;
 }
 
 .btn-action:hover {

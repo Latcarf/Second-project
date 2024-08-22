@@ -1,9 +1,11 @@
 package RoyalHouse.controller.admin.main;
 
 import RoyalHouse.model.building.Address;
+import RoyalHouse.model.building.Details;
 import RoyalHouse.model.building.RealEstate;
 import RoyalHouse.model.Photo;
 import RoyalHouse.model.modelEnum.EntityType;
+import RoyalHouse.service.PhotoService;
 import RoyalHouse.service.admin.main.RealEstateService;
 import RoyalHouse.service.admin.main.NewBuildingService;
 import org.springframework.data.domain.Page;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -23,10 +26,12 @@ public class RealEstateController {
 
     private final RealEstateService realEstateService;
     private final NewBuildingService newBuildingService;
+    private final PhotoService photoService;
 
-    public RealEstateController(RealEstateService realEstateService, NewBuildingService newBuildingService) {
+    public RealEstateController(RealEstateService realEstateService, NewBuildingService newBuildingService, PhotoService photoService) {
         this.realEstateService = realEstateService;
         this.newBuildingService = newBuildingService;
+        this.photoService = photoService;
     }
 
     @GetMapping
@@ -61,31 +66,24 @@ public class RealEstateController {
         return "admin/main/real-estate/real-estate-details";
     }
 
-    @GetMapping("/new")
+    @GetMapping("/create")
     public String showCreateForm(Model model) {
         model.addAttribute("realEstate", new RealEstate());
         model.addAttribute("address", new Address());
-//        model.addAttribute("newBuildings", newBuildingService.getAllNewBuildings());
+        model.addAttribute("details", new Details());
+        model.addAttribute("newBuildings", newBuildingService.getNewBuildings());
         return "admin/main/real-estate/create-real-estate";
     }
 
-    @PostMapping("/new")
+    @PostMapping("/create")
     public String createRealEstate(@ModelAttribute RealEstate realEstate,
                                    @ModelAttribute Address address,
+                                   @ModelAttribute Details details,
                                    @RequestParam(value = "newBuildingId", required = false) Long newBuildingId,
                                    @RequestParam("photos") MultipartFile[] photos) {
 
-        List<Photo> photoList = new ArrayList<>();
-        for (MultipartFile file : photos) {
-            String photoUrl = savePhotoFile(file);
-            Photo photo = new Photo();
-            photo.setUrl(photoUrl);
-            photo.setEntityType(EntityType.REAL_ESTATE);
-            photoList.add(photo);
-        }
-
-        realEstateService.createRealEstate(realEstate, address, newBuildingId, photoList);
-
+        List<Photo> photoList = photoService.savePhotos(Arrays.asList(photos), EntityType.REAL_ESTATE, realEstate.getId());
+        realEstateService.createRealEstate(realEstate, address, details, newBuildingId, photoList);
         return "redirect:/admin/main/real-estates";
     }
 
@@ -100,11 +98,5 @@ public class RealEstateController {
 
         return String.format("redirect:/admin/main/real-estates?page=%d&size=%d&name=%s&type=%s&room=%s",
                 page, size, name, type, room != null ? room.toString() : "");
-    }
-
-    private String savePhotoFile(MultipartFile file) {
-        // Реализация логики сохранения файла и генерации URL
-        // Например, сохранение на диск или в облачное хранилище и возвращение URL
-        return "url_of_saved_photo";
     }
 }

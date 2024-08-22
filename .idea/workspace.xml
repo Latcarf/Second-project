@@ -4,29 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="UPD: front for real-estate">
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Photo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/modelEnum/EntityType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/PhotoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/building/AddressRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/building/NewBuildingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" afterDir="false" />
+    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="UPD: ERD">
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/DetailsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/PhotoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/NewBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/NewBuildingDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuildingDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/NewBuildingInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuildingInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/RealEstate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/RealEstate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Building/RealEstateBanner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Company/CompanyInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/company/CompanyInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Company/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/company/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Enum/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/modelEnum/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/RealEstateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/building/RealEstateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Photo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuildingDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Details.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/RealEstate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/RealEstate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RealEstateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RealEstateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RequestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/specification/RealEstateSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/specification/RealEstateSpecification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/real-estate.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/real-estate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/request.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/request.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estate-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estate-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estates.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estates.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,11 +35,11 @@
         <option value="SCSS File" />
         <option value="JavaScript File" />
         <option value="Less File" />
-        <option value="HTML File" />
-        <option value="CSS File" />
         <option value="Enum" />
+        <option value="CSS File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -56,9 +52,6 @@
     &quot;assignee&quot;: &quot;Latcarf&quot;
   }
 }</component>
-  <component name="GitRewordedCommitMessages">
-    <option name="onto" value="3461b40822c208b0aa404fc64d4798ffa410e9a8" />
-  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Latcarf/RoyalHouse.git&quot;,
@@ -110,6 +103,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="RoyalHouse.repository" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Java\projects\RoyalHouse\src\main\resources\static\css" />
       <recent name="D:\Java\projects\RoyalHouse\src\main\resources\templates\admin" />
@@ -211,8 +207,6 @@
       <workItem from="1723550279902" duration="11620000" />
       <workItem from="1723614060232" duration="1023000" />
       <workItem from="1723803084911" duration="7082000" />
-      <workItem from="1724055741546" duration="3336000" />
-      <workItem from="1724083960114" duration="5871000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />
@@ -286,15 +280,7 @@
       <option name="project" value="LOCAL" />
       <updated>1722064692604</updated>
     </task>
-    <task id="LOCAL-00010" summary="UPD: front for real-estate">
-      <option name="closed" value="true" />
-      <created>1724081868012</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1724081868012</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,8 +321,6 @@
     <MESSAGE value="upd: requests and OOP" />
     <MESSAGE value="Fully completed and working: menu, requests, request detail" />
     <MESSAGE value="UPD: Contact" />
-    <MESSAGE value="UPD: application.properties" />
-    <MESSAGE value="UPD: front for real-estate" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPD: front for real-estate" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPD: Contact" />
   </component>
 </project>

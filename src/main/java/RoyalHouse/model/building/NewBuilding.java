@@ -3,10 +3,11 @@ package RoyalHouse.model.building;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @Entity
-@Table(name = "new_buildings")
+@Table(name = "new_building")
 public class NewBuilding {
 
     @Id
@@ -23,11 +24,9 @@ public class NewBuilding {
     @Column(name = "area_sq_m", nullable = false)
     private int areaSqM;
 
-    @Column(name = "type", nullable = false, length = 25)
-    private String type;
-
-    @OneToOne(mappedBy = "newBuilding", cascade = CascadeType.ALL)
-    private NewBuildingDetails newBuildingDetails;
+    @OneToOne
+    @JoinColumn(name = "details_id")
+    private Details details;
 
     @OneToOne(mappedBy = "newBuilding", cascade = CascadeType.ALL)
     private NewBuildingInfo newBuildingInfo;
@@ -35,4 +34,7 @@ public class NewBuilding {
     @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
+
+    @OneToMany(mappedBy = "newBuilding")
+    private List<RealEstate> realEstates;
 }

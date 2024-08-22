@@ -2,6 +2,7 @@ package RoyalHouse.model.building;
 
 import jakarta.persistence.*;
 import lombok.Data;
+
 import java.math.BigDecimal;
 
 @Data
@@ -26,9 +27,9 @@ public class Address {
     @Column(name = "district", nullable = false, length = 100)
     private String district;
 
-    @Column(name = "latitude", nullable = false, precision = 10, scale = 7)
+    @Column(name = "latitude", precision = 10, scale = 7)
     private BigDecimal latitude;
 
-    @Column(name = "longitude", nullable = false, precision = 10, scale = 7)
+    @Column(name = "longitude", precision = 10, scale = 7)
     private BigDecimal longitude;
 }

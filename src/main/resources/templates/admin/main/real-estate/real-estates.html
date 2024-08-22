@@ -20,6 +20,13 @@
         </div>
     </div>
 
+
+    <div class="actions">
+        <form th:action="@{/admin/main/real-estates/create}" method="get">
+            <button class="btn-create" type="submit">Create new real estate</button>
+        </form>
+    </div>
+
     <div class="table-container">
         <table class="fl-table">
             <thead>
@@ -76,9 +83,9 @@
                 <td th:text="${realEstate.areaSqM}"></td>
                 <td th:text="${realEstate.totalPrice}"></td>
                 <td th:text="${realEstate.priceSqM}"></td>
-                <td th:text="${realEstate.numRooms}"></td>
-                <td th:text="${realEstate.numFloors}"></td>
-                <td th:text="${realEstate.numStoreys}"></td>
+                <td th:text="${realEstate.details.numRooms}"></td>
+                <td th:text="${realEstate.details.numFloors}"></td>
+                <td th:text="${realEstate.details.numStoreys}"></td>
                 <td th:text="${#temporals.format(realEstate.date, 'dd.MM.yyyy - HH:mm')}"></td>
                 <td>
                     <div class="btn-group">
@@ -104,7 +111,6 @@
             <span th:if="${startPage > 1}">
                 <a th:href="@{/admin/main/real-estates(page=${startPage - 10 > 0 ? startPage - 10 : 1}, name=${name}, type=${type}, room=${room})}">&lt;&lt;</a>
             </span>
-
 
             <span th:each="i : ${#numbers.sequence(startPage, endPage)}">
                 <a th:href="@{/admin/main/real-estates(page=${i}, name=${name}, type=${type}, room=${room})}"

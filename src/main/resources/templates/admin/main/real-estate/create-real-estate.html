@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Real Estate</title>
+    <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
+    <link rel="stylesheet" th:href="@{/css/menu.css}"/>
+    <link rel="stylesheet" th:href="@{/css/real-estate.css}"/>
+</head>
+<body>
+<div th:replace="~{admin/menu :: menu}"></div>
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h2 class="page-title">Create Real Estate</h2>
+        <div class="breadcrumb">
+            <a th:href="@{/admin/menu}">Home</a> >
+            <a th:href="@{/admin/main/real-estates}">Real Estates</a> >
+            <a th:href="@{/admin/main/real-estates/{id}(id=${realEstate.id})}">Create Real Estate</a>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <form th:action="@{/admin/main/real-estates/new}" method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control" th:value="${realEstate.name}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select id="type" name="type" class="form-control" required>
+                    <option value="APARTMENT" th:selected="${realEstate.type == 'APARTMENT'}">Apartment</option>
+                    <option value="HOUSE" th:selected="${realEstate.type == 'HOUSE'}">House</option>
+                    <option value="COMMERCIAL" th:selected="${realEstate.type == 'COMMERCIAL'}">Commercial</option>
+                    <option value="PLOT" th:selected="${realEstate.type == 'PLOT'}">Plot</option>
+                </select>
+            </div>
+
+            <div class="form-group" th:if="${realEstate.type == 'APARTMENT'}">
+                <label for="newBuildingId">New Building</label>
+                <select id="newBuildingId" name="newBuildingId" class="form-control">
+                    <option th:each="building : ${newBuildings}" th:value="${building.id}"
+                            th:text="${building.name}" th:selected="${realEstate.newBuilding?.id == building.id}">Building Name</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="areaSqM">Area (sq.m.)</label>
+                <input type="number" id="areaSqM" name="areaSqM" class="form-control" th:value="${realEstate.areaSqM}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="priceSqM">Price per sq.m. ($)</label>
+                <input type="number" id="priceSqM" name="priceSqM" class="form-control" th:value="${realEstate.priceSqM}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="totalPrice">Total Price ($)</label>
+                <input type="number" id="totalPrice" name="totalPrice" class="form-control" th:value="${realEstate.totalPrice}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="numRooms">Number of Rooms</label>
+                <input type="number" id="numRooms" name="details.numRooms" class="form-control" th:value="${details.numRooms}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="numFloors">Floor</label>
+                <input type="number" id="numFloors" name="details.numFloors" class="form-control" th:value="${details.numFloors}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="numStoreys">Number of Floors</label>
+                <input type="number" id="numStoreys" name="details.numStoreys" class="form-control" th:value="${details.numStoreys}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="yearBuilt">Year Built</label>
+                <input type="number" id="yearBuilt" name="details.yearBuilt" class="form-control" th:value="${details.yearBuilt}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="numTerracesBalconies">Terraces/Balconies</label>
+                <input type="number" id="numTerracesBalconies" name="details.numTerracesBalconies" class="form-control" th:value="${details.numTerracesBalconies}">
+            </div>
+
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="address.city" class="form-control" th:value="${address.city}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="district">District</label>
+                <input type="text" id="district" name="address.district" class="form-control" th:value="${address.district}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="photos">Photos</label>
+                <input type="file" id="photos" name="photos" class="form-control" multiple>
+            </div>
+
+            <div class="form-group">
+                <form th:action="@{/admin/main/reeal-estates}" method="get">
+                    <button class="btn btn-primary" type="submit">Create Real Estate</button>
+                </form>
+                <a th:href="@{/admin/main/real-estates}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/menu-toggle.js"></script>
+<script src="/js/submenu-toggle.js"></script>
+</body>
+</html>

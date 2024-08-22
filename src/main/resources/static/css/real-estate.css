@@ -53,7 +53,7 @@ body {
     margin-bottom: 20px;
 }
 
-.btn-export {
+.btn-create {
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -62,7 +62,7 @@ body {
     font-size: 14px;
 }
 
-.btn-export:hover {
+.btn-create:hover {
     background-color: #45a049;
 }
 
@@ -332,4 +332,82 @@ body {
 
 .status.answered {
     background-color: #4CAF50;
+}
+
+
+/* Styles specific to the Create Real Estate page */
+.form-container {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #f1f1f1;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    color: #f1f1f1;
+    font-size: 14px;
+}
+
+.form-group input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.form-group input[type="number"]::-webkit-outer-spin-button,
+.form-group input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form-group input[type="file"] {
+    padding: 5px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1976D2;
+}
+
+.btn-secondary {
+    background-color: #f44336;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #e53935;
 }
