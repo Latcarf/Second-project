@@ -44,4 +44,9 @@ public class RealEstate {
     @ManyToOne
     @JoinColumn(name = "new_building_id")
     private NewBuilding newBuilding;
+
+    @PrePersist
+    protected void onCreate() {
+        this.date = LocalDateTime.now();
+    }
 }

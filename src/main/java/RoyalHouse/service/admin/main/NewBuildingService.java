@@ -17,4 +17,9 @@ public class NewBuildingService {
     public List<NewBuilding> getNewBuildings() {
         return newBuildingRepository.findAll();
     }
+
+    public NewBuilding getNewBuildingById(Long id) {
+        return newBuildingRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("No New Building found with id: " + id));
+    }
 }

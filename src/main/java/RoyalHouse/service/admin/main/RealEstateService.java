@@ -45,8 +45,7 @@ public class RealEstateService {
                 .orElseThrow(() -> new IllegalArgumentException("RealEstateId: " + realEstateId + " Not Found"));
     }
 
-    @Transactional
-    public void createRealEstate(RealEstate realEstate, Address address, Details details, Long newBuildingId, List<Photo> photos) {
+    public void createRealEstate(RealEstate realEstate, Address address, Details details, Long newBuildingId) {
         address = addressRepository.save(address);
         realEstate.setAddress(address);
 
@@ -59,8 +58,10 @@ public class RealEstateService {
             realEstate.setNewBuilding(newBuilding);
         }
 
-        realEstate = realEstateRepository.save(realEstate);
+        realEstateRepository.save(realEstate);
+    }
 
+    public void addPhotosToRealEstate(RealEstate realEstate, List<Photo> photos) {
         for (Photo photo : photos) {
             photo.setEntityId(realEstate.getId());
             photoRepository.save(photo);

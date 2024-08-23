@@ -70,7 +70,7 @@ public class RealEstateController {
     public String showCreateForm(Model model) {
         model.addAttribute("realEstate", new RealEstate());
         model.addAttribute("address", new Address());
-        model.addAttribute("details", new Details());
+        model.addAttribute("realEstateDetails", new Details());
         model.addAttribute("newBuildings", newBuildingService.getNewBuildings());
         return "admin/main/real-estate/create-real-estate";
     }
@@ -82,8 +82,12 @@ public class RealEstateController {
                                    @RequestParam(value = "newBuildingId", required = false) Long newBuildingId,
                                    @RequestParam("photos") MultipartFile[] photos) {
 
+        realEstateService.createRealEstate(realEstate, address, details, newBuildingId);
+
         List<Photo> photoList = photoService.savePhotos(Arrays.asList(photos), EntityType.REAL_ESTATE, realEstate.getId());
-        realEstateService.createRealEstate(realEstate, address, details, newBuildingId, photoList);
+
+        realEstateService.addPhotosToRealEstate(realEstate, photoList);
+
         return "redirect:/admin/main/real-estates";
     }
 

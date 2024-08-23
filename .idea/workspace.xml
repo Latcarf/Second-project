@@ -4,25 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="UPD: ERD">
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/DetailsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/PhotoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" afterDir="false" />
+    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="UPD: front for real-estate">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Photo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuildingDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Details.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/RealEstate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/RealEstate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RealEstateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RealEstateService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/real-estate.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/real-estate.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/request.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/request.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estate-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estate-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estates.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estates.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,11 +24,11 @@
         <option value="SCSS File" />
         <option value="JavaScript File" />
         <option value="Less File" />
-        <option value="Enum" />
+        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -52,6 +41,9 @@
     &quot;assignee&quot;: &quot;Latcarf&quot;
   }
 }</component>
+  <component name="GitRewordedCommitMessages">
+    <option name="onto" value="3461b40822c208b0aa404fc64d4798ffa410e9a8" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Latcarf/RoyalHouse.git&quot;,
@@ -68,44 +60,41 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JavaScript Debug.requests.html.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.RoyalHouse [install].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.TestProjectApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IT/Java/projects/RoyalHouse&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.requests.html.executor": "Run",
+    "Maven.RoyalHouse [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.TestProjectApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/IT/Java/projects/RoyalHouse",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="RoyalHouse.repository" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Java\projects\RoyalHouse\src\main\resources\static\css" />
       <recent name="D:\Java\projects\RoyalHouse\src\main\resources\templates\admin" />
@@ -207,6 +196,8 @@
       <workItem from="1723550279902" duration="11620000" />
       <workItem from="1723614060232" duration="1023000" />
       <workItem from="1723803084911" duration="7082000" />
+      <workItem from="1724055741546" duration="3336000" />
+      <workItem from="1724083960114" duration="5871000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />
@@ -280,7 +271,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722064692604</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="UPD: front for real-estate">
+      <option name="closed" value="true" />
+      <created>1724081868012</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1724081868012</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,6 +320,28 @@
     <MESSAGE value="upd: requests and OOP" />
     <MESSAGE value="Fully completed and working: menu, requests, request detail" />
     <MESSAGE value="UPD: Contact" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPD: Contact" />
+    <MESSAGE value="UPD: application.properties" />
+    <MESSAGE value="UPD: front for real-estate" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPD: front for real-estate" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java</url>
+          <line>78</line>
+          <properties class="RoyalHouse.controller.admin.main.RealEstateController" method="createRealEstate">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
