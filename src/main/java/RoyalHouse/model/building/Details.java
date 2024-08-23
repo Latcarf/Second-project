@@ -16,11 +16,11 @@ public class Details {
     @Column(name = "year_built", nullable = false)
     private Integer yearBuilt;
 
-    @Column(name = "num_floors", nullable = false)
+    @Column(name = "num_floors")
     private Integer numFloors;
 
     @Column(name = "num_storeys")
-    private int numStoreys;
+    private Integer numStoreys;
 
     @Column(name = "num_rooms", nullable = false)
     private Integer numRooms;
@@ -39,10 +39,5 @@ public class Details {
 
     @Column(name = "swimming_pool")
     private Boolean swimmingPool;
-
-    @OneToOne(mappedBy = "details")
-    private RealEstate realEstate;
-
-    @OneToOne(mappedBy = "details")
-    private NewBuilding newBuilding;
 }
+

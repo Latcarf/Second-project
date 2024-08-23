@@ -24,17 +24,12 @@ public class NewBuilding {
     @Column(name = "area_sq_m", nullable = false)
     private int areaSqM;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "details_id")
     private Details details;
-
-    @OneToOne(mappedBy = "newBuilding", cascade = CascadeType.ALL)
-    private NewBuildingInfo newBuildingInfo;
 
     @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
-
-    @OneToMany(mappedBy = "newBuilding")
-    private List<RealEstate> realEstates;
 }
+

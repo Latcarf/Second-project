@@ -33,15 +33,15 @@ public class RealEstate {
     @Column(name = "date", nullable = false)
     private LocalDateTime date;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "details_id")
     private Details details;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "new_building_id")
     private NewBuilding newBuilding;
 

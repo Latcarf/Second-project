@@ -80,6 +80,7 @@ public class RealEstateController {
                                    @ModelAttribute Address address,
                                    @ModelAttribute Details details,
                                    @RequestParam(value = "newBuildingId", required = false) Long newBuildingId,
+                                   @RequestParam(value = "newBuildingNumFloors", required = false) Integer newBuildingNumFloors,
                                    @RequestParam("photos") MultipartFile[] photos) {
 
         realEstateService.createRealEstate(realEstate, address, details, newBuildingId);

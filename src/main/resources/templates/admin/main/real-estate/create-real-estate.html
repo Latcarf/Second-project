@@ -39,15 +39,15 @@
                 </select>
             </div>
 
-            <div class="form-group" th:if="${realEstate.type == 'APARTMENT'}">
+            <div id="newBuildingSection" class="form-group" style="display: none;">
                 <label for="newBuildingId">New Building</label>
-                <select id="newBuildingId" name="newBuildingId" class="form-control">
-                    <option th:each="building : ${newBuildings}" th:value="${building.id}"
-                            th:text="${building.name}" th:selected="${realEstate.newBuilding?.id == building.id}">
-                        Building Name
-                    </option>
-                </select>
+                <input type="text" id="newBuildingSearch" class="form-control" placeholder="Enter New Building name...">
+                <input type="hidden" id="newBuildingId" name="newBuildingId">
+
+                <ul id="newBuildingSuggestions" style="list-style-type: none; padding-left: 0;">
+                </ul>
             </div>
+
 
             <div class="form-group">
                 <label for="areaSqM">Area (sq.m.)</label>
@@ -94,7 +94,7 @@
             <div class="form-group">
                 <label for="numTerracesBalconies">Terraces/Balconies</label>
                 <input type="number" id="numTerracesBalconies" name="numTerracesBalconies" class="form-control"
-                       th:value="${realEstateDetails.numTerracesBalconies}">
+                       th:value="${realEstateDetails.numTerracesBalconies}" required>
             </div>
 
             <div class="form-group">
@@ -110,9 +110,29 @@
             </div>
 
             <div class="form-group">
-                <label for="photos">Photos</label>
-                <input type="file" id="photos" name="photos" class="form-control" multiple>
+                <label for="photo1">Photo 1</label>
+                <label class="custom-file-upload">
+                    <input type="file" id="photo1" name="photos" accept="image/*">
+                    <span id="file-chosen1">No file chosen</span>
+                </label>
             </div>
+
+            <div class="form-group">
+                <label for="photo2">Photo 2</label>
+                <label class="custom-file-upload">
+                    <input type="file" id="photo2" name="photos" accept="image/*">
+                    <span id="file-chosen2">No file chosen</span>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="photo3">Photo 3</label>
+                <label class="custom-file-upload">
+                    <input type="file" id="photo3" name="photos" accept="image/*">
+                    <span id="file-chosen3">No file chosen</span>
+                </label>
+            </div>
+
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Create Real Estate</button>
@@ -121,6 +141,12 @@
         </form>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/menu-toggle.js"></script>
+<script src="/js/submenu-toggle.js"></script>
+<script src="/js/new-buildings-list.js"></script>
+<script src="/js/add-file.js"></script>
 
 </body>
 </html>

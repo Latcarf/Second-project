@@ -38,4 +38,9 @@ public class Request {
 
     @Column(name = "status", nullable = false, length = 50)
     private String status;
+
+    @PrePersist
+    protected void onCreate() {
+        this.date = LocalDateTime.now();
+    }
 }

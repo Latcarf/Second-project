@@ -4,14 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="UPD: front for real-estate">
+    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="create real-estate">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/real_estate/57/0caf401a-9bf0-4ecf-af36-98896e00bf32_pexels-pixabay-276724.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/real_estate/57/5742a473-7315-4f26-82de-dd5979c0e81b_pexels-sevenstormphotography-439391 (1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/real_estate/57/64c48ab7-5563-4b97-83b6-186e080fecae_pexels-chaitaastic-1918291.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/add-file.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/new-buildings-list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/NewBuildingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/NewBuildingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Details.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Details.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/RealEstate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/RealEstate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/building/NewBuildingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/building/NewBuildingRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RealEstateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RealEstateService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/real-estate.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/real-estate.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estate-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estate-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estates.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estates.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,13 +36,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="SCSS File" />
-        <option value="JavaScript File" />
         <option value="Less File" />
         <option value="HTML File" />
         <option value="CSS File" />
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -279,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724081868012</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="create real-estate">
+      <option name="closed" value="true" />
+      <created>1724428095892</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1724428095892</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,24 +344,20 @@
     <MESSAGE value="UPD: Contact" />
     <MESSAGE value="UPD: application.properties" />
     <MESSAGE value="UPD: front for real-estate" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPD: front for real-estate" />
+    <MESSAGE value="create real-estate" />
+    <option name="LAST_COMMIT_MESSAGE" value="create real-estate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java</url>
-          <line>78</line>
-          <properties class="RoyalHouse.controller.admin.main.RealEstateController" method="createRealEstate">
+          <url>file://$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java</url>
+          <line>25</line>
+          <properties class="RoyalHouse.service.admin.main.NewBuildingService" method="searchNewBuildings">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="7" />
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

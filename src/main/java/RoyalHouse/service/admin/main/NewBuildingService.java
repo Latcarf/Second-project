@@ -22,4 +22,8 @@ public class NewBuildingService {
         return newBuildingRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("No New Building found with id: " + id));
     }
+
+    public List<NewBuilding> searchNewBuildings(String query) {
+        return newBuildingRepository.findByNameContainingIgnoreCase(query);
+    }
 }

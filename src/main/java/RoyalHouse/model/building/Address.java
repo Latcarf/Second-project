@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @Entity
@@ -14,12 +15,6 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "address_id")
     private Long id;
-
-    @OneToOne(mappedBy = "address")
-    private NewBuilding newBuilding;
-
-    @OneToOne(mappedBy = "address")
-    private RealEstate realEstate;
 
     @Column(name = "city", nullable = false, length = 100)
     private String city;
@@ -33,3 +28,4 @@ public class Address {
     @Column(name = "longitude", precision = 10, scale = 7)
     private BigDecimal longitude;
 }
+
