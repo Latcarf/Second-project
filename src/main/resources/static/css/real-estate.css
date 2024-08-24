@@ -335,6 +335,83 @@ body {
 }
 
 
+/* Styles for photo gallery */
+.real-estate-gallery {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+}
+
+.real-estate-gallery input[type="radio"] {
+    display: none;
+}
+
+.gallery-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery-images > div {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.gallery-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Gallery controls */
+.gallery-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.gallery-controls label {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.gallery-controls label:hover,
+.gallery-controls label:active {
+    background-color: #4FC3A1;
+}
+
+/* Changing gallery images based on radio button selection */
+#img1:checked ~ .gallery-images {
+    transform: translateX(0%);
+}
+
+#img2:checked ~ .gallery-images {
+    transform: translateX(-100%);
+}
+
+#img3:checked ~ .gallery-images {
+    transform: translateX(-200%);
+}
+
+/* Active state for gallery controls */
+#img1:checked ~ .gallery-controls label[for="img1"],
+#img2:checked ~ .gallery-controls label[for="img2"],
+#img3:checked ~ .gallery-controls label[for="img3"] {
+    background-color: #4FC3A1;
+}
+
+
 /* Styles specific to the Create Real Estate page */
 .form-container {
     background-color: #1f1f1f;
@@ -438,4 +515,6 @@ body {
     font-style: italic;
     width: auto;
 }
+
+
 

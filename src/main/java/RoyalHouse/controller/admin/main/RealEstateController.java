@@ -62,7 +62,9 @@ public class RealEstateController {
     @GetMapping("/{id}")
     public String getRealEstate(@PathVariable Long id, Model model) {
         RealEstate realEstate = realEstateService.getRealEstateById(id);
+        List<Photo> photos = realEstateService.getPhotosForRealEstate(id);
         model.addAttribute("realEstate", realEstate);
+        model.addAttribute("photos", photos);
         return "admin/main/real-estate/real-estate-details";
     }
 

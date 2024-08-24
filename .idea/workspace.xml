@@ -4,28 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="create real-estate">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/real_estate/57/0caf401a-9bf0-4ecf-af36-98896e00bf32_pexels-pixabay-276724.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/real_estate/57/5742a473-7315-4f26-82de-dd5979c0e81b_pexels-sevenstormphotography-439391 (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/real_estate/57/64c48ab7-5563-4b97-83b6-186e080fecae_pexels-chaitaastic-1918291.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/add-file.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/new-buildings-list.js" afterDir="false" />
+    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="Completed - functional creation of real estate">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/NewBuildingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/NewBuildingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Details.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Details.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/RealEstate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/RealEstate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/building/NewBuildingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/building/NewBuildingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/PhotoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/PhotoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RealEstateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RealEstateService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/real-estate.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/real-estate.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estate-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estate-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estates.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estates.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,40 +61,40 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.requests.html.executor": "Run",
-    "Maven.RoyalHouse [install].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.TestProjectApplication.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/IT/Java/projects/RoyalHouse",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.requests.html.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.RoyalHouse [install].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.TestProjectApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/IT/Java/projects/RoyalHouse&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Java\projects\RoyalHouse\src\main\resources\static\css" />
@@ -212,6 +199,7 @@
       <workItem from="1723803084911" duration="7082000" />
       <workItem from="1724055741546" duration="3336000" />
       <workItem from="1724083960114" duration="5871000" />
+      <workItem from="1724479368728" duration="3561000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />
@@ -301,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724428095892</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Completed - functional creation of real estate">
+      <option name="closed" value="true" />
+      <created>1724445750221</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1724445750221</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,7 +341,8 @@
     <MESSAGE value="UPD: application.properties" />
     <MESSAGE value="UPD: front for real-estate" />
     <MESSAGE value="create real-estate" />
-    <option name="LAST_COMMIT_MESSAGE" value="create real-estate" />
+    <MESSAGE value="Completed - functional creation of real estate" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed - functional creation of real estate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

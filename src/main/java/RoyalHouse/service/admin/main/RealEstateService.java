@@ -5,6 +5,7 @@ import RoyalHouse.model.building.Address;
 import RoyalHouse.model.building.Details;
 import RoyalHouse.model.building.NewBuilding;
 import RoyalHouse.model.building.RealEstate;
+import RoyalHouse.model.modelEnum.EntityType;
 import RoyalHouse.repository.building.AddressRepository;
 import RoyalHouse.repository.DetailsRepository;
 import RoyalHouse.repository.PhotoRepository;
@@ -38,6 +39,10 @@ public class RealEstateService {
         this.detailsRepository = detailsRepository;
         this.newBuildingRepository = newBuildingRepository;
         this.photoRepository = photoRepository;
+    }
+
+    public List<Photo> getPhotosForRealEstate(Long realEstateId) {
+        return photoRepository.findByEntityIdAndEntityType(realEstateId, EntityType.REAL_ESTATE);
     }
 
     public RealEstate getRealEstateById(Long realEstateId) {
