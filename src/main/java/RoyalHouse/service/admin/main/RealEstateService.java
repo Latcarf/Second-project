@@ -1,16 +1,14 @@
 package RoyalHouse.service.admin.main;
 
-import RoyalHouse.model.Photo;
 import RoyalHouse.model.building.Address;
 import RoyalHouse.model.building.Details;
 import RoyalHouse.model.building.NewBuilding;
 import RoyalHouse.model.building.RealEstate;
-import RoyalHouse.model.modelEnum.EntityType;
-import RoyalHouse.repository.building.AddressRepository;
 import RoyalHouse.repository.DetailsRepository;
-import RoyalHouse.repository.PhotoRepository;
+import RoyalHouse.repository.building.AddressRepository;
 import RoyalHouse.repository.building.NewBuildingRepository;
 import RoyalHouse.repository.building.RealEstateRepository;
+import RoyalHouse.service.PhotoService;
 import RoyalHouse.specification.RealEstateSpecification;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.data.domain.Page;
@@ -18,9 +16,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -29,20 +25,15 @@ public class RealEstateService {
     private final AddressRepository addressRepository;
     private final DetailsRepository detailsRepository;
     private final NewBuildingRepository newBuildingRepository;
-    private final PhotoRepository photoRepository;
+    private final PhotoService photoService;
 
     public RealEstateService(RealEstateRepository realEstateRepository, AddressRepository addressRepository,
-                             DetailsRepository detailsRepository, NewBuildingRepository newBuildingRepository,
-                             PhotoRepository photoRepository) {
+                             DetailsRepository detailsRepository, NewBuildingRepository newBuildingRepository, PhotoService photoService) {
         this.realEstateRepository = realEstateRepository;
         this.addressRepository = addressRepository;
         this.detailsRepository = detailsRepository;
         this.newBuildingRepository = newBuildingRepository;
-        this.photoRepository = photoRepository;
-    }
-
-    public List<Photo> getPhotosForRealEstate(Long realEstateId) {
-        return photoRepository.findByEntityIdAndEntityType(realEstateId, EntityType.REAL_ESTATE);
+        this.photoService = photoService;
     }
 
     public RealEstate getRealEstateById(Long realEstateId) {
@@ -50,6 +41,7 @@ public class RealEstateService {
                 .orElseThrow(() -> new IllegalArgumentException("RealEstateId: " + realEstateId + " Not Found"));
     }
 
+    @Transactional
     public void createRealEstate(RealEstate realEstate, Address address, Details details, Long newBuildingId) {
         address = addressRepository.save(address);
         realEstate.setAddress(address);
@@ -64,13 +56,6 @@ public class RealEstateService {
         }
 
         realEstateRepository.save(realEstate);
-    }
-
-    public void addPhotosToRealEstate(RealEstate realEstate, List<Photo> photos) {
-        for (Photo photo : photos) {
-            photo.setEntityId(realEstate.getId());
-            photoRepository.save(photo);
-        }
     }
 
     public Page<RealEstate> getRealEstates(String name, String type, Integer room, PageRequest pageRequest) {
@@ -89,7 +74,12 @@ public class RealEstateService {
         return realEstateRepository.findAll(spec, pageRequest);
     }
 
+
     public void deleteRealEstate(Long id) {
-        realEstateRepository.deleteById(id);
+        RealEstate realEstate = getRealEstateById(id);
+
+        photoService.deletePhotoFile(realEstate.getPhotoUrls());
+
+        realEstateRepository.delete(realEstate);
     }
 }

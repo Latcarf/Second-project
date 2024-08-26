@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
@@ -32,6 +33,11 @@ public class RealEstate {
 
     @Column(name = "date", nullable = false)
     private LocalDateTime date;
+
+    @ElementCollection
+    @CollectionTable(name = "real_estate_photos", joinColumns = @JoinColumn(name = "real_estate_id"))
+    @Column(name = "photo_url")
+    private List<String> photoUrls;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "details_id")

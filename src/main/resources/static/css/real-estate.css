@@ -70,7 +70,7 @@ body {
     background-color: #1f1f1f;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 35px 50px rgba(0, 0, 0, 0.2);
 }
 
 .fl-table {
@@ -262,7 +262,7 @@ body {
     background-color: #1f1f1f;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 35px 50px rgba(0, 0, 0, 0.2);
 }
 
 .details-table {
@@ -339,11 +339,11 @@ body {
 .real-estate-gallery {
     position: relative;
     width: 100%;
-    max-width: 600px;
+    max-width: 1000px;
     margin: 20px auto;
     overflow: hidden;
-    border-radius: 5px;
-    box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 35px 50px rgba(0, 0, 0, 0.2);
 }
 
 .real-estate-gallery input[type="radio"] {
@@ -358,15 +358,17 @@ body {
 .gallery-images > div {
     min-width: 100%;
     box-sizing: border-box;
+    position: relative;
 }
 
 .gallery-images img {
     width: 100%;
     height: auto;
+    object-fit: cover;
     border-radius: 5px;
+    display: block;
 }
 
-/* Gallery controls */
 .gallery-controls {
     position: absolute;
     bottom: 10px;
@@ -375,6 +377,10 @@ body {
     display: flex;
     justify-content: center;
     gap: 10px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5); /* Добавляет фон для контрастности */
+    padding: 5px 10px;
+    border-radius: 20px;
 }
 
 .gallery-controls label {
@@ -412,12 +418,13 @@ body {
 }
 
 
+
 /* Styles specific to the Create Real Estate page */
 .form-container {
     background-color: #1f1f1f;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 35px 50px rgba(0, 0, 0, 0.3);
     max-width: 600px;
     margin: 0 auto;
 }
