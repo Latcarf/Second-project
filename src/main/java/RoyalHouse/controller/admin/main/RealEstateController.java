@@ -1,5 +1,6 @@
 package RoyalHouse.controller.admin.main;
 
+import RoyalHouse.dto.Pagination;
 import RoyalHouse.model.building.Address;
 import RoyalHouse.model.building.Details;
 import RoyalHouse.model.building.RealEstate;
@@ -7,16 +8,15 @@ import RoyalHouse.service.PhotoService;
 import RoyalHouse.service.admin.main.NewBuildingService;
 import RoyalHouse.service.admin.main.RealEstateService;
 import jakarta.transaction.Transactional;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/admin/main/real-estates")
@@ -34,22 +34,20 @@ public class RealEstateController {
 
     @GetMapping
     public String getRealEstates(@RequestParam(defaultValue = "1") int page,
-                                 @RequestParam(defaultValue = "5") int size,
                                  @RequestParam(value = "name", required = false) String name,
                                  @RequestParam(value = "type", required = false) String type,
                                  @RequestParam(value = "room", required = false) Integer room,
                                  Model model) {
-        PageRequest pageRequest = PageRequest.of(page - 1, size, Sort.by(Sort.Direction.DESC, "date"));
-        Page<RealEstate> realEstates = realEstateService.getRealEstates(name, type, room, pageRequest);
 
-        int startPage = Math.max(1, (page - 1) / 10 * 10 + 1);
-        int endPage = Math.min(startPage + 9, realEstates.getTotalPages());
+        Map<String, Object> filterParams = new HashMap<>();
+        if (name != null) filterParams.put("name", name);
+        if (type != null) filterParams.put("type", type);
+        if (room != null) filterParams.put("room", room);
 
-        model.addAttribute("realEstates", realEstates.getContent());
-        model.addAttribute("currentPage", page);
-        model.addAttribute("totalPages", realEstates.getTotalPages());
-        model.addAttribute("startPage", startPage);
-        model.addAttribute("endPage", endPage);
+        Pagination<RealEstate> pagination = Pagination.create(page, realEstateService, filterParams);
+
+        model.addAttribute("realEstates", pagination.getPageData().getContent());
+        model.addAttribute("pagination", pagination);
         model.addAttribute("name", name);
         model.addAttribute("type", type);
         model.addAttribute("room", room);
@@ -68,7 +66,6 @@ public class RealEstateController {
         model.addAttribute("photos", photos);
         return "admin/main/real-estate/real-estate-details";
     }
-
 
     @GetMapping("/create")
     public String showCreateForm(Model model) {
@@ -95,9 +92,6 @@ public class RealEstateController {
 
         return "redirect:/admin/main/real-estates";
     }
-
-
-
 
     @PostMapping("/delete/{id}")
     public String deleteRealEstate(@PathVariable Long id,

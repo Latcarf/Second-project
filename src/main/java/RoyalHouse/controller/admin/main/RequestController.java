@@ -1,5 +1,6 @@
 package RoyalHouse.controller.admin.main;
 
+import RoyalHouse.dto.Pagination;
 import RoyalHouse.model.Request;
 import RoyalHouse.service.admin.main.EmailService;
 import RoyalHouse.service.admin.main.ExportService;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/admin/main/requests")
@@ -58,17 +61,17 @@ public class RequestController {
                               @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
                               @RequestParam(value = "status", required = false) String status,
                               Model model) {
-        PageRequest pageRequest = PageRequest.of(page - 1, size, Sort.by(Sort.Direction.DESC, "date"));
-        Page<Request> requests = requestService.getRequests(name, phone, email, date, status, pageRequest);
+        Map<String, Object> filterParams = new HashMap<>();
+        if (name != null) filterParams.put("name", name);
+        if (phone != null) filterParams.put("phone", phone);
+        if (email != null) filterParams.put("email", email);
+        if (date != null) filterParams.put("date", date);
+        if (status != null) filterParams.put("status", status);
 
-        int startPage = Math.max(1, (page - 1) / 10 * 10 + 1);
-        int endPage = Math.min(startPage + 9, requests.getTotalPages());
+        Pagination<Request> pagination = Pagination.create(page, requestService, filterParams);
 
-        model.addAttribute("requests", requests.getContent());
-        model.addAttribute("currentPage", page);
-        model.addAttribute("totalPages", requests.getTotalPages());
-        model.addAttribute("startPage", startPage);
-        model.addAttribute("endPage", endPage);
+        model.addAttribute("requests", pagination.getPageData().getContent());
+        model.addAttribute("pagination", pagination);
         model.addAttribute("name", name);
         model.addAttribute("phone", phone);
         model.addAttribute("email", email);
@@ -77,16 +80,14 @@ public class RequestController {
         return "admin/main/request/requests";
     }
 
+
+
     @GetMapping("/export")
     public ResponseEntity<ByteArrayResource> exportToExcel(
-            @RequestParam(value = "name", required = false) String name,
-            @RequestParam(value = "phone", required = false) String phone,
-            @RequestParam(value = "email", required = false) String email,
-            @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
-            @RequestParam(value = "status", required = false) String status) {
+            @RequestParam Map<String, Object> allParams) {
         try {
             PageRequest pageRequest = PageRequest.of(0, Integer.MAX_VALUE, Sort.by(Sort.Direction.DESC, "date"));
-            Page<Request> requestsPage = requestService.getRequests(name, phone, email, date, status, pageRequest);
+            Page<Request> requestsPage = requestService.getPage(pageRequest, allParams);
             byte[] excelData = exportService.exportRequestsToExcel(requestsPage.getContent());
 
             ByteArrayResource resource = new ByteArrayResource(excelData);
@@ -105,6 +106,7 @@ public class RequestController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
 
 
     @GetMapping("/{id}")

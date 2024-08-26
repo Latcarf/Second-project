@@ -108,18 +108,17 @@
         </table>
 
         <div class="pagination">
-            <span th:if="${startPage > 1}">
-                <a th:href="@{/admin/main/real-estates(page=${startPage - 10 > 0 ? startPage - 10 : 1}, name=${name}, type=${type}, room=${room})}">&lt;&lt;</a>
+            <span th:if="${pagination.startPage > 1}">
+                <a th:href="@{/admin/main/real-estates(page=${pagination.startPage - 10 > 0 ? pagination.startPage - 10 : 1}, name=${name}, type=${type}, room=${room})}">&lt;&lt;</a>
             </span>
 
-            <span th:each="i : ${#numbers.sequence(startPage, endPage)}">
+            <span th:each="i : ${#numbers.sequence(pagination.startPage, pagination.endPage)}">
                 <a th:href="@{/admin/main/real-estates(page=${i}, name=${name}, type=${type}, room=${room})}"
-                   th:text="${i}" th:classappend="${i == currentPage} ? 'active' : ''">
-                </a>
+                   th:text="${i}" th:classappend="${i == pagination.currentPage} ? 'active' : ''"></a>
             </span>
 
-            <span th:if="${endPage < totalPages}">
-                <a th:href="@{/admin/main/real-estates(page=${endPage + 1}, name=${name}, type=${type}, room=${room})}">&gt;&gt;</a>
+            <span th:if="${pagination.endPage < pagination.totalPages}">
+                <a th:href="@{/admin/main/real-estates(page=${pagination.endPage + 1}, name=${name}, type=${type}, room=${room})}">&gt;&gt;</a>
             </span>
         </div>
     </div>

@@ -8,6 +8,7 @@ import RoyalHouse.repository.DetailsRepository;
 import RoyalHouse.repository.building.AddressRepository;
 import RoyalHouse.repository.building.NewBuildingRepository;
 import RoyalHouse.repository.building.RealEstateRepository;
+import RoyalHouse.service.PaginationService;
 import RoyalHouse.service.PhotoService;
 import RoyalHouse.specification.RealEstateSpecification;
 import io.micrometer.common.util.StringUtils;
@@ -17,10 +18,11 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Map;
 import java.util.Objects;
 
 @Service
-public class RealEstateService {
+public class RealEstateService implements PaginationService<RealEstate> {
     private final RealEstateRepository realEstateRepository;
     private final AddressRepository addressRepository;
     private final DetailsRepository detailsRepository;
@@ -58,8 +60,13 @@ public class RealEstateService {
         realEstateRepository.save(realEstate);
     }
 
-    public Page<RealEstate> getRealEstates(String name, String type, Integer room, PageRequest pageRequest) {
+    @Override
+    public Page<RealEstate> getPage(PageRequest pageRequest, Map<String, Object> filterParams) {
         Specification<RealEstate> spec = Specification.where(null);
+
+        String name = (String) filterParams.get("name");
+        String type = (String) filterParams.get("type");
+        Integer room = (Integer) filterParams.get("room");
 
         if (StringUtils.isNotBlank(name)) {
             spec = spec.and(RealEstateSpecification.hasName(name));
@@ -73,7 +80,6 @@ public class RealEstateService {
 
         return realEstateRepository.findAll(spec, pageRequest);
     }
-
 
     public void deleteRealEstate(Long id) {
         RealEstate realEstate = getRealEstateById(id);

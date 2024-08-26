@@ -112,18 +112,18 @@
         </table>
 
         <div class="pagination">
-            <span th:if="${startPage > 1}">
-                <a th:href="@{/admin/main/requests(page=${startPage - 10 > 0 ? startPage - 10 : 1}, name=${name}, phone=${phone}, email=${email}, date=${date}, status=${status})}">&lt;&lt;</a>
+            <span th:if="${pagination.startPage > 1}">
+                <a th:href="@{/admin/main/requests(page=${pagination.startPage - 10 > 0 ? pagination.startPage - 10 : 1}, name=${name}, phone=${phone}, email=${email}, date=${date}, status=${status})}">&lt;&lt;</a>
             </span>
 
-            <span th:each="i : ${#numbers.sequence(startPage, endPage)}">
+            <span th:each="i : ${#numbers.sequence(pagination.startPage, pagination.endPage)}">
                 <a th:href="@{/admin/main/requests(page=${i}, name=${name}, phone=${phone}, email=${email}, date=${date}, status=${status})}"
-                   th:text="${i}" th:classappend="${i == currentPage} ? 'active' : ''">
+                   th:text="${i}" th:classappend="${i == pagination.currentPage} ? 'active' : ''">
                 </a>
             </span>
 
-            <span th:if="${endPage < totalPages}">
-                <a th:href="@{/admin/main/requests(page=${endPage + 1}, name=${name}, phone=${phone}, email=${email}, date=${date}, status=${status})}">&gt;&gt;</a>
+            <span th:if="${pagination.endPage < pagination.totalPages}">
+                <a th:href="@{/admin/main/requests(page=${pagination.endPage + 1}, name=${name}, phone=${phone}, email=${email}, date=${date}, status=${status})}">&gt;&gt;</a>
             </span>
         </div>
     </div>

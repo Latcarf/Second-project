@@ -24,6 +24,11 @@ public class NewBuilding {
     @Column(name = "area_sq_m", nullable = false)
     private int areaSqM;
 
+    @ElementCollection
+    @CollectionTable(name = "new_building_photos", joinColumns = @JoinColumn(name = "new_building_id"))
+    @Column(name = "photo_url")
+    private List<String> photoUrls;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "details_id")
     private Details details;

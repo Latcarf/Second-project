@@ -3,6 +3,7 @@ package RoyalHouse.service.admin.main;
 import RoyalHouse.model.Request;
 import RoyalHouse.repository.RequestRepository;
 import RoyalHouse.model.modelEnum.Status;
+import RoyalHouse.service.PaginationService;
 import RoyalHouse.specification.RequestSpecification;
 import RoyalHouse.util.Exception.*;
 import RoyalHouse.util.RegEx;
@@ -15,10 +16,11 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Map;
 import java.util.Objects;
 
 @Service
-public class RequestService {
+public class RequestService implements PaginationService<Request> {
     private static final Logger logger = LoggerFactory.getLogger(RequestService.class);
 
     private final RequestRepository requestRepository;
@@ -51,8 +53,15 @@ public class RequestService {
                 .orElseThrow(() -> new IllegalArgumentException("Request with ID: " + requestId + " not found"));
     }
 
-    public Page<Request> getRequests(String name, String phone, String email, LocalDate date, String status, PageRequest pageRequest) {
+    @Override
+    public Page<Request> getPage(PageRequest pageRequest, Map<String, Object> filterParams) {
         Specification<Request> spec = Specification.where(null);
+
+        String name = (String) filterParams.get("name");
+        String phone = (String) filterParams.get("phone");
+        String email = (String) filterParams.get("email");
+        LocalDate date = (LocalDate) filterParams.get("date");
+        String status = (String) filterParams.get("status");
 
         if (StringUtils.isNotBlank(name)) {
             spec = spec.and(RequestSpecification.hasName(name));
