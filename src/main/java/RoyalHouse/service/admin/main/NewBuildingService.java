@@ -3,6 +3,7 @@ package RoyalHouse.service.admin.main;
 import RoyalHouse.model.building.NewBuilding;
 import RoyalHouse.model.building.RealEstate;
 import RoyalHouse.repository.building.NewBuildingRepository;
+import RoyalHouse.service.PaginationService;
 import RoyalHouse.specification.NewBuildingSpecification;
 import RoyalHouse.specification.RealEstateSpecification;
 import io.micrometer.common.util.StringUtils;
@@ -12,18 +13,24 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @Service
-public class NewBuildingService {
+public class NewBuildingService implements PaginationService<NewBuilding> {
     private final NewBuildingRepository newBuildingRepository;
 
     public NewBuildingService(NewBuildingRepository newBuildingRepository) {
         this.newBuildingRepository = newBuildingRepository;
     }
 
-    public Page<NewBuilding> getNewBuildings(String name, String address, String status, PageRequest pageRequest) {
+    @Override
+    public Page<NewBuilding> getPage(PageRequest pageRequest, Map<String, Object> filterParams) {
         Specification<NewBuilding> spec = Specification.where(null);
+
+        String name = (String) filterParams.get("name");
+        String address = (String) filterParams.get("address");
+        String status = (String) filterParams.get("status");
 
         if (StringUtils.isNotBlank(name)) {
             spec = spec.and(NewBuildingSpecification.hasName(name));

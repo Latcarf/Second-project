@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/admin/main/requests")
@@ -61,11 +62,11 @@ public class RequestController {
                               @RequestParam(value = "status", required = false) String status,
                               Model model) {
         Map<String, Object> filterParams = new HashMap<>();
-        if (name != null) filterParams.put("name", name);
-        if (phone != null) filterParams.put("phone", phone);
-        if (email != null) filterParams.put("email", email);
-        if (date != null) filterParams.put("date", date);
-        if (status != null) filterParams.put("status", status);
+        if (Objects.nonNull(name)) filterParams.put("name", name);
+        if (Objects.nonNull(phone)) filterParams.put("phone", phone);
+        if (Objects.nonNull(email)) filterParams.put("email", email);
+        if (Objects.nonNull(date)) filterParams.put("date", date);
+        if (Objects.nonNull(status)) filterParams.put("status", status);
 
         Pagination<Request> pagination = Pagination.create(page, requestService, filterParams);
 

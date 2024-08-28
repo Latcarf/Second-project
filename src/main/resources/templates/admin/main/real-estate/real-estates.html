@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Real Estate</title>
+
     <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
-    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
-    <link rel="stylesheet" th:href="@{/css/menu.css}"/>
-    <link rel="stylesheet" th:href="@{/css/real-estate.css}"/>
+    <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
+
+    <link rel="stylesheet" th:href="@{/css/admin/main/real-estate.css}"/>
 </head>
+
 <body>
 <div th:replace="~{admin/menu :: menu}"></div>
 
@@ -22,7 +24,7 @@
 
     <div class="actions">
         <form th:action="@{/admin/main/real-estates/create}" method="get">
-            <button class="btn-create" type="submit">Create new real estate</button>
+            <button class="btn btn-create" type="submit">Create new real estate</button>
         </form>
     </div>
 
@@ -57,15 +59,15 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><input type="number" class="filter-input filter-room" name="room" th:value="${filterParams['room']}" placeholder="Rooms"/>
+                    <td><input type="number" class="filter-input filter-room" name="room" th:value="${filterParams['room']}" placeholder="Rooms"/></td>
                     </td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td>
-                        <div class="btn-group">
-                            <button class="btn-filter" type="submit">Filter</button>
-                            <a class="btn-clear" th:href="@{/admin/main/real-estates}">Clear</a>
+                        <div class="btn btn-group">
+                            <button class="btn btn-filter" type="submit">Filter</button>
+                            <a class="btn btn-clear" th:href="@{/admin/main/real-estates}">Clear</a>
                         </div>
                     </td>
                 </form>
@@ -86,17 +88,17 @@
                 <td th:text="${realEstate.details.numStoreys}"></td>
                 <td th:text="${#temporals.format(realEstate.date, 'dd.MM.yyyy - HH:mm')}"></td>
                 <td>
-                    <div class="btn-group">
+                    <div class="btn btn-group">
                         <form th:action="@{/admin/main/real-estates/{id}(id=${realEstate.id})}" method="get"
                               style="display:inline;">
-                            <button class="btn-action" type="submit">View</button>
+                            <button class="btn btn-action" type="submit">View</button>
                         </form>
                         <form th:action="@{/admin/main/real-estates/delete/{id}(id=${realEstate.id})}" method="post" style="display:inline;">
                             <input type="hidden" name="page" th:value="${pagination.currentPage}"/>
                             <input type="hidden" name="name" th:value="${filterParams['name']}"/>
                             <input type="hidden" name="type" th:value="${filterParams['type']}"/>
                             <input type="hidden" name="room" th:value="${filterParams['room']}"/>
-                            <button class="btn-delete" type="submit">Delete</button>
+                            <button class="btn btn-delete" type="submit">Delete</button>
                         </form>
                     </div>
                 </td>

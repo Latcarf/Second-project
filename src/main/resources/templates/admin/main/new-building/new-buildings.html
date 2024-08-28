@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Building</title>
+
+    <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
+    <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
+
+    <link rel="stylesheet" th:href="@{/css/new-building.css}"/>
+</head>
+
+<body>
+<div th:replace="~{admin/menu :: menu}"></div>
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h2 class="page-title">New Buildings</h2>
+        <div class="breadcrumb">
+            <a th:href="@{/admin/menu}">Home</a> >
+            <a th:href="@{/admin/main/new-buildings}">New Buildings</a>
+        </div>
+    </div>
+
+    <div class="actions">
+        <form th:action="@{/admin/main/new-buildings/create}" method="get">
+            <button class="btn btn-create" type="submit">Create new New Building</button>
+        </form>
+    </div>
+
+    <div class="table-container">
+        <table class="fl-table">
+            <thead>
+            <tr>
+                <th>Sorting order</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            <tr class="filters">
+                <form th:action="@{/admin/main/new-buildings}" method="get" style="display: contents;">
+                    <td></td>
+                    <td><input type="text" class="filter-input filter-name" name="name" th:value="${filterParams['name']}" placeholder="Name"/></td>
+                    <td><input type="text" class="filter-input filter-name" name="address" th:value="${filterParams['address']}" placeholder="Address"/></td>
+                    <td>
+                        <select class="filter-select" name="status">
+                            <option value="" th:selected="${filterParams['status'] == ''}">All</option>
+                            <option value="ACTIVE" th:selected="${filterParams['status'] == 'ACTIVE'}">Active</option>
+                            <option value="DEACTIVATED" th:selected="${filterParams['status'] == 'DEACTIVATED'}">Deactivated</option>
+                        </select>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div class="btn btn-group">
+                            <button class="btn btn-filter" type="submit">Filter</button>
+                            <a class="btn btn-clear" th:href="@{/admin/main/new-buildings}">Clear</a>
+                        </div>
+                    </td>
+                </form>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="newBuilding : ${newBuildings}">
+                <td th:text="${newBuilding.sortingOrder}"></td>
+                <td th:text="${newBuilding.name}"></td>
+                <td th:text="${newBuilding.address.city} + ', ' + ${newBuilding.address.district}"></td>
+                <td>
+                    <form th:action="@{/admin/main/new-buildings/changeStatus/{id}(id=${newBuilding.id})}" method="get">
+                        <input type="hidden" name="page" th:value="${pagination.currentPage}"/>
+                        <input type="hidden" name="name" th:value="${filterParams['name']}"/>
+                        <input type="hidden" name="address" th:value="${filterParams['address']}"/>
+                        <input type="hidden" name="status" th:value="${filterParams['status']}"/>
+                        <button class="btn btn-status" th:classappend="' ' + ${newBuilding.status.toLowerCase()}"
+                                th:text="${newBuilding.status}" type="submit"></button>
+                    </form>
+                </td>
+                <td></td>
+                <td>
+                    <div class="btn btn-group">
+                        <form th:action="@{/admin/main/new-buildings/edit/{id}(id=${newBuilding.id})}" method="get"
+                              style="display:inline;">
+                            <button class="btn btn-action" type="submit">Edit</button>
+                        </form>
+                        <form th:action="@{/admin/main/new-buildings/delete/{id}(id=${newBuilding.id})}" method="post" style="display:inline;">
+                            <input type="hidden" name="page" th:value="${pagination.currentPage}"/>
+                            <input type="hidden" name="name" th:value="${filterParams['name']}"/>
+                            <input type="hidden" name="address" th:value="${filterParams['address']}"/>
+                            <input type="hidden" name="status" th:value="${filterParams['status']}"/>
+                            <button class="btn btn-delete" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <span th:if="${pagination.startPage > 1}">
+                <a th:href="@{/admin/main/real-estates(page=${pagination.startPage - 10 > 0 ? pagination.startPage - 10 : 1}, name=${filterParams['name']}, type=${filterParams['type']}, room=${filterParams['room']})}">&lt;&lt;</a>
+            </span>
+
+            <span th:each="i : ${#numbers.sequence(pagination.startPage, pagination.endPage)}">
+                <a th:href="@{/admin/main/real-estates(page=${i}, name=${filterParams['name']}, type=${filterParams['type']}, room=${filterParams['room']})}"
+                   th:text="${i}" th:classappend="${i == pagination.currentPage} ? 'active' : ''"></a>
+            </span>
+
+            <span th:if="${pagination.endPage < pagination.totalPages}">
+                <a th:href="@{/admin/main/real-estates(page=${pagination.endPage + 1}, name=${filterParams['name']}, type=${filterParams['type']}, room=${filterParams['room']})}">&gt;&gt;</a>
+            </span>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/menu-toggle.js"></script>
+<script src="/js/submenu-toggle.js"></script>
+</body>
+</html>

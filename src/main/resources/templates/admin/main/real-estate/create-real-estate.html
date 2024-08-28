@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Real Estate</title>
+
     <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
-    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
-    <link rel="stylesheet" th:href="@{/css/menu.css}"/>
-    <link rel="stylesheet" th:href="@{/css/real-estate.css}"/>
+    <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
+
+    <link rel="stylesheet" th:href="@{/css/admin/main/real-estate.css}"/>
 </head>
+
 <body>
 <div th:replace="~{admin/menu :: menu}"></div>
 
@@ -136,7 +138,7 @@
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Create Real Estate</button>
-                <a th:href="@{/admin/main/real-estates}" class="btn btn-secondary">Cancel</a>
+                <a th:href="@{/admin/main/real-estates}" class="btn btn-cancel">Cancel</a>
             </div>
         </form>
     </div>

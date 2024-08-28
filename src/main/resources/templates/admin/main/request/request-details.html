@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Request Details</title>
+
     <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
-    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
-    <link rel="stylesheet" th:href="@{/css/menu.css}"/>
-    <link rel="stylesheet" th:href="@{/css/request.css}"/>
+    <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
+
+    <link rel="stylesheet" th:href="@{/css/admin/main/request.css}"/>
 </head>
+
 <body>
 <div th:replace="~{admin/menu :: menu}"></div>
 

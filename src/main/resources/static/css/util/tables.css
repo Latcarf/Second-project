@@ -1,0 +1,107 @@
+/* tables.css */
+
+/* Container for tables with padding and shadow */
+.table-container {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 35px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* General table styles */
+.fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: #2e2e2e;
+}
+
+/* Styling for table headers and cells */
+.fl-table th, .fl-table td {
+    text-align: center;
+    padding: 8px;
+    color: #f1f1f1;
+}
+
+/* Styling for table headers */
+.fl-table thead th {
+    background: #4FC3A1;
+}
+
+/* Alternate background for odd-numbered header columns */
+.fl-table thead th:nth-child(odd) {
+    background: #324960;
+}
+
+/* Alternate background for even-numbered rows */
+.fl-table tr:nth-child(even) {
+    background: #3e3e3e;
+}
+
+/* Styles for filter inputs within tables */
+.fl-table .filters input, .fl-table .filters select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #444;
+    color: #f1f1f1;
+}
+
+/* Specific width for room filter input */
+.filter-input.filter-room {
+    width: 70px;
+}
+
+/* Detailed table styles for more specific data */
+.details-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Styling for headers and cells in detailed tables */
+.details-table th,
+.details-table td {
+    padding: 10px;
+    border: 1px solid #444;
+    text-align: left;
+}
+
+/* Detailed table header styling */
+.details-table th {
+    color: #f1f1f1;
+    width: 13%;
+}
+
+/* Alternate background for odd and even header rows */
+.details-table tr:nth-child(odd) th {
+    background-color: #324960;
+}
+
+.details-table tr:nth-child(even) th {
+    background-color: #4FC3A1;
+}
+
+/* Alternate background for odd and even table rows */
+.details-table tr:nth-child(odd) td {
+    background-color: #2e2e2e;
+}
+
+.details-table tr:nth-child(even) td {
+    background-color: #3e3e3e;
+}
+
+/* Text and link styling within detailed tables */
+.details-table td {
+    color: #f1f1f1;
+    word-wrap: break-word;
+}
+
+.details-table td a {
+    text-decoration: none;
+    color: #4FC3A1;
+}

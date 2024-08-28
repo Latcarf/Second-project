@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Requests</title>
+
     <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
-    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
-    <link rel="stylesheet" th:href="@{/css/menu.css}"/>
-    <link rel="stylesheet" th:href="@{/css/request.css}"/>
+    <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
+
+    <link rel="stylesheet" th:href="@{/css/admin/main/request.css}"/>
 </head>
+
 <body>
 <div th:replace="~{admin/menu :: menu}"></div>
 
@@ -27,7 +29,7 @@
             <input type="hidden" name="email" th:value="${filterParams['email']}"/>
             <input type="hidden" name="date" th:value="${filterParams['date'] != null ? #temporals.format(filterParams['date'], 'yyyy-MM-dd') : ''}"/>
             <input type="hidden" name="status" th:value="${filterParams['status']}"/>
-            <button class="btn-export" type="submit">Export to Excel</button>
+            <button class="btn btn-export" type="submit">Export to Excel</button>
         </form>
     </div>
 
@@ -59,9 +61,9 @@
                         </select>
                     </td>
                     <td>
-                        <div class="btn-group">
-                            <button class="btn-filter" type="submit">Filter</button>
-                            <a class="btn-clear" th:href="@{/admin/main/requests}">Clear</a>
+                        <div class="btn btn-group">
+                            <button class="btn btn-filter" type="submit">Filter</button>
+                            <a class="btn btn-clear" th:href="@{/admin/main/requests}">Clear</a>
                         </div>
                     </td>
                 </form>
@@ -83,14 +85,14 @@
                         <input type="hidden" name="email" th:value="${filterParams['email']}"/>
                         <input type="hidden" name="date" th:value="${filterParams['date']}"/>
                         <input type="hidden" name="status" th:value="${filterParams['status']}"/>
-                        <button class="btn-status" th:classappend="' ' + ${request.status.toLowerCase()}"
+                        <button class="btn btn-status" th:classappend="' ' + ${request.status.toLowerCase()}"
                                 th:text="${request.status}" type="submit"></button>
                     </form>
                 </td>
                 <td>
-                    <div class="btn-group">
+                    <div class="btn btn-group">
                         <form th:action="@{/admin/main/requests/{id}(id=${request.id})}" method="get" style="display:inline;">
-                            <button class="btn-action" type="submit">View</button>
+                            <button class="btn btn-action" type="submit">View</button>
                         </form>
                         <form th:action="@{/admin/main/requests/delete/{id}(id=${request.id})}" method="post" style="display:inline;">
                             <input type="hidden" name="page" th:value="${pagination.currentPage}"/>
@@ -99,7 +101,7 @@
                             <input type="hidden" name="email" th:value="${filterParams['email']}"/>
                             <input type="hidden" name="date" th:value="${filterParams['date']}"/>
                             <input type="hidden" name="status" th:value="${filterParams['status']}"/>
-                            <button class="btn-delete" type="submit">Delete</button>
+                            <button class="btn btn-delete" type="submit">Delete</button>
                         </form>
                     </div>
                 </td>

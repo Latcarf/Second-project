@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Real Estate Details</title>
+
     <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
-    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
-    <link rel="stylesheet" th:href="@{/css/menu.css}"/>
-    <link rel="stylesheet" th:href="@{/css/real-estate.css}"/>
+    <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
+
+    <link rel="stylesheet" th:href="@{/css/admin/main/real-estate.css}"/>
 </head>
+
 <body>
 <div th:replace="~{admin/menu :: menu}"></div>
 
@@ -23,8 +25,8 @@
 
     <div class="real-estate-gallery">
         <input type="radio" name="gallery" id="img1" checked>
-        <input type="radio" name="gallery" id="img2" th:if="${photos != null and photos.size() > 1}">
-        <input type="radio" name="gallery" id="img3" th:if="${photos != null and photos.size() > 2}">
+        <input type="radio" name="gallery" id="img2">
+        <input type="radio" name="gallery" id="img3">
 
         <div class="gallery-images">
             <div th:each="photo, iterStat : ${photos}">
@@ -36,8 +38,8 @@
 
         <div class="gallery-controls">
             <label for="img1"></label>
-            <label for="img2" th:if="${photos != null and photos.size() > 1}"></label>
-            <label for="img3" th:if="${photos != null and photos.size() > 2}"></label>
+            <label for="img2"></label>
+            <label for="img3"></label>
         </div>
     </div>
 
@@ -90,7 +92,7 @@
             </tr>
             <tr class="details-row">
                 <th class="header-green">Address</th>
-                <td th:text="${realEstate.address.city} + ', ' + ${realEstate.address.district}"></td>
+                <td th:text="${realEstate.address.city + ', ' + realEstate.address.district}"></td>
             </tr>
             <tr class="details-row" th:if="${realEstate.newBuilding != null}">
                 <th class="header-blue">New Building Name</th>

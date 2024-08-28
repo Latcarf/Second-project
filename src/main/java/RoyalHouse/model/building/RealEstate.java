@@ -34,7 +34,7 @@ public class RealEstate {
     @Column(name = "date", nullable = false)
     private LocalDateTime date;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "real_estate_photos", joinColumns = @JoinColumn(name = "real_estate_id"))
     @Column(name = "photo_url")
     private List<String> photoUrls;

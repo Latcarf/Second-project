@@ -13,10 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("/admin/main/real-estates")
@@ -40,9 +37,9 @@ public class RealEstateController {
                                  Model model) {
 
         Map<String, Object> filterParams = new HashMap<>();
-        if (name != null) filterParams.put("name", name);
-        if (type != null) filterParams.put("type", type);
-        if (room != null) filterParams.put("room", room);
+        if (Objects.nonNull(name)) filterParams.put("name", name);
+        if (Objects.nonNull(type)) filterParams.put("type", type);
+        if (Objects.nonNull(room)) filterParams.put("room", room);
 
         Pagination<RealEstate> pagination = Pagination.create(page, realEstateService, filterParams);
 

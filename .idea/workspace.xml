@@ -5,17 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="Final change in pagination logic">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/APARTMENT/Apartment 7_id-68/2e0b9aaa-5bef-4d5a-8702-91a26f882d89_APARTMENT-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/APARTMENT/Apartment 7_id-68/4c758767-f4eb-4033-a42d-48bad1adf13d_APARTMENT-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/APARTMENT/Apartment 7_id-68/5ec35315-6f5c-413d-8be6-4617a3255846_APARTMENT-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/pagination.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/main/new-building.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/util/buttons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/util/forms.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/util/global.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/util/pagination.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/util/tables.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/css-fragment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/NewBuildingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/NewBuildingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RequestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/dto/Pagination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/dto/Pagination.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/RealEstate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/RealEstate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/modelEnum/EntityType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/modelEnum/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/modelEnum/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/setting/contact.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/normalize.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/util/normalize.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/real-estate.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/main/real-estate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/request.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/main/request.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-buildings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/new-buildings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estate-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estate-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estates.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estates.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/request-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/request-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/requests.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/request/requests.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/setting/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/setting/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/pagination.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +49,11 @@
       <list>
         <option value="SCSS File" />
         <option value="Less File" />
-        <option value="CSS File" />
         <option value="Enum" />
         <option value="Interface" />
         <option value="JavaScript File" />
         <option value="Class" />
+        <option value="CSS File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -103,11 +125,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Java\projects\RoyalHouse\src\main\resources\static\css" />
-      <recent name="D:\Java\projects\RoyalHouse\src\main\resources\templates\admin" />
-      <recent name="D:\Java\projects\RoyalHouse\src\main\resources\templates\admin\main" />
-      <recent name="D:\Java\projects\RoyalHouse\src\main\resources\templates" />
-      <recent name="D:\Java\projects\RoyalHouse\src\main\resources" />
+      <recent name="D:\IT\Java\projects\RoyalHouse\src\main\resources\static\css\util" />
+      <recent name="D:\IT\Java\projects\RoyalHouse\src\main\resources\static\css\admin\main" />
+      <recent name="D:\IT\Java\projects\RoyalHouse\src\main\resources\static\css\admin\setting" />
+      <recent name="D:\IT\Java\projects\RoyalHouse\src\main\resources\static\css\admin" />
+      <recent name="D:\IT\Java\projects\RoyalHouse\src\main\resources\templates\admin\main\new-building" />
     </key>
   </component>
   <component name="RunManager">
@@ -208,7 +230,7 @@
       <workItem from="1724479368728" duration="6868000" />
       <workItem from="1724657871419" duration="27451000" />
       <workItem from="1724761512482" duration="3185000" />
-      <workItem from="1724833268335" duration="5402000" />
+      <workItem from="1724833268335" duration="27640000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />
@@ -346,7 +368,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724716716530</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Final change in pagination logic">
+      <option name="closed" value="true" />
+      <created>1724852814138</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1724852814138</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,0 +1,51 @@
+/* forms.css */
+
+/* Styles for select elements */
+.form-control {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    color: #f1f1f1;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* Styles for options within a select element */
+.form-control option {
+    background-color: #2e2e2e;
+    color: #f1f1f1;
+}
+
+.form-control:hover {
+    border-color: #4FC3A1;
+}
+
+/* Custom file upload styles */
+.custom-file-upload {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #2e2e2e;
+    border: 2px dashed #4FC3A1;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+    background-color: #3e3e3e;
+}
+
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+/* Styling for the label text inside custom file upload */
+.custom-file-upload span {
+    margin-left: 10px;
+    color: #f1f1f1;
+    font-style: italic;
+    width: auto;
+}

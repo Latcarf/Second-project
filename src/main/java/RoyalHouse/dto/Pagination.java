@@ -19,7 +19,6 @@ public class Pagination<T> {
     private int endPage;
     private Page<T> pageData;
 
-    private static final Sort SORT = Sort.by(Sort.Direction.DESC, "date");
     private static final int SIZE = 7;
 
     public Pagination(int page, Page<T> pageData) {
@@ -39,8 +38,13 @@ public class Pagination<T> {
     }
 
     public static <T> Pagination<T> create(int page, PaginationService<T> service, Map<String, Object> filterParams) {
+        return create(page, service, filterParams, "date");
+    }
+
+    public static <T> Pagination<T> create(int page, PaginationService<T> service, Map<String, Object> filterParams, String sortBy) {
         page = Math.max(1, page);
-        PageRequest pageRequest = PageRequest.of(page - 1, SIZE, SORT);
+        Sort sort = Sort.by(Sort.Direction.DESC, sortBy);
+        PageRequest pageRequest = PageRequest.of(page - 1, SIZE, sort);
         Page<T> pageData = service.getPage(pageRequest, filterParams);
         return new Pagination<>(page, pageData);
     }

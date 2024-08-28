@@ -1,0 +1,72 @@
+/* buttons.css */
+
+/* General button styles */
+.btn {
+    padding: 7px 17px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Group of buttons displayed with space between them */
+.btn-group {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+}
+
+/* Container for action buttons, aligned to the right */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.btn-primary, .btn-filter, .btn-action {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-primary:hover, .btn-filter:hover, .btn-action:hover {
+    background-color: #1976D2;
+}
+
+.btn-remove, .btn-delete, .btn-cancel, .btn-clear {
+    background-color: #f44336;
+    color: white;
+    margin-left: 10px;
+}
+
+.btn-remove:hover, .btn-delete:hover, .btn-cancel:hover, .btn-clear:hover {
+    background-color: #e53935;
+}
+
+.btn-create, .btn-export, .btn-save, .btn-add-email {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-create:hover, .btn-export:hover, .btn-save:hover, .btn-add-email:hover {
+    background-color: #45a049;
+}
+
+/* Status button with different styles for active and deactivated states */
+.btn-status {
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    color: white;
+}
+
+.btn-status.active {
+    background-color: #4CAF50;
+}
+
+.btn-status.deactivated {
+    background-color: #f44336;
+}

@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Contacts</title>
-    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
-    <link rel="stylesheet" th:href="@{/css/menu.css}"/>
-    <link rel="stylesheet" th:href="@{/css/contact.css}"/>
+
+    <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
+    <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
+
+    <link rel="stylesheet" th:href="@{/css/admin/setting/contact.css}"/>
 </head>
+
 <body>
 <div th:replace="~{admin/menu :: menu}"></div>
 
 <div class="content-wrapper">
     <div class="page-header">
-        <h2 class="page-title">Settings</h2>
+        <h2 class="page-title">Contacts</h2>
         <div class="breadcrumb">
             <a th:href="@{/admin/menu}">Home</a> >
-            <a th:href="@{/admin/setting/contacts}">Settings</a>
+            <a th:href="@{/admin/setting/contacts}">Contacts</a>
         </div>
     </div>
 
@@ -69,9 +72,9 @@
                     <h3>Request Emails</h3>
                     <div th:each="email, stat : ${requestEmails}" class="email-group">
                         <input type="text" th:name="'requestEmails[' + ${stat.index} + ']'" th:value="${email}" placeholder="Email"/>
-                        <button type="button" class="btn-remove" th:onclick="'removeRequestEmail(this)'">Remove</button>
+                        <button type="button" class="btn btn-remove" th:onclick="'removeRequestEmail(this)'">Remove</button>
                     </div>
-                    <button type="button" class="btn-add" onclick="addRequestEmail()">Add Email</button>
+                    <button type="button" class="btn btn-add-email" onclick="addRequestEmail()">Add Email</button>
                 </div>
 
                 <div class="section create-password">
@@ -91,8 +94,8 @@
 
             <div class="form-actions">
                 <div class="actions">
-                    <a class="btn-cancel" th:href="@{/admin/setting/contacts}">Cancel</a>
-                    <button class="btn-save" type="submit">Create</button>
+                    <a class="btn btn-cancel" th:href="@{/admin/setting/contacts}">Cancel</a>
+                    <button class="btn btn-save" type="submit">Create</button>
                 </div>
             </div>
         </div>
@@ -153,10 +156,10 @@
                         <form th:action="@{/admin/setting/contacts/removeRequestEmail}" method="post">
                             <input type="hidden" th:name="contactId" th:value="${contact.id}" />
                             <input type="hidden" th:name="email" th:value="${email}" />
-                            <button type="submit" class="btn-remove">Remove</button>
+                            <button type="submit" class="btn btn-remove">Remove</button>
                         </form>
                     </div>
-                    <button type="button" class="btn-add" onclick="addRequestEmail()">Add Email</button>
+                    <button type="button" class="btn btn-add-email" onclick="addRequestEmail()">Add Email</button>
                 </div>
 
                 <div class="section change-password">
@@ -181,7 +184,7 @@
                         </div>
                         <div class="form-actions">
                             <div class="actions">
-                                <button class="btn-save" type="submit">Update Password</button>
+                                <button class="btn btn-save" type="submit">Update Password</button>
                             </div>
                         </div>
                     </form>
@@ -190,8 +193,8 @@
 
             <div class="form-actions">
                 <div class="actions">
-                    <a class="btn-cancel" th:href="@{/admin/setting/contacts}">Cancel</a>
-                    <button class="btn-save" type="submit">Update</button>
+                    <a class="btn btn-cancel" th:href="@{/admin/setting/contacts}">Cancel</a>
+                    <button class="btn btn-save" type="submit">Update</button>
                 </div>
             </div>
         </div>

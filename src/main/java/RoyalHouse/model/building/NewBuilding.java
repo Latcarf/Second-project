@@ -22,7 +22,13 @@ public class NewBuilding {
     private BigDecimal price;
 
     @Column(name = "area_sq_m", nullable = false)
-    private int areaSqM;
+    private Integer areaSqM;
+
+    @Column(name = "sorting_order", nullable = false)
+    private Integer sortingOrder;
+
+    @Column(name = "status", nullable = false)
+    private String status;
 
     @ElementCollection
     @CollectionTable(name = "new_building_photos", joinColumns = @JoinColumn(name = "new_building_id"))

@@ -1,0 +1,49 @@
+/* request.css */
+
+/* Container for request details */
+.request-details {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Status label styles */
+.status {
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: white;
+}
+
+/* Specific styles for different request statuses */
+.status.new {
+    background-color: #ff9800;
+}
+
+.status.answered {
+    background-color: #4CAF50;
+}
+
+/* Button styles for status actions */
+.btn-status {
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    color: white;
+}
+
+/* Specific styles for new and answered statuses */
+.btn-status.new {
+    background-color: #ff9800;
+}
+
+.btn-status.answered {
+    background-color: #4CAF50;
+}
+
+/* Hover effect for status buttons */
+.btn-status:hover {
+    opacity: 0.8;
+}
