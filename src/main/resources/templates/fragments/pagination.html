@@ -1,0 +1,15 @@
+<!-- fragments/pagination.html -->
+<div class="pagination">
+    <span th:if="${pagination.startPage > 1}">
+        <a th:href="@{${baseUrl}(page=${pagination.startPage - 10 > 0 ? pagination.startPage - 10 : 1}, ${#strings.arrayJoin(filterParams, ',')})}">&lt;&lt;</a>
+    </span>
+
+    <span th:each="i : ${#numbers.sequence(pagination.startPage, pagination.endPage)}">
+        <a th:href="@{${baseUrl}(page=${i}, ${#strings.arrayJoin(filterParams, ',')})}"
+           th:text="${i}" th:classappend="${i == pagination.currentPage} ? 'active' : ''"></a>
+    </span>
+
+    <span th:if="${pagination.endPage < pagination.totalPages}">
+        <a th:href="@{${baseUrl}(page=${pagination.endPage + 1}, ${#strings.arrayJoin(filterParams, ',')})}">&gt;&gt;</a>
+    </span>
+</div>

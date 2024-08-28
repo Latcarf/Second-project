@@ -22,15 +22,14 @@
 
     <div class="actions">
         <form th:action="@{/admin/main/requests/export}" method="get">
-            <input type="hidden" name="name" th:value="${name}"/>
-            <input type="hidden" name="phone" th:value="${phone}"/>
-            <input type="hidden" name="email" th:value="${email}"/>
-            <input type="hidden" name="date" th:value="${date != null ? #temporals.format(date, 'yyyy-MM-dd') : ''}"/>
-            <input type="hidden" name="status" th:value="${status}"/>
+            <input type="hidden" name="name" th:value="${filterParams['name']}"/>
+            <input type="hidden" name="phone" th:value="${filterParams['phone']}"/>
+            <input type="hidden" name="email" th:value="${filterParams['email']}"/>
+            <input type="hidden" name="date" th:value="${filterParams['date'] != null ? #temporals.format(filterParams['date'], 'yyyy-MM-dd') : ''}"/>
+            <input type="hidden" name="status" th:value="${filterParams['status']}"/>
             <button class="btn-export" type="submit">Export to Excel</button>
         </form>
     </div>
-
 
     <div class="table-container">
         <table class="fl-table">
@@ -46,19 +45,17 @@
             </tr>
             <tr class="filters">
                 <form th:action="@{/admin/main/requests}" method="get" style="display:contents;">
-                    <td><input type="text" class="filter-input" name="name" th:value="${name}" placeholder="Name"/></td>
-                    <td><input type="text" class="filter-input" name="phone" th:value="${phone}" placeholder="Phone"/></td>
-                    <td><input type="text" class="filter-input" name="email" th:value="${email}" placeholder="Email"/></td>
+                    <td><input type="text" class="filter-input" name="name" th:value="${filterParams['name']}" placeholder="Name"/></td>
+                    <td><input type="text" class="filter-input" name="phone" th:value="${filterParams['phone']}" placeholder="Phone"/></td>
+                    <td><input type="text" class="filter-input" name="email" th:value="${filterParams['email']}" placeholder="Email"/></td>
                     <td></td>
                     <td><input type="date" class="filter-date" name="date"
-                               th:value="${date != null ? #temporals.format(date, 'yyyy-MM-dd') : ''}"/></td>
+                               th:value="${filterParams['date'] != null ? #temporals.format(filterParams['date'], 'yyyy-MM-dd') : ''}"/></td>
                     <td>
                         <select class="filter-select" name="status">
-                            <option value="" th:selected="${status == ''}">All</option>
-                            <option value="NEW" class="status-option new" th:selected="${status == 'NEW'}">New</option>
-                            <option value="ANSWERED" class="status-option answered"
-                                    th:selected="${status == 'ANSWERED'}">Answered
-                            </option>
+                            <option value="" th:selected="${filterParams['status'] == ''}">All</option>
+                            <option value="NEW" class="status-option new" th:selected="${filterParams['status'] == 'NEW'}">New</option>
+                            <option value="ANSWERED" class="status-option answered" th:selected="${filterParams['status'] == 'ANSWERED'}">Answered</option>
                         </select>
                     </td>
                     <td>
@@ -80,29 +77,28 @@
                 <td th:text="${#temporals.format(request.date, 'dd.MM.yyyy - HH:mm')}"></td>
                 <td>
                     <form th:action="@{/admin/main/requests/changeStatus/{id}(id=${request.id})}" method="get">
-                        <input type="hidden" name="page" th:value="${currentPage}"/>
-                        <input type="hidden" name="name" th:value="${name}"/>
-                        <input type="hidden" name="phone" th:value="${phone}"/>
-                        <input type="hidden" name="email" th:value="${email}"/>
-                        <input type="hidden" name="date" th:value="${date}"/>
-                        <input type="hidden" name="status" th:value="${status}"/>
+                        <input type="hidden" name="page" th:value="${pagination.currentPage}"/>
+                        <input type="hidden" name="name" th:value="${filterParams['name']}"/>
+                        <input type="hidden" name="phone" th:value="${filterParams['phone']}"/>
+                        <input type="hidden" name="email" th:value="${filterParams['email']}"/>
+                        <input type="hidden" name="date" th:value="${filterParams['date']}"/>
+                        <input type="hidden" name="status" th:value="${filterParams['status']}"/>
                         <button class="btn-status" th:classappend="' ' + ${request.status.toLowerCase()}"
                                 th:text="${request.status}" type="submit"></button>
                     </form>
                 </td>
                 <td>
                     <div class="btn-group">
-                        <form th:action="@{/admin/main/requests/{id}(id=${request.id})}" method="get"
-                              style="display:inline;">
+                        <form th:action="@{/admin/main/requests/{id}(id=${request.id})}" method="get" style="display:inline;">
                             <button class="btn-action" type="submit">View</button>
                         </form>
                         <form th:action="@{/admin/main/requests/delete/{id}(id=${request.id})}" method="post" style="display:inline;">
-                            <input type="hidden" name="page" th:value="${currentPage}"/>
-                            <input type="hidden" name="name" th:value="${name}"/>
-                            <input type="hidden" name="phone" th:value="${phone}"/>
-                            <input type="hidden" name="email" th:value="${email}"/>
-                            <input type="hidden" name="date" th:value="${date}"/>
-                            <input type="hidden" name="status" th:value="${status}"/>
+                            <input type="hidden" name="page" th:value="${pagination.currentPage}"/>
+                            <input type="hidden" name="name" th:value="${filterParams['name']}"/>
+                            <input type="hidden" name="phone" th:value="${filterParams['phone']}"/>
+                            <input type="hidden" name="email" th:value="${filterParams['email']}"/>
+                            <input type="hidden" name="date" th:value="${filterParams['date']}"/>
+                            <input type="hidden" name="status" th:value="${filterParams['status']}"/>
                             <button class="btn-delete" type="submit">Delete</button>
                         </form>
                     </div>
@@ -113,21 +109,22 @@
 
         <div class="pagination">
             <span th:if="${pagination.startPage > 1}">
-                <a th:href="@{/admin/main/requests(page=${pagination.startPage - 10 > 0 ? pagination.startPage - 10 : 1}, name=${name}, phone=${phone}, email=${email}, date=${date}, status=${status})}">&lt;&lt;</a>
+                <a th:href="@{/admin/main/requests(page=${pagination.startPage - 10 > 0 ? pagination.startPage - 10 : 1}, name=${filterParams['name']}, phone=${filterParams['phone']}, email=${filterParams['email']}, date=${filterParams['date']}, status=${filterParams['status']})}">&lt;&lt;</a>
             </span>
 
             <span th:each="i : ${#numbers.sequence(pagination.startPage, pagination.endPage)}">
-                <a th:href="@{/admin/main/requests(page=${i}, name=${name}, phone=${phone}, email=${email}, date=${date}, status=${status})}"
+                <a th:href="@{/admin/main/requests(page=${i}, name=${filterParams['name']}, phone=${filterParams['phone']}, email=${filterParams['email']}, date=${filterParams['date']}, status=${filterParams['status']})}"
                    th:text="${i}" th:classappend="${i == pagination.currentPage} ? 'active' : ''">
                 </a>
             </span>
 
             <span th:if="${pagination.endPage < pagination.totalPages}">
-                <a th:href="@{/admin/main/requests(page=${pagination.endPage + 1}, name=${name}, phone=${phone}, email=${email}, date=${date}, status=${status})}">&gt;&gt;</a>
+                <a th:href="@{/admin/main/requests(page=${pagination.endPage + 1}, name=${filterParams['name']}, phone=${filterParams['phone']}, email=${filterParams['email']}, date=${filterParams['date']}, status=${filterParams['status']})}">&gt;&gt;</a>
             </span>
         </div>
     </div>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/menu-toggle.js"></script>
 <script src="/js/submenu-toggle.js"></script>

@@ -54,7 +54,6 @@ public class RequestController {
 
     @GetMapping
     public String getRequests(@RequestParam(defaultValue = "1") int page,
-                              @RequestParam(defaultValue = "5") int size,
                               @RequestParam(value = "name", required = false) String name,
                               @RequestParam(value = "phone", required = false) String phone,
                               @RequestParam(value = "email", required = false) String email,
@@ -72,11 +71,8 @@ public class RequestController {
 
         model.addAttribute("requests", pagination.getPageData().getContent());
         model.addAttribute("pagination", pagination);
-        model.addAttribute("name", name);
-        model.addAttribute("phone", phone);
-        model.addAttribute("email", email);
-        model.addAttribute("date", date);
-        model.addAttribute("status", status);
+        model.addAttribute("filterParams", filterParams);
+
         return "admin/main/request/requests";
     }
 

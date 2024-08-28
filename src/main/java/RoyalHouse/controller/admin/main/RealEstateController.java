@@ -47,13 +47,12 @@ public class RealEstateController {
         Pagination<RealEstate> pagination = Pagination.create(page, realEstateService, filterParams);
 
         model.addAttribute("realEstates", pagination.getPageData().getContent());
-        model.addAttribute("pagination", pagination);
-        model.addAttribute("name", name);
-        model.addAttribute("type", type);
-        model.addAttribute("room", room);
+        model.addAttribute("pagination", pagination );
+        model.addAttribute("filterParams", filterParams);
 
         return "admin/main/real-estate/real-estates";
     }
+
 
     @GetMapping("/{id}")
     public String getRealEstate(@PathVariable Long id, Model model) {

@@ -20,7 +20,6 @@
         </div>
     </div>
 
-
     <div class="actions">
         <form th:action="@{/admin/main/real-estates/create}" method="get">
             <button class="btn-create" type="submit">Create new real estate</button>
@@ -44,21 +43,21 @@
             </tr>
             <tr class="filters">
                 <form th:action="@{/admin/main/real-estates}" method="get" style="display: contents;">
-                    <td><input type="text" class="filter-input filter-name" name="name" th:value="${name}" placeholder="Name"/>
+                    <td><input type="text" class="filter-input filter-name" name="name" th:value="${filterParams['name']}" placeholder="Name"/>
                     </td>
                     <td>
                         <select class="filter-select" name="type">
-                            <option value="" th:selected="${type == ''}">All</option>
-                            <option value="APARTMENT">Apartment</option>
-                            <option value="HOUSE">House</option>
-                            <option value="COMMERCIAL">Commercial</option>
-                            <option value="PLOT">Plot</option>
+                            <option value="" th:selected="${filterParams['type'] == ''}">All</option>
+                            <option value="APARTMENT" th:selected="${filterParams['type'] == 'APARTMENT'}">Apartment</option>
+                            <option value="HOUSE" th:selected="${filterParams['type'] == 'HOUSE'}">House</option>
+                            <option value="COMMERCIAL" th:selected="${filterParams['type'] == 'COMMERCIAL'}">Commercial</option>
+                            <option value="PLOT" th:selected="${filterParams['type'] == 'PLOT'}">Plot</option>
                         </select>
                     </td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><input type="number" class="filter-input filter-room" name="room" th:value="${room}" placeholder="Rooms"/>
+                    <td><input type="number" class="filter-input filter-room" name="room" th:value="${filterParams['room']}" placeholder="Rooms"/>
                     </td>
                     <td></td>
                     <td></td>
@@ -71,7 +70,6 @@
                     </td>
                 </form>
             </tr>
-
             </thead>
             <tbody>
             <tr th:each="realEstate : ${realEstates}">
@@ -94,13 +92,12 @@
                             <button class="btn-action" type="submit">View</button>
                         </form>
                         <form th:action="@{/admin/main/real-estates/delete/{id}(id=${realEstate.id})}" method="post" style="display:inline;">
-                            <input type="hidden" name="page" th:value="${currentPage}"/>
-                            <input type="hidden" name="name" th:value="${name}"/>
-                            <input type="hidden" name="type" th:value="${type}"/>
-                            <input type="hidden" name="room" th:value="${room}"/>
+                            <input type="hidden" name="page" th:value="${pagination.currentPage}"/>
+                            <input type="hidden" name="name" th:value="${filterParams['name']}"/>
+                            <input type="hidden" name="type" th:value="${filterParams['type']}"/>
+                            <input type="hidden" name="room" th:value="${filterParams['room']}"/>
                             <button class="btn-delete" type="submit">Delete</button>
                         </form>
-
                     </div>
                 </td>
             </tr>
@@ -109,16 +106,16 @@
 
         <div class="pagination">
             <span th:if="${pagination.startPage > 1}">
-                <a th:href="@{/admin/main/real-estates(page=${pagination.startPage - 10 > 0 ? pagination.startPage - 10 : 1}, name=${name}, type=${type}, room=${room})}">&lt;&lt;</a>
+                <a th:href="@{/admin/main/real-estates(page=${pagination.startPage - 10 > 0 ? pagination.startPage - 10 : 1}, name=${filterParams['name']}, type=${filterParams['type']}, room=${filterParams['room']})}">&lt;&lt;</a>
             </span>
 
             <span th:each="i : ${#numbers.sequence(pagination.startPage, pagination.endPage)}">
-                <a th:href="@{/admin/main/real-estates(page=${i}, name=${name}, type=${type}, room=${room})}"
+                <a th:href="@{/admin/main/real-estates(page=${i}, name=${filterParams['name']}, type=${filterParams['type']}, room=${filterParams['room']})}"
                    th:text="${i}" th:classappend="${i == pagination.currentPage} ? 'active' : ''"></a>
             </span>
 
             <span th:if="${pagination.endPage < pagination.totalPages}">
-                <a th:href="@{/admin/main/real-estates(page=${pagination.endPage + 1}, name=${name}, type=${type}, room=${room})}">&gt;&gt;</a>
+                <a th:href="@{/admin/main/real-estates(page=${pagination.endPage + 1}, name=${filterParams['name']}, type=${filterParams['type']}, room=${filterParams['room']})}">&gt;&gt;</a>
             </span>
         </div>
     </div>
