@@ -51,11 +51,11 @@
             </div>
 
             <div class="banner-details">
-                <div class="form-group small-width">
+                <div class="form-group new-building">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" th:value="${newBuilding.name}" placeholder="Name" />
                 </div>
-                <div class="form-group small-width">
+                <div class="form-group new-building">
                     <label for="sortingOrder">Sorting order</label>
                     <input type="number" id="sortingOrder" name="sortingOrder" th:value="${newBuilding.sortingOrder}" placeholder="Sorting order" />
                 </div>
@@ -73,16 +73,16 @@
 
         <div class="new-building-section">
             <h3>Details</h3>
-            <div class="form-group small-width">
+            <div class="form-group details">
                 <label for="yearBuilt">Year Built</label>
                 <input type="number" id="yearBuilt" name="yearBuilt" th:value="${newBuildingDetails.yearBuilt}" placeholder="Year Built" required>
             </div>
-            <div class="form-group small-width">
+            <div class="form-group details">
                 <label for="numFloors">Number of Floors</label>
                 <input type="number" id="numFloors" name="numFloors" th:value="${newBuildingDetails.numFloors}" placeholder="Number of Floors" required>
             </div>
-            <div class="form-group small-width">
-                <label for="numApartment">Price</label>
+            <div class="form-group details">
+                <label for="numApartment">Number of apartments</label>
                 <input type="number" id="numApartment" name="numApartment" th:value="${newBuilding.numApartment}" placeholder="Number of apartments" required step="0.01">
             </div>
         </div>
