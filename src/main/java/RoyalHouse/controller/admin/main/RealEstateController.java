@@ -82,7 +82,7 @@ public class RealEstateController {
 
         realEstateService.createRealEstate(realEstate, address, details, newBuildingId);
 
-        List<String> photoUrls = photoService.savePhotos(photos, realEstate.getType(), realEstate.getName(), realEstate.getId());
+        List<String> photoUrls = photoService.saveRealEstatePhotos(photos, realEstate.getType(), realEstate.getName(), realEstate.getId());
 
         realEstate.setPhotoUrls(photoUrls);
 

@@ -2,7 +2,7 @@ package RoyalHouse.model.building;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.math.BigDecimal;
+
 import java.util.List;
 
 @Data
@@ -15,25 +15,28 @@ public class NewBuilding {
     @Column(name = "new_building_id")
     private Long id;
 
-    @Column(name = "name", nullable = false, length = 100)
+    @Column(name = "name", length = 100)
     private String name;
 
-    @Column(name = "price", nullable = false, precision = 15, scale = 2)
-    private BigDecimal price;
+    @Column(name = "numApartment")
+    private Integer numApartment;
 
-    @Column(name = "area_sq_m", nullable = false)
-    private Integer areaSqM;
-
-    @Column(name = "sorting_order", nullable = false)
+    @Column(name = "sorting_order")
     private Integer sortingOrder;
 
-    @Column(name = "status", nullable = false)
+    @Column(name = "status", length = 50)
     private String status;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "new_building_photos", joinColumns = @JoinColumn(name = "new_building_id"))
     @Column(name = "photo_url")
     private List<String> photoUrls;
+
+    @Column(name = "banner_url")
+    private String bannerUrl;
+
+    @Column(name = "panorama_url")
+    private String panoramaUrl;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "details_id")
@@ -42,5 +45,9 @@ public class NewBuilding {
     @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
+
+    @OneToOne
+    @JoinColumn(name = "information_id")
+    private Information information;
 }
 

@@ -105,7 +105,6 @@ public class RequestController {
     }
 
 
-
     @GetMapping("/{id}")
     public String getRequest(@PathVariable Long id, Model model) {
         Request request = requestService.getRequestById(id);
@@ -116,7 +115,6 @@ public class RequestController {
     @GetMapping("/changeStatus/{id}")
     public String changeStatus(@PathVariable Long id,
                                @RequestParam(defaultValue = "1") int page,
-                               @RequestParam(defaultValue = "5") int size,
                                @RequestParam(value = "name", required = false) String name,
                                @RequestParam(value = "phone", required = false) String phone,
                                @RequestParam(value = "email", required = false) String email,
@@ -126,14 +124,13 @@ public class RequestController {
 
         String dateParam = (date != null) ? date.toString() : "";
 
-        return String.format("redirect:/admin/main/requests?page=%d&size=%d&name=%s&phone=%s&email=%s&date=%s&status=%s",
-                page, size, name, phone, email, dateParam, status);
+        return String.format("redirect:/admin/main/requests?page=%d&name=%s&phone=%s&email=%s&date=%s&status=%s",
+                page, name, phone, email, dateParam, status);
     }
 
     @PostMapping("/delete/{id}")
     public String deleteRequest(@PathVariable Long id,
                                 @RequestParam(defaultValue = "1") int page,
-                                @RequestParam(defaultValue = "5") int size,
                                 @RequestParam(value = "name", required = false) String name,
                                 @RequestParam(value = "phone", required = false) String phone,
                                 @RequestParam(value = "email", required = false) String email,
@@ -143,7 +140,7 @@ public class RequestController {
 
         String dateParam = (date != null) ? date.toString() : "";
 
-        return String.format("redirect:/admin/main/requests?page=%d&size=%d&name=%s&phone=%s&email=%s&date=%s&status=%s",
-                page, size, name, phone, email, dateParam, status);
+        return String.format("redirect:/admin/main/requests?page=%d&name=%s&phone=%s&email=%s&date=%s&status=%s",
+                page, name, phone, email, dateParam, status);
     }
 }

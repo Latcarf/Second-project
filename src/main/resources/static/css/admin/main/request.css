@@ -25,25 +25,3 @@
     background-color: #4CAF50;
 }
 
-/* Button styles for status actions */
-.btn-status {
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 12px;
-    color: white;
-}
-
-/* Specific styles for new and answered statuses */
-.btn-status.new {
-    background-color: #ff9800;
-}
-
-.btn-status.answered {
-    background-color: #4CAF50;
-}
-
-/* Hover effect for status buttons */
-.btn-status:hover {
-    opacity: 0.8;
-}

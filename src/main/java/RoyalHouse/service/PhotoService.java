@@ -19,41 +19,61 @@ public class PhotoService {
     @Value("${photo.storage.path}")
     private String photoStoragePath;
 
-    public String savePhotoFile(MultipartFile file, String type, String name, Long id) {
+    public List<String> saveRealEstatePhotos(List<MultipartFile> files, String type, String name, Long id) {
+        String directoryPath = String.format("entity/RealEstate/%s/%s_%d", type, name, id);
+        return savePhotos(files, directoryPath);
+    }
+
+    public String saveNewBuildingBanner(MultipartFile file, String name, Long id) {
+        String directoryPath = String.format("entity/NewBuilding/%s_%d/banner", name, id);
+        return savePhotoFile(file, directoryPath);
+    }
+
+    public String saveNewBuildingPanorama(MultipartFile file, String name, Long id) {
+        String directoryPath = String.format("entity/NewBuilding/%s_%d/panorama", name, id);
+        return savePhotoFile(file, directoryPath);
+    }
+
+    public List<String> saveNewBuildingPhotos(List<MultipartFile> files, String name, Long id) {
+        String directoryPath = String.format("entity/NewBuilding/%s_%d/photos", name, id);
+        return savePhotos(files, directoryPath);
+    }
+
+    public List<String> saveInfrastructurePhotos(List<MultipartFile> files, String newBuildingName, Long newBuildingId) {
+        String directoryPath = String.format("entity/Infrastructure/%s_%d", newBuildingName, newBuildingId);
+        return savePhotos(files, directoryPath);
+    }
+
+    private String savePhotoFile(MultipartFile file, String directoryPath) {
         try {
             String uniqueFileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
+            Path path = Paths.get(photoStoragePath, directoryPath);
 
-            String directoryName = name + "_id-" + id;
-            Path directoryPath = Paths.get(photoStoragePath, type, directoryName);
-
-            if (!Files.exists(directoryPath)) {
-                Files.createDirectories(directoryPath);
+            if (!Files.exists(path)) {
+                Files.createDirectories(path);
             }
 
-            Path filePath = directoryPath.resolve(uniqueFileName);
-
+            Path filePath = path.resolve(uniqueFileName);
             Files.write(filePath, file.getBytes());
 
-            return "/" + Paths.get("images", type, directoryName, uniqueFileName)
-                    .toString().replace("\\", "/");
-
+            return "/" + Paths.get(directoryPath, uniqueFileName).toString().replace("\\", "/");
         } catch (IOException e) {
             throw new RuntimeException("Failed to store file " + file.getOriginalFilename(), e);
         }
     }
 
-    public List<String> savePhotos(List<MultipartFile> files, String type, String name, Long id) {
+    private List<String> savePhotos(List<MultipartFile> files, String directoryPath) {
         List<String> photoUrls = new ArrayList<>();
         for (MultipartFile file : files) {
-            String photoUrl = savePhotoFile(file, type, name, id);
+            String photoUrl = savePhotoFile(file, directoryPath);
             photoUrls.add(photoUrl);
         }
         return photoUrls;
     }
 
-    public void deletePhotoFile(List<String> photosUrls) {
-        if (Objects.nonNull(photosUrls)) {
-            for (String url : photosUrls) {
+    public void deleteSpecificPhotos(List<String> photoUrls) {
+        if (Objects.nonNull(photoUrls)) {
+            for (String url : photoUrls) {
                 try {
                     Path filePath = Paths.get(photoStoragePath, url.replace("/images/", ""));
                     Files.deleteIfExists(filePath);
@@ -64,4 +84,23 @@ public class PhotoService {
         }
     }
 
+    public void deletePhotoDirectory(String type, String name, Long id) {
+        String directoryPath = Paths.get(photoStoragePath, "entity", type, String.format("%s_%d", name, id)).toString();
+        try {
+            Path directory = Paths.get(directoryPath);
+            if (Files.exists(directory)) {
+                Files.walk(directory)
+                        .sorted()
+                        .forEach(path -> {
+                            try {
+                                Files.delete(path);
+                            } catch (IOException e) {
+                                throw new RuntimeException("Failed to delete: " + path, e);
+                            }
+                        });
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to delete directory: " + directoryPath, e);
+        }
+    }
 }

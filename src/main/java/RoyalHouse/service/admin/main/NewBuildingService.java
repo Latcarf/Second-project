@@ -1,11 +1,16 @@
 package RoyalHouse.service.admin.main;
 
+import RoyalHouse.model.building.Address;
+import RoyalHouse.model.building.Details;
+import RoyalHouse.model.building.Information;
 import RoyalHouse.model.building.NewBuilding;
-import RoyalHouse.model.building.RealEstate;
+import RoyalHouse.model.modelEnum.Status;
+import RoyalHouse.repository.building.DetailsRepository;
+import RoyalHouse.repository.building.AddressRepository;
+import RoyalHouse.repository.building.InformationRepository;
 import RoyalHouse.repository.building.NewBuildingRepository;
 import RoyalHouse.service.PaginationService;
 import RoyalHouse.specification.NewBuildingSpecification;
-import RoyalHouse.specification.RealEstateSpecification;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,9 +24,15 @@ import java.util.Objects;
 @Service
 public class NewBuildingService implements PaginationService<NewBuilding> {
     private final NewBuildingRepository newBuildingRepository;
+    private final DetailsRepository detailsRepository;
+    private final AddressRepository addressRepository;
+    private final InformationRepository informationRepository;
 
-    public NewBuildingService(NewBuildingRepository newBuildingRepository) {
+    public NewBuildingService(NewBuildingRepository newBuildingRepository, DetailsRepository detailsRepository, AddressRepository addressRepository, InformationRepository informationRepository) {
         this.newBuildingRepository = newBuildingRepository;
+        this.detailsRepository = detailsRepository;
+        this.addressRepository = addressRepository;
+        this.informationRepository = informationRepository;
     }
 
     @Override
@@ -54,7 +65,60 @@ public class NewBuildingService implements PaginationService<NewBuilding> {
                 .orElseThrow(() -> new IllegalArgumentException("No New Building found with id: " + id));
     }
 
+    public void changeStatus(Long newBuildingId) {
+        NewBuilding newBuilding = getNewBuildingById(newBuildingId);
+        if (newBuilding.getStatus().equals(Status.ACTIVE.toString())) {
+            newBuilding.setStatus(String.valueOf(Status.DEACTIVATED));
+        } else {
+            newBuilding.setStatus(String.valueOf(Status.ACTIVE));
+        }
+        newBuildingRepository.save(newBuilding);
+    }
+
     public List<NewBuilding> searchNewBuildings(String query) {
         return newBuildingRepository.findByNameContainingIgnoreCase(query);
+    }
+
+    public void saveMainDetails(NewBuilding newBuilding, Details details, String bannerUrl) {
+        newBuilding.setDetails(details);
+        newBuilding.setBannerUrl(bannerUrl);
+        newBuilding.setName(newBuilding.getName());
+        newBuilding.setSortingOrder(newBuilding.getSortingOrder());
+        newBuilding.setStatus(newBuilding.getStatus());
+    }
+
+    public NewBuilding saveAboutDetails(NewBuilding newBuilding, Information information, List<String> photoUrls) {
+        newBuilding.setInformation(information);
+        newBuilding.getPhotoUrls().addAll(photoUrls);
+        return newBuilding;
+    }
+
+    public NewBuilding saveLocationDetails(NewBuilding newBuilding, Address address) {
+        newBuilding.setAddress(address);
+        return newBuilding;
+    }
+
+    public NewBuilding saveInfrastructureDetails(NewBuilding newBuilding, String infrastructureText, List<String> infrastructurePhotoUrls) {
+        newBuilding.getInformation().setInfrastructure(infrastructureText);
+        newBuilding.getInformation().getInfrastructurePhotoUrls().addAll(infrastructurePhotoUrls);
+        return newBuilding;
+    }
+
+    public NewBuilding savePanorama(NewBuilding newBuilding, String panoramaUrl) {
+        newBuilding.setPanoramaUrl(panoramaUrl);
+        return newBuilding;
+    }
+
+    public NewBuilding saveSpecificationDetails(NewBuilding newBuilding, String specificationText) {
+        newBuilding.getInformation().setSpecification(specificationText);
+        return newBuilding;
+    }
+
+    public NewBuilding create(NewBuilding newBuilding) {
+        detailsRepository.save(newBuilding.getDetails());
+        addressRepository.save(newBuilding.getAddress());
+        informationRepository.save(newBuilding.getInformation());
+
+        return newBuildingRepository.save(newBuilding);
     }
 }

@@ -19,6 +19,7 @@
     justify-content: space-between;
 }
 
+
 /* Container for action buttons, aligned to the right */
 .actions {
     display: flex;
@@ -35,7 +36,15 @@
     background-color: #1976D2;
 }
 
-.btn-remove, .btn-delete, .btn-cancel, .btn-clear {
+.btn-remove, .btn-delete, .btn-clear {
+    padding: 7px 17px;
+    background-color: #f44336;
+    color: white;
+    margin-left: 10px;
+}
+
+.btn-cancel {
+    padding: 5px 17px;
     background-color: #f44336;
     color: white;
     margin-left: 10px;
@@ -54,6 +63,7 @@
     background-color: #45a049;
 }
 
+
 /* Status button with different styles for active and deactivated states */
 .btn-status {
     padding: 5px 10px;
@@ -63,10 +73,76 @@
     color: white;
 }
 
-.btn-status.active {
+
+.btn-status.active, .btn-status.answered {
     background-color: #4CAF50;
 }
 
 .btn-status.deactivated {
     background-color: #f44336;
 }
+
+.btn-status:hover {
+    opacity: 0.8;
+}
+
+.btn-status.new {
+    background-color: #ff9800;
+}
+
+
+/* Checkbox Switch (Status) */
+.checkbox-wrapper-63 input[type="checkbox"] {
+    visibility: hidden;
+    display: none;
+}
+
+
+.checkbox-wrapper-63 *,
+.checkbox-wrapper-63 ::after,
+.checkbox-wrapper-63 ::before {
+    box-sizing: border-box;
+}
+
+.checkbox-wrapper-63 .switch {
+    font-size: 1rem;
+    position: relative;
+    display: inline-block;
+    width: 4em;
+    height: 2em;
+}
+
+.checkbox-wrapper-63 .slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #eee;
+    transition: 0.4s;
+    border-radius: 0.5em;
+    box-shadow: 0 0.2em #dfd9d9;
+}
+
+.checkbox-wrapper-63 .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.5em;
+    width: 1.4em;
+    border-radius: 0.3em;
+    left: 0.3em;
+    bottom: 0.7em;
+    background-color: lightsalmon;
+    transition: 0.4s;
+    box-shadow: 0 0.4em #bcb4b4;
+}
+
+.checkbox-wrapper-63 .slider:hover::before {
+    box-shadow: 0 0.2em #bcb4b4;
+    bottom: 0.5em;
+}
+
+.checkbox-wrapper-63 input:checked + .slider::before {
+    transform: translateX(2em);
+    background: lightgreen;
+}
+
+

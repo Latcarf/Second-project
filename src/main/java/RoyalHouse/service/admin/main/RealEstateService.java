@@ -4,7 +4,7 @@ import RoyalHouse.model.building.Address;
 import RoyalHouse.model.building.Details;
 import RoyalHouse.model.building.NewBuilding;
 import RoyalHouse.model.building.RealEstate;
-import RoyalHouse.repository.DetailsRepository;
+import RoyalHouse.repository.building.DetailsRepository;
 import RoyalHouse.repository.building.AddressRepository;
 import RoyalHouse.repository.building.NewBuildingRepository;
 import RoyalHouse.repository.building.RealEstateRepository;
@@ -84,7 +84,7 @@ public class RealEstateService implements PaginationService<RealEstate> {
     public void deleteRealEstate(Long id) {
         RealEstate realEstate = getRealEstateById(id);
 
-        photoService.deletePhotoFile(realEstate.getPhotoUrls());
+        photoService.deleteSpecificPhotos(realEstate.getPhotoUrls());
 
         realEstateRepository.delete(realEstate);
     }

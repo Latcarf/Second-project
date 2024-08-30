@@ -7,7 +7,7 @@
     <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
     <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
 
-    <link rel="stylesheet" th:href="@{/css/new-building.css}"/>
+    <link rel="stylesheet" th:href="@{/css/admin/main/new-building.css}"/>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="actions">
-        <form th:action="@{/admin/main/new-buildings/create}" method="get">
+        <form th:action="@{/admin/main/new-buildings/create-main}" method="get">
             <button class="btn btn-create" type="submit">Create new New Building</button>
         </form>
     </div>
@@ -33,6 +33,7 @@
             <thead>
             <tr>
                 <th>Sorting order</th>
+                <th>Name</th>
                 <th>Address</th>
                 <th>Status</th>
                 <th></th>
@@ -49,7 +50,6 @@
                             <option value="DEACTIVATED" th:selected="${filterParams['status'] == 'DEACTIVATED'}">Deactivated</option>
                         </select>
                     </td>
-                    <td></td>
                     <td>
                         <div class="btn btn-group">
                             <button class="btn btn-filter" type="submit">Filter</button>
@@ -75,7 +75,6 @@
                                 th:text="${newBuilding.status}" type="submit"></button>
                     </form>
                 </td>
-                <td></td>
                 <td>
                     <div class="btn btn-group">
                         <form th:action="@{/admin/main/new-buildings/edit/{id}(id=${newBuilding.id})}" method="get"
