@@ -56,13 +56,12 @@ public class CreateNewBuildingController {
     public String createAbout(@ModelAttribute("newBuilding") NewBuilding newBuilding,
                               @ModelAttribute Information information,
                               @RequestParam("photos") List<MultipartFile> photos) {
-        // Логика сохранения данных второго шага в объекте newBuilding
+        List<String> photosUrls = photoService.saveNewBuildingPhotos(photos, newBuilding.getName(), newBuilding.getId());
+
+        newBuildingService.saveAboutDetails(newBuilding, information, photosUrls);
+
         newBuilding.setInformation(information);
-        // Загрузка фото и сохранение URL
-        // Допустим, что `newBuilding.getPhotoUrls().add()` добавляет URL фото
-        // for (MultipartFile photo : photos) {
-        //     newBuilding.getPhotoUrls().add(uploadPhoto(photo));
-        // }
+
 
         return "redirect:/admin/main/new-buildings/create-location";
     }

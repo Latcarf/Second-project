@@ -2,16 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Create New Building - Main</title>
+    <title>Create Main</title>
 
     <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
     <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
 
-    <link rel="stylesheet" th:href="@{/css/admin/main/new-building.css}" />
+    <link rel="stylesheet" th:href="@{/css/admin/main/new-building.css}"/>
+    <link rel="stylesheet" th:href="@{/css/util/navigation.css}"/>
 </head>
 
 <body>
 <div th:replace="~{admin/menu :: menu}"></div>
+<div th:replace="~{fragments/new-building-nav-fragment :: new-building-nav-fragment}"></div>
 
 <div class="content-wrapper">
     <div class="page-header">
@@ -23,34 +25,23 @@
         </div>
     </div>
 
-    <div class="new-building-nav">
-        <ul>
-            <li><a th:href="@{/admin/main/new-buildings/create-main}" class="active">Main</a></li>
-            <li><a th:href="@{/admin/main/new-buildings/create-about}">About project</a></li>
-            <li><a th:href="@{/admin/main/new-buildings/create-location}">Location</a></li>
-            <li><a th:href="@{/admin/main/new-buildings/create-infrastructure}">Infrastructure</a></li>
-            <li><a th:href="@{/admin/main/new-buildings/create-panorama}">Panorama</a></li>
-            <li><a th:href="@{/admin/main/new-buildings/create-specification}">Specification</a></li>
-        </ul>
-    </div>
-
     <form th:action="@{/admin/main/new-buildings/create-main}" method="post" enctype="multipart/form-data">
-        <div class="banner-details-wrapper">
-            <div class="new-building-banner">
+        <div class="banner-photo-details-wrapper">
+            <div class="banner-photo">
                 <div class="form-group">
                     <label for="banner">Main banner</label>
                 </div>
-                <div class="banner-preview">
-                    <img src="/images/1920x800-ph.jpg" alt="Image" id="banner-preview" />
+                <div class="banner-photo-preview">
+                    <img src="/images/examples/1920x800.jpg" alt="Image" id="banner-photo-preview" />
                     <span>Recommended size: (1920x800)</span>
                 </div>
                 <label class="custom-file-upload">
-                    <input type="file" id="banner" name="banner" accept="image/*">
+                    <input type="file" id="banner" name="banner" accept="image/*" onchange="previewBanner(event)" required>
                     <span id="file-chosen1">Select file</span>
                 </label>
             </div>
 
-            <div class="banner-details">
+            <div class="new-building-details">
                 <div class="form-group new-building">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" th:value="${newBuilding.name}" placeholder="Name" />

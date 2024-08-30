@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation</title>
+</head>
+
+<body>
+  <div th:fragment="new-building-nav-fragment">
+    <div class="new-building-nav">
+      <ul>
+        <li><a th:href="@{/admin/main/new-buildings/create-main}" class="active">Main</a></li>
+        <li><a th:href="@{/admin/main/new-buildings/create-about}">About project</a></li>
+        <li><a th:href="@{/admin/main/new-buildings/create-location}">Location</a></li>
+        <li><a th:href="@{/admin/main/new-buildings/create-infrastructure}">Infrastructure</a></li>
+        <li><a th:href="@{/admin/main/new-buildings/create-panorama}">Panorama</a></li>
+        <li><a th:href="@{/admin/main/new-buildings/create-specification}">Specification</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

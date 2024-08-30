@@ -87,31 +87,26 @@ public class NewBuildingService implements PaginationService<NewBuilding> {
         newBuilding.setStatus(newBuilding.getStatus());
     }
 
-    public NewBuilding saveAboutDetails(NewBuilding newBuilding, Information information, List<String> photoUrls) {
+    public void saveAboutDetails(NewBuilding newBuilding, Information information, List<String> photoUrls) {
         newBuilding.setInformation(information);
-        newBuilding.getPhotoUrls().addAll(photoUrls);
-        return newBuilding;
+        newBuilding.setPhotoUrls(photoUrls);
     }
 
-    public NewBuilding saveLocationDetails(NewBuilding newBuilding, Address address) {
+    public void saveLocationDetails(NewBuilding newBuilding, Address address) {
         newBuilding.setAddress(address);
-        return newBuilding;
     }
 
-    public NewBuilding saveInfrastructureDetails(NewBuilding newBuilding, String infrastructureText, List<String> infrastructurePhotoUrls) {
+    public void saveInfrastructureDetails(NewBuilding newBuilding, String infrastructureText, List<String> infrastructurePhotoUrls) {
         newBuilding.getInformation().setInfrastructure(infrastructureText);
         newBuilding.getInformation().getInfrastructurePhotoUrls().addAll(infrastructurePhotoUrls);
-        return newBuilding;
     }
 
-    public NewBuilding savePanorama(NewBuilding newBuilding, String panoramaUrl) {
+    public void savePanorama(NewBuilding newBuilding, String panoramaUrl) {
         newBuilding.setPanoramaUrl(panoramaUrl);
-        return newBuilding;
     }
 
-    public NewBuilding saveSpecificationDetails(NewBuilding newBuilding, String specificationText) {
+    public void saveSpecificationDetails(NewBuilding newBuilding, String specificationText) {
         newBuilding.getInformation().setSpecification(specificationText);
-        return newBuilding;
     }
 
     public NewBuilding create(NewBuilding newBuilding) {

@@ -1,0 +1,29 @@
+/* navigation.css */
+
+.new-building-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 20px;
+    background-color: #2e2e2e;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.new-building-nav ul li {
+    margin-right: 20px;
+}
+
+.new-building-nav ul li a {
+    color: #aaa;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.new-building-nav ul li a.active,
+.new-building-nav ul li a:hover {
+    color: #4FC3A1;
+    background-color: #444;
+    border-radius: 5px;
+}

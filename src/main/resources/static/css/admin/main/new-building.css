@@ -1,83 +1,69 @@
-/* New Building Navigation */
-.new-building-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin-bottom: 20px;
-    background-color: #2e2e2e;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.new-building-nav ul li {
-    margin-right: 20px;
-}
-
-.new-building-nav ul li a {
-    color: #aaa;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-}
-
-.new-building-nav ul li a.active,
-.new-building-nav ul li a:hover {
-    color: #4FC3A1;
-    background-color: #444;
-    border-radius: 5px;
-}
-
-/* Banner and Details Wrapper */
-.banner-details-wrapper {
+/* Wrapper for banner and details to control overall width */
+.banner-photo-details-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     margin-bottom: 50px;
-    gap: 100px; /* Space between the two sections */
+    gap: 50px;
 }
 
 /* Banner Section */
-.new-building-banner,
-.banner-details {
+.banner-photo,
+.new-building-details {
     flex: 1;
     background-color: #1f1f1f;
-    padding: 15px; /* Reduced padding */
+    padding: 20px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    max-height: 313px; /* Set maximum height */
-    min-height: 250px; /* Set minimum height to maintain symmetry */
+    max-width: 560px;
 }
 
-.new-building-banner img {
-    max-width: 50%;
+.banner-photo img {
+    max-width: 100%;
     height: auto;
     border-radius: 5px;
     margin-bottom: 18px;
 }
 
-.banner-preview span {
+.banner-photo-preview span {
     color: #aaa;
     font-size: 12px;
 }
 
+/* Photo Section */
+.photo-upload {
+    flex: 1;
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.photo-preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 18px;
+}
+
 /* Details Section */
-.banner-details {
+.new-building-details {
     display: flex;
     flex-direction: column;
 }
 
 /* Form Group Styling */
-.form-group.details, .form-group.new-building {
+.form-group.details,
+.form-group.new-building {
     max-width: 300px;
-    margin-bottom: 10px; /* Reduced margin */
+    margin-bottom: 30px;
 }
 
 /* General Section Styling */
 .new-building-section {
     background-color: #1f1f1f;
-    padding: 15px; /* Reduced padding */
+    padding: 20px;
     border-radius: 20px;
     box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
