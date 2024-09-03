@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function searchNewBuildings(query) {
         if (query.length >= 3) {
-            fetch(`/admin/main/new-buildings/search?query=${query}`)
+            fetch(`/admin/api/new-buildings/search?query=${query}`)
                 .then(response => response.json())
                 .then(data => displaySuggestions(data))
                 .catch(error => console.error('Error fetching buildings:', error));
@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
             suggestionsList.innerHTML = '';
         }
     }
+3
 
     function displaySuggestions(data) {
         suggestionsList.innerHTML = '';

@@ -51,7 +51,7 @@
                         </select>
                     </td>
                     <td>
-                        <div class="btn btn-group">
+                        <div class="btn btn-group-table">
                             <button class="btn btn-filter" type="submit">Filter</button>
                             <a class="btn btn-clear" th:href="@{/admin/main/new-buildings}">Clear</a>
                         </div>
@@ -76,7 +76,7 @@
                     </form>
                 </td>
                 <td>
-                    <div class="btn btn-group">
+                    <div class="btn btn-group-table">
                         <form th:action="@{/admin/main/new-buildings/edit/{id}(id=${newBuilding.id})}" method="get"
                               style="display:inline;">
                             <button class="btn btn-action" type="submit">Edit</button>

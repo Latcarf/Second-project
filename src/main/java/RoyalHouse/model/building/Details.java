@@ -31,6 +31,12 @@ public class Details {
     @Column(name = "num_terraces_balconies")
     private Integer numTerracesBalconies;
 
+    @Column(name = "num_commercial_premises")
+    private Integer numCommercialPremises;
+
+    @Column(name = "num_recreation_areas")
+    private Integer numRecreationAreas;
+
     @Column(name = "playground")
     private Boolean playground;
 

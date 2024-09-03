@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Navigation</title>
-</head>
-
-<body>
-  <div th:fragment="new-building-nav-fragment">
-    <div class="new-building-nav">
-      <ul>
-        <li><a th:href="@{/admin/main/new-buildings/create-main}" class="active">Main</a></li>
-        <li><a th:href="@{/admin/main/new-buildings/create-about}">About project</a></li>
-        <li><a th:href="@{/admin/main/new-buildings/create-location}">Location</a></li>
-        <li><a th:href="@{/admin/main/new-buildings/create-infrastructure}">Infrastructure</a></li>
-        <li><a th:href="@{/admin/main/new-buildings/create-panorama}">Panorama</a></li>
-        <li><a th:href="@{/admin/main/new-buildings/create-specification}">Specification</a></li>
-      </ul>
-    </div>
+<div th:fragment="new-building-nav-fragment">
+  <div class="new-building-nav">
+    <ul>
+      <li><a th:href="@{/admin/main/new-buildings/create-main}"
+             th:classappend="${currentURI == '/admin/main/new-buildings/create-main'} ? 'active' : ''">Main</a></li>
+      <li><a th:href="@{/admin/main/new-buildings/create-description}"
+             th:classappend="${currentURI == '/admin/main/new-buildings/create-description'} ? 'active' : ''">About the project</a></li>
+      <li><a th:href="@{/admin/main/new-buildings/create-location}"
+             th:classappend="${currentURI == '/admin/main/new-buildings/create-location'} ? 'active' : ''">Location</a></li>
+      <li><a th:href="@{/admin/main/new-buildings/create-infrastructure}"
+             th:classappend="${currentURI == '/admin/main/new-buildings/create-infrastructure'} ? 'active' : ''">Infrastructure</a></li>
+      <li><a th:href="@{/admin/main/new-buildings/create-panorama}"
+             th:classappend="${currentURI == '/admin/main/new-buildings/create-panorama'} ? 'active' : ''">Panorama</a></li>
+      <li><a th:href="@{/admin/main/new-buildings/create-specification}"
+             th:classappend="${currentURI == '/admin/main/new-buildings/create-specification'} ? 'active' : ''">Specification</a></li>
+    </ul>
   </div>
-</body>
-</html>
+</div>

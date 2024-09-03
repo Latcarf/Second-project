@@ -1,6 +1,10 @@
 package RoyalHouse.specification;
 
+import RoyalHouse.model.building.Address;
+import RoyalHouse.model.building.Details;
+import RoyalHouse.model.building.NewBuilding;
 import RoyalHouse.model.building.RealEstate;
+import jakarta.persistence.criteria.Join;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.StringUtils;
 
@@ -16,8 +20,16 @@ public class RealEstateSpecification {
                 StringUtils.hasText(type) ? criteriaBuilder.like(root.get("type"), "%" + type + "%") : criteriaBuilder.conjunction();
     }
 
-    public static Specification<RealEstate> hasRoom(int room) {
-        return (root, query, criteriaBuilder) ->
-                room == 0 ? criteriaBuilder.conjunction() : criteriaBuilder.equal(root.get("numRooms"), room);
+    public static Specification<RealEstate> hasRoom(Integer room) {
+        return (root, query, criteriaBuilder) -> {
+            if (room == 0) {
+                return criteriaBuilder.conjunction();
+            }
+
+            Join<RealEstate, Details> detailsJoin = root.join("details");
+            return criteriaBuilder.equal(detailsJoin.get("numRooms"), room);
+        };
     }
+
+
 }

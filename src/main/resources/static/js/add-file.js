@@ -1,27 +1,27 @@
-const fileInputs = document.querySelectorAll('.custom-file-upload input[type="file"]');
-fileInputs.forEach((input, index) => {
-    const fileChosen = document.getElementById(`file-chosen${index + 1}`);
-    input.addEventListener('change', function() {
-        fileChosen.textContent = this.files.length > 0 ? this.files[0].name : 'No file chosen';
+document.addEventListener('DOMContentLoaded', function () {
+    const fileInputs = document.querySelectorAll('.custom-file-upload input[type="file"]');
+    const initialPreviewSources = {};
+
+    fileInputs.forEach((input, index) => {
+        const previewId = input.id + '-preview';
+        const fileChosenId = 'file-chosen' + (index + 1);
+
+        const previewElement = document.getElementById(previewId);
+        const fileChosenElement = document.getElementById(fileChosenId);
+
+        if (previewElement) {
+            initialPreviewSources[previewId] = previewElement.src;
+
+            input.addEventListener('change', function () {
+                if (this.files.length > 0) {
+                    fileChosenElement.textContent = this.files[0].name;
+                    previewElement.src = URL.createObjectURL(this.files[0]);
+                    previewElement.onload = () => URL.revokeObjectURL(previewElement.src);
+                } else {
+                    fileChosenElement.textContent = 'No file chosen';
+                    previewElement.src = initialPreviewSources[previewId];
+                }
+            });
+        }
     });
-});
-
-const initialBannerSrc = document.getElementById('banner-preview').src;
-
-function previewBanner(event) {
-    const [file] = event.target.files;
-    const preview = document.getElementById('banner-preview');
-
-    if (file) {
-        preview.src = URL.createObjectURL(file);
-        preview.onload = () => URL.revokeObjectURL(preview.src);
-    } else {
-        preview.src = initialBannerSrc;
-    }
-}
-
-document.getElementById('banner').addEventListener('change', function() {
-    if (!this.files.length) {
-        document.getElementById('banner-preview').src = initialBannerSrc;
-    }
 });

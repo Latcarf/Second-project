@@ -1,7 +1,6 @@
 package RoyalHouse.repository.building;
 
 import RoyalHouse.model.building.NewBuilding;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

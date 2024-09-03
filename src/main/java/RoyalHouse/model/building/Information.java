@@ -15,8 +15,8 @@ import java.util.List;
     @Column(name = "information_id")
     private Long id;
 
-    @Column(name = "project_description", columnDefinition = "TEXT")
-    private String projectDescription;
+    @Column(name = "description", columnDefinition = "TEXT")
+    private String description;
 
     @Column(name = "location", columnDefinition = "TEXT")
     private String location;

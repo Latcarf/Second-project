@@ -19,7 +19,7 @@ public class Pagination<T> {
     private int endPage;
     private Page<T> pageData;
 
-    private static final int SIZE = 7;
+    private static final int SIZE = 5;
 
     public Pagination(int page, Page<T> pageData) {
         this.totalPages = pageData.getTotalPages();

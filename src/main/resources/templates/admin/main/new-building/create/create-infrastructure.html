@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Infrastructure</title>
+
+    <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
+    <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
+
+    <link rel="stylesheet" th:href="@{/css/admin/main/new-building.css}"/>
+    <link rel="stylesheet" th:href="@{/css/util/navigation.css}"/>
+</head>
+
+<body>
+<div th:replace="~{admin/menu :: menu}"></div>
+<div th:replace="~{fragments/new-building-nav-fragment :: new-building-nav-fragment}"></div>
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h2 class="page-title">Create New Building - Infrastructure</h2>
+        <div class="breadcrumb">
+            <a th:href="@{/admin/menu}">Home</a> >
+            <a th:href="@{/admin/main/new-buildings}">New Buildings</a> >
+            <a th:href="@{/admin/main/new-buildings/create-main}">Infrastructure</a>
+        </div>
+    </div>
+
+    <form th:action="@{/admin/main/new-buildings/create-infrastructure}" method="post" enctype="multipart/form-data">
+        <div class="photos-row">
+            <div class="photo-upload">
+                <div class="form-group">
+                    <label for="photo1">Photo 1</label>
+                </div>
+                <div class="photo-preview">
+                    <img src="/images/examples/1920x800.jpg" alt="Image" id="photo1-preview" />
+                </div>
+                <label class="custom-file-upload">
+                    <input type="file" id="photo1" name="photos" accept="image/*" required>
+                    <span id="file-chosen1">Select file</span>
+                </label>
+            </div>
+
+            <div class="photo-upload">
+                <div class="form-group">
+                    <label for="photo2">Photo 2</label>
+                </div>
+                <div class="photo-preview">
+                    <img src="/images/examples/1920x800.jpg" alt="Image" id="photo2-preview" />
+                </div>
+                <label class="custom-file-upload">
+                    <input type="file" id="photo2" name="photos" accept="image/*" required>
+                    <span id="file-chosen2">Select file</span>
+                </label>
+            </div>
+
+            <div class="photo-upload">
+                <div class="form-group">
+                    <label for="photo3">Photo 3</label>
+                </div>
+                <div class="photo-preview">
+                    <img src="/images/examples/1920x800.jpg" alt="Image" id="photo3-preview" />
+                </div>
+                <label class="custom-file-upload">
+                    <input type="file" id="photo3" name="photos" accept="image/*" required>
+                    <span id="file-chosen3">Select file</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="new-building-section">
+                <h3>Project infrastructure</h3>
+                <label for="infrastructure"></label><textarea id="infrastructure" name="infrastructure" th:value="${information.infrastructure}" placeholder="Enter project description..." rows="5" required></textarea>
+            </div>
+        </div>
+
+        <div class="infrastructure-details-wrapper">
+            <div class="infrastructure-block">
+                <div class="form-group">
+                    <label for="numCommercialPremises">Number of commercial premises</label>
+                    <input type="number" id="numCommercialPremises" name="numCommercialPremises" th:value="${newBuildingDetails.numCommercialPremises}" placeholder="Number of commercial premises" required>
+                </div>
+            </div>
+            <div class="infrastructure-block">
+                <div class="form-group">
+                    <label for="numRecreationAreas">Number of recreation areas</label>
+                    <input type="number" id="numRecreationAreas" name="numRecreationAreas" th:value="${newBuildingDetails.numRecreationAreas}" placeholder="Number of recreation areas" required>
+                </div>
+            </div>
+            <div class="infrastructure-block">
+                <div class="form-group">
+                    <label for="numParkingSpaces">Number of Parking Spaces</label>
+                    <input type="number" id="numParkingSpaces" name="numParkingSpaces" th:value="${newBuildingDetails.numParkingSpaces}" placeholder="Number of parking spaces" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="infrastructure-details-wrapper">
+            <div class="infrastructure-block">
+                <div class="form-group">
+                    <label for="playground">Playground</label>
+                    <div class="checkbox-wrapper-63">
+                        <label class="switch">
+                            <input type="checkbox" id="playground" name="playground">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="infrastructure-block">
+                <div class="form-group">
+                    <label for="fitness">Fitness</label>
+                    <div class="checkbox-wrapper-63">
+                        <label class="switch">
+                            <input type="checkbox" id="fitness" name="fitness">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="infrastructure-block">
+                <div class="form-group">
+                    <label for="swimmingPool">Swimming Pool</label>
+                    <div class="checkbox-wrapper-63">
+                        <label class="switch">
+                            <input type="checkbox" id="swimmingPool" name="swimmingPool">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <a th:href="@{/admin/main/new-buildings}" class="btn btn-cancel">Cancel</a>
+            <button type="submit" class="btn btn-primary">Next</button>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/menu-toggle.js"></script>
+<script src="/js/submenu-toggle.js"></script>
+<script src="/js/add-file.js"></script>
+</body>
+</html>

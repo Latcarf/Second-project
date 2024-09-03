@@ -4,20 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="Changing the entire CSS structure. Adding a New Building page">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/util/navigation.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/new-building-nav-fragment.html" afterDir="false" />
+    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="Added create-about.html and changed some html stuff.">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/examples/panoramic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-infrastructure.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-location.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-panorama.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/newBuildingController/CreateNewBuildingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/newBuildingController/CreateNewBuildingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/dto/Pagination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/dto/Pagination.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Details.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Details.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Information.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Information.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/building/NewBuildingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/building/NewBuildingRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/specification/NewBuildingSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/specification/NewBuildingSpecification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/specification/RealEstateSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/specification/RealEstateSpecification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/admin/main/new-building.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/main/new-building.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/1920x800-ph.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/examples/1920x800.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/add-file.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/add-file.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-about.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/new-buildings-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/new-buildings-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-about.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-description.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/new-buildings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/new-buildings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/new-building-nav-fragment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/new-building-nav-fragment.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +43,8 @@
         <option value="JavaScript File" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -94,7 +104,7 @@
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -213,6 +223,11 @@
       <workItem from="1724833268335" duration="27999000" />
       <workItem from="1724917348299" duration="28881000" />
       <workItem from="1725004156358" duration="22173000" />
+      <workItem from="1725082494909" duration="8831000" />
+      <workItem from="1725092368183" duration="2040000" />
+      <workItem from="1725105359682" duration="3670000" />
+      <workItem from="1725141685789" duration="2433000" />
+      <workItem from="1725268990613" duration="32092000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />
@@ -366,7 +381,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724882943603</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added create-about.html and changed some html stuff.">
+      <option name="closed" value="true" />
+      <created>1725054304468</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1725054304468</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,7 +441,8 @@
     <MESSAGE value="UDP: some photo for some entity" />
     <MESSAGE value="Final change in pagination logic" />
     <MESSAGE value="Changing the entire CSS structure. Adding a New Building page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changing the entire CSS structure. Adding a New Building page" />
+    <MESSAGE value="Added create-about.html and changed some html stuff." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added create-about.html and changed some html stuff." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -427,16 +451,11 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="12" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/newBuildingController/CreateNewBuildingController.java</url>
-          <line>27</line>
-          <properties class="RoyalHouse.controller.admin.main.newBuildingController.CreateNewBuildingController" method="newBuilding">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

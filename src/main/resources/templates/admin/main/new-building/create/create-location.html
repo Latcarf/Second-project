@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Location</title>
+
+    <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
+    <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
+
+    <link rel="stylesheet" th:href="@{/css/admin/main/new-building.css}"/>
+    <link rel="stylesheet" th:href="@{/css/util/navigation.css}"/>
+</head>
+
+<body>
+<div th:replace="~{admin/menu :: menu}"></div>
+<div th:replace="~{fragments/new-building-nav-fragment :: new-building-nav-fragment}"></div>
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h2 class="page-title">Create New Building - Location</h2>
+        <div class="breadcrumb">
+            <a th:href="@{/admin/menu}">Home</a> >
+            <a th:href="@{/admin/main/new-buildings}">New Buildings</a> >
+            <a th:href="@{/admin/main/new-buildings/create-location}">Location</a>
+        </div>
+    </div>
+
+    <form th:action="@{/admin/main/new-buildings/create-location}" method="post">
+        <div class="location-details-wrapper">
+            <div class="location-block">
+                <div class="form-group details">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" th:value="${address.city}" placeholder="City" required/>
+                </div>
+                <div class="form-group details">
+                    <label for="district">District</label>
+                    <input type="text" id="district" name="district" th:value="${address.district}" placeholder="District" required/>
+                </div>
+            </div>
+
+            <div class="location-block">
+                <div class="form-group details">
+                    <label for="latitude">Latitude</label>
+                    <input type="text" id="latitude" name="latitude" th:value="${address.latitude}" placeholder="Latitude" required/>
+                </div>
+                <div class="form-group details">
+                    <label for="longitude">Longitude</label>
+                    <input type="text" id="longitude" name="longitude" th:value="${address.longitude}" placeholder="Longitude" required/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="new-building-section">
+                <h3>About the location</h3>
+                <label for="location"></label><textarea id="location" name="location" th:value="${information.location}" placeholder="Enter description about the location..." rows="5" required></textarea>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <a th:href="@{/admin/main/new-buildings}" class="btn btn-cancel">Cancel</a>
+            <button type="submit" class="btn btn-primary">Next</button>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/menu-toggle.js"></script>
+<script src="/js/submenu-toggle.js"></script>
+<script src="/js/add-file.js"></script>
+</body>
+</html>

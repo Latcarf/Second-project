@@ -1,6 +1,8 @@
 package RoyalHouse.specification;
 
+import RoyalHouse.model.building.Address;
 import RoyalHouse.model.building.NewBuilding;
+import jakarta.persistence.criteria.Join;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.StringUtils;
 
@@ -11,8 +13,17 @@ public class NewBuildingSpecification {
     }
 
     public static Specification<NewBuilding> hasAddress(String address) {
-        return (root, query, criteriaBuilder) ->
-                StringUtils.hasText(address) ? criteriaBuilder.like(root.get("type"), "%" + address + "%") : criteriaBuilder.conjunction();
+        return (root, query, criteriaBuilder) -> {
+            if (!StringUtils.hasText(address)) {
+                return criteriaBuilder.conjunction();
+            }
+
+            Join<NewBuilding, Address> addressJoin = root.join("address");
+            return criteriaBuilder.or(
+                    criteriaBuilder.like(addressJoin.get("city"), "%" + address + "%"),
+                    criteriaBuilder.like(addressJoin.get("district"), "%" + address + "%")
+            );
+        };
     }
 
     public static Specification<NewBuilding> hasStatus(String status) {
