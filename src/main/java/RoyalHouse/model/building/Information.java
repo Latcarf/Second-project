@@ -15,20 +15,22 @@ import java.util.List;
     @Column(name = "information_id")
     private Long id;
 
-    @Column(name = "description", columnDefinition = "TEXT")
+    @Column(name = "description", columnDefinition = "TEXT", nullable = false)
     private String description;
 
-    @Column(name = "location", columnDefinition = "TEXT")
+    @Column(name = "location", columnDefinition = "TEXT", nullable = false)
     private String location;
 
-    @Column(name = "infrastructure", columnDefinition = "TEXT")
+    @Column(name = "infrastructure", columnDefinition = "TEXT", nullable = false)
     private String infrastructure;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "infrastructure_photos", joinColumns = @JoinColumn(name = "new_building_id"))
+    @CollectionTable(name = "infrastructure_photos", joinColumns = @JoinColumn(name = "information_id"))
     @Column(name = "infrastructure_photo_url")
     private List<String> infrastructurePhotoUrls;
 
-    @Column(name = "specification", columnDefinition = "TEXT")
-    private String specification;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "specifications", joinColumns = @JoinColumn(name = "information_id"))
+    @Column(name = "specification", columnDefinition = "TEXT", nullable = false)
+    private List<String> specifications;
 }

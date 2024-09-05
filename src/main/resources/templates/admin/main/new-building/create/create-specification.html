@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Specification</title>
+
+    <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
+    <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
+
+    <link rel="stylesheet" th:href="@{/css/admin/main/new-building.css}"/>
+    <link rel="stylesheet" th:href="@{/css/util/navigation.css}"/>
+
+    <script src="https://cdn.tiny.cloud/1/hno225mqy4b8nylclzlwyghyq9oblbnzdl8166vswww2d78o/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+
+<body>
+<div th:replace="~{admin/menu :: menu}"></div>
+<div th:replace="~{fragments/new-building-nav-fragment :: new-building-nav-fragment}"></div>
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h2 class="page-title">Create New Building - Specification</h2>
+        <div class="breadcrumb">
+            <a th:href="@{/admin/menu}">Home</a> >
+            <a th:href="@{/admin/main/new-buildings}">New Buildings</a> >
+            <a th:href="@{/admin/main/new-buildings/create-specification}">Specification</a>
+        </div>
+    </div>
+
+    <form th:action="@{/admin/main/new-buildings/create-specification}" method="post">
+        <div class="text-editor-block">
+            <label for="editor1">Slide 1</label>
+            <textarea id="editor1" class="tinymce" name="slide1"></textarea>
+        </div>
+        <div class="text-editor-block">
+            <label for="editor2">Slide 2</label>
+            <textarea id="editor2" class="tinymce" name="slide2"></textarea>
+        </div>
+        <div class="text-editor-block">
+            <label for="editor3">Slide 3</label>
+            <textarea id="editor3" class="tinymce" name="slide3"></textarea>
+        </div>
+
+        <div class="form-actions">
+            <a th:href="@{/admin/main/new-buildings}" class="btn btn-cancel">Cancel</a>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/menu-toggle.js"></script>
+<script src="/js/submenu-toggle.js"></script>
+
+<script>
+    tinymce.init({
+        selector: 'textarea.tinymce',
+        plugins: [
+            'autolink', 'lists', 'charmap', 'searchreplace', 'wordcount', 'visualblocks',
+            'casechange', 'formatpainter', 'permanentpen', 'powerpaste', 'advcode', 'advtemplate', 'mentions', 'footnotes', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+        ],
+        menubar: '',
+        toolbar: 'undo redo | bold italic underline strikethrough | align lineheight | checklist numlist bullist indent outdent | removeformat',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+        height: 200,
+        content_style: "body { background-color: #2e2e2e; color: #f1f1f1; font-size: 14px; }"
+    });
+</script>
+
+</body>
+</html>

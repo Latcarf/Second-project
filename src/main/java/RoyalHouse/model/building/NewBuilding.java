@@ -15,16 +15,16 @@ public class NewBuilding {
     @Column(name = "new_building_id")
     private Long id;
 
-    @Column(name = "name", length = 100)
+    @Column(name = "name", length = 100, nullable = false)
     private String name;
 
-    @Column(name = "numApartment")
+    @Column(name = "numApartment", nullable = false)
     private Integer numApartment;
 
-    @Column(name = "sorting_order")
+    @Column(name = "sorting_order", nullable = false)
     private Integer sortingOrder;
 
-    @Column(name = "status", length = 50)
+    @Column(name = "status", length = 50, nullable = false)
     private String status;
 
     @ElementCollection(fetch = FetchType.EAGER)
@@ -42,12 +42,13 @@ public class NewBuilding {
     @JoinColumn(name = "details_id")
     private Details details;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "information_id")
     private Information information;
+
 }
 

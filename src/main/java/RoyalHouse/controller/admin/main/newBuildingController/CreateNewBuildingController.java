@@ -21,8 +21,8 @@ public class CreateNewBuildingController {
 
     private final NewBuildingService newBuildingService;
 
-    private Map<String, MultipartFile> tempUrl = new HashMap<>();
-    private Map<String, List<MultipartFile>> tempUrls = new HashMap<>();
+    private final Map<String, MultipartFile> tempUrl = new HashMap<>();
+    private final Map<String, List<MultipartFile>> tempUrls = new HashMap<>();
 
     public CreateNewBuildingController(NewBuildingService newBuildingService) {
         this.newBuildingService = newBuildingService;
@@ -30,7 +30,10 @@ public class CreateNewBuildingController {
 
     @ModelAttribute("newBuilding")
     public NewBuilding newBuilding() {
-        return new NewBuilding();
+        NewBuilding newBuilding = new NewBuilding();
+        newBuilding.setDetails(new Details());
+        newBuilding.setInformation(new Information());
+        return newBuilding;
     }
 
     @GetMapping("/create-main")
@@ -123,8 +126,14 @@ public class CreateNewBuildingController {
 
     @PostMapping("/create-specification")
     public String createSpecification(@ModelAttribute("newBuilding") NewBuilding newBuilding,
-                                      @ModelAttribute Information information,
+                                      @RequestParam("slide1") String slide1,
+                                      @RequestParam("slide2") String slide2,
+                                      @RequestParam("slide3") String slide3,
                                       SessionStatus status) {
+
+        List<String> specifications = List.of(slide1, slide2, slide3);
+        newBuildingService.saveSpecificationDetails(newBuilding, specifications);
+
         newBuildingService.create(newBuilding);
         newBuildingService.addAllPhotoUrls(newBuilding, tempUrl, tempUrls);
 
@@ -134,4 +143,5 @@ public class CreateNewBuildingController {
         status.setComplete();
         return "redirect:/admin/main/new-buildings";
     }
+
 }

@@ -1,15 +1,13 @@
 package RoyalHouse.controller.admin.main.newBuildingController;
 
 import RoyalHouse.dto.Pagination;
-import RoyalHouse.model.building.*;
+import RoyalHouse.model.building.NewBuilding;
 import RoyalHouse.service.admin.main.NewBuildingService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -50,6 +48,18 @@ public class NewBuildingController {
                                    @RequestParam(value = "address", required = false) String address,
                                    @RequestParam(value = "status", required = false) String status) {
         newBuildingService.changeStatus(id);
+
+        return String.format("redirect:/admin/main/new-buildings?page=%d&name=%s&address=%s&status=%s",
+                page, name, address, status);
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteNewBuilding(@PathVariable Long id,
+                                    @RequestParam(defaultValue = "1") int page,
+                                    @RequestParam(value = "name", required = false) String name,
+                                    @RequestParam(value = "address", required = false) String address,
+                                    @RequestParam(value = "status", required = false) String status) {
+        newBuildingService.deleteNewBuilding(id);
 
         return String.format("redirect:/admin/main/new-buildings?page=%d&name=%s&address=%s&status=%s",
                 page, name, address, status);

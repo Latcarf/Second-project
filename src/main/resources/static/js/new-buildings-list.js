@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
             suggestionsList.innerHTML = '';
         }
     }
-3
+
 
     function displaySuggestions(data) {
         suggestionsList.innerHTML = '';
@@ -69,22 +69,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function fetchBuildingDetails(newBuildingId) {
         if (newBuildingId) {
-            fetch(`/admin/main/new-buildings/get-num-floors?newBuildingId=${newBuildingId}`)
+            fetch(`/admin/api/new-buildings/get-num-floors?newBuildingId=${newBuildingId}`)
                 .then(response => response.json())
                 .then(data => {
-                    numFloorsInput.value = data;
+                    numFloorsInput.value = data;  // data должно быть числом
                 })
                 .catch(error => console.error('Error fetching num floors:', error));
 
-            fetch(`/admin/main/new-buildings/get-address?newBuildingId=${newBuildingId}`)
+            fetch(`/admin/api/new-buildings/get-address?newBuildingId=${newBuildingId}`)
                 .then(response => response.json())
                 .then(data => {
-                    cityInput.value = data.city;
-                    districtInput.value = data.district;
+                    if (data && data.city && data.district) {
+                        cityInput.value = data.city;
+                        districtInput.value = data.district;
+                    } else {
+                        console.error('Invalid data structure:', data);
+                    }
                 })
                 .catch(error => console.error('Error fetching address:', error));
         }
     }
+
 
     typeSelect.addEventListener('change', toggleNewBuildingSection);
     searchInput.addEventListener('input', function () {

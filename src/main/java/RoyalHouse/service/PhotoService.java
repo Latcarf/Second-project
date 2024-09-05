@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -40,7 +41,7 @@ public class PhotoService {
     }
 
     public List<String> saveInfrastructurePhotos(List<MultipartFile> files, String newBuildingName, Long newBuildingId) {
-        String directoryPath = String.format("entity/Infrastructure/%s_%d", newBuildingName, newBuildingId);
+        String directoryPath = String.format("entity/NewBuilding/%s_%d/infrastructure", newBuildingName, newBuildingId);
         return savePhotos(files, directoryPath);
     }
 
@@ -54,8 +55,10 @@ public class PhotoService {
             }
 
             Path filePath = path.resolve(uniqueFileName);
-            Files.write(filePath, file.getBytes());
 
+            try (InputStream inputStream = file.getInputStream()) {
+                Files.copy(inputStream, filePath);
+            }
             return "/" + Paths.get(directoryPath, uniqueFileName).toString().replace("\\", "/");
         } catch (IOException e) {
             throw new RuntimeException("Failed to store file " + file.getOriginalFilename(), e);
@@ -74,12 +77,18 @@ public class PhotoService {
     public void deleteSpecificPhotos(List<String> photoUrls) {
         if (Objects.nonNull(photoUrls)) {
             for (String url : photoUrls) {
+                deleteSpecificPhoto(url);
+            }
+        }
+    }
+
+    public void deleteSpecificPhoto(String photoUrl) {
+        if (Objects.nonNull(photoUrl)) {
                 try {
-                    Path filePath = Paths.get(photoStoragePath, url.replace("/images/", ""));
+                    Path filePath = Paths.get(photoStoragePath, photoUrl.replace("/images/", ""));
                     Files.deleteIfExists(filePath);
                 } catch (IOException e) {
-                    throw new RuntimeException("Failed to delete file: " + url, e);
-                }
+                    throw new RuntimeException("Failed to delete file: " + photoUrl, e);
             }
         }
     }

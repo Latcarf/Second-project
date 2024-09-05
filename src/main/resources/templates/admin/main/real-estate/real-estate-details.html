@@ -31,7 +31,7 @@
         <div class="gallery-images">
             <div th:each="photo, iterStat : ${photos}">
                 <div th:class="'image' + (iterStat.index + 1)">
-                    <img th:src="@{${photo}}" alt="Real Estate Photo">
+                    <img th:src="@{'/images' + ${photo}}" alt="Real Estate Photo">
                 </div>
             </div>
         </div>
@@ -43,62 +43,63 @@
         </div>
     </div>
 
-
-    <div class="real-estate-details">
-        <table class="details-table">
-            <tr class="details-row">
-                <th class="header-blue">Name</th>
-                <td th:text="${realEstate.name}"></td>
-            </tr>
-            <tr class="details-row">
-                <th class="header-green">Type</th>
-                <td th:text="${realEstate.type}"></td>
-            </tr>
-            <tr class="details-row">
-                <th class="header-blue">Area (sq.m.)</th>
-                <td th:text="${realEstate.areaSqM}"></td>
-            </tr>
-            <tr class="details-row">
-                <th class="header-green">Price per sq.m ($)</th>
-                <td th:text="${realEstate.priceSqM}"></td>
-            </tr>
-            <tr class="details-row">
-                <th class="header-blue">Total Price ($)</th>
-                <td th:text="${realEstate.totalPrice}"></td>
-            </tr>
-            <tr class="details-row">
-                <th class="header-green">Rooms</th>
-                <td th:text="${realEstate.details.numRooms}"></td>
-            </tr>
-            <tr class="details-row">
-                <th class="header-blue">Floor</th>
-                <td th:text="${realEstate.details.numFloors}"></td>
-            </tr>
-            <tr class="details-row">
-                <th class="header-green">Number of floors</th>
-                <td th:text="${realEstate.details.numStoreys}"></td>
-            </tr>
-            <tr class="details-row">
-                <th class="header-blue">Year Built</th>
-                <td th:text="${realEstate.details.yearBuilt}"></td>
-            </tr>
-            <tr class="details-row">
-                <th class="header-green">Terraces/Balconies</th>
-                <td th:text="${realEstate.details.numTerracesBalconies}"></td>
-            </tr>
-            <tr class="details-row">
-                <th class="header-blue">Date Added</th>
-                <td th:text="${#temporals.format(realEstate.date, 'dd.MM.yyyy - HH:mm')}"></td>
-            </tr>
-            <tr class="details-row">
-                <th class="header-green">Address</th>
-                <td th:text="${realEstate.address.city + ', ' + realEstate.address.district}"></td>
-            </tr>
-            <tr class="details-row" th:if="${realEstate.newBuilding != null}">
-                <th class="header-blue">New Building Name</th>
-                <td th:text="${realEstate.newBuilding.name}"></td>
-            </tr>
-        </table>
+    <div class="table-container">
+        <div class="real-estate-details">
+            <table class="details-table">
+                <tr class="details-row">
+                    <th class="header-blue">Name</th>
+                    <td th:text="${realEstate.name}"></td>
+                </tr>
+                <tr class="details-row">
+                    <th class="header-green">Type</th>
+                    <td th:text="${realEstate.type}"></td>
+                </tr>
+                <tr class="details-row">
+                    <th class="header-blue">Area (sq.m.)</th>
+                    <td th:text="${realEstate.areaSqM}"></td>
+                </tr>
+                <tr class="details-row">
+                    <th class="header-green">Price per sq.m ($)</th>
+                    <td th:text="${realEstate.priceSqM}"></td>
+                </tr>
+                <tr class="details-row">
+                    <th class="header-blue">Total Price ($)</th>
+                    <td th:text="${realEstate.totalPrice}"></td>
+                </tr>
+                <tr class="details-row">
+                    <th class="header-green">Rooms</th>
+                    <td th:text="${realEstate.details.numRooms}"></td>
+                </tr>
+                <tr class="details-row">
+                    <th class="header-blue">Floor</th>
+                    <td th:text="${realEstate.details.numFloors}"></td>
+                </tr>
+                <tr class="details-row">
+                    <th class="header-green">Number of floors</th>
+                    <td th:text="${realEstate.details.numStoreys}"></td>
+                </tr>
+                <tr class="details-row">
+                    <th class="header-blue">Year Built</th>
+                    <td th:text="${realEstate.details.yearBuilt}"></td>
+                </tr>
+                <tr class="details-row">
+                    <th class="header-green">Terraces/Balconies</th>
+                    <td th:text="${realEstate.details.numTerracesBalconies}"></td>
+                </tr>
+                <tr class="details-row">
+                    <th class="header-blue">Date Added</th>
+                    <td th:text="${#temporals.format(realEstate.date, 'dd.MM.yyyy - HH:mm')}"></td>
+                </tr>
+                <tr class="details-row">
+                    <th class="header-green">Address</th>
+                    <td th:text="${realEstate.address.city + ', ' + realEstate.address.district}"></td>
+                </tr>
+                <tr class="details-row" th:if="${realEstate.newBuilding != null}">
+                    <th class="header-blue">New Building Name</th>
+                    <td th:text="${realEstate.newBuilding.name}"></td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 

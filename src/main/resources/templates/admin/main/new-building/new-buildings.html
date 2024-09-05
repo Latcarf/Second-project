@@ -95,19 +95,27 @@
         </table>
 
         <div class="pagination">
+            <!-- Кнопка для перехода на предыдущие страницы, если текущая страница не первая -->
             <span th:if="${pagination.startPage > 1}">
-                <a th:href="@{/admin/main/real-estates(page=${pagination.startPage - 10 > 0 ? pagination.startPage - 10 : 1}, name=${filterParams['name']}, type=${filterParams['type']}, room=${filterParams['room']})}">&lt;&lt;</a>
+                <a th:href="@{/admin/main/new-buildings(page=${pagination.startPage - 1 > 0 ? pagination.startPage - 1 : 1}, name=${filterParams['name']}, address=${filterParams['address']}, status=${filterParams['status']})}">
+            &lt;&lt;
+                </a>
             </span>
 
+            <!-- Отображение номеров страниц с возможностью переключения -->
             <span th:each="i : ${#numbers.sequence(pagination.startPage, pagination.endPage)}">
-                <a th:href="@{/admin/main/real-estates(page=${i}, name=${filterParams['name']}, type=${filterParams['type']}, room=${filterParams['room']})}"
-                   th:text="${i}" th:classappend="${i == pagination.currentPage} ? 'active' : ''"></a>
+                <a th:href="@{/admin/main/new-buildings(page=${i}, name=${filterParams['name']}, address=${filterParams['address']}, status=${filterParams['status']})}"
+                    th:text="${i}" th:classappend="${i == pagination.currentPage} ? 'active' : ''"></a>
             </span>
 
+            <!-- Кнопка для перехода на следующие страницы, если текущая страница не последняя -->
             <span th:if="${pagination.endPage < pagination.totalPages}">
-                <a th:href="@{/admin/main/real-estates(page=${pagination.endPage + 1}, name=${filterParams['name']}, type=${filterParams['type']}, room=${filterParams['room']})}">&gt;&gt;</a>
+                <a th:href="@{/admin/main/new-buildings(page=${pagination.endPage + 1}, name=${filterParams['name']}, address=${filterParams['address']}, status=${filterParams['status']})}">
+            &gt;&gt;
+                </a>
             </span>
         </div>
+
     </div>
 </div>
 

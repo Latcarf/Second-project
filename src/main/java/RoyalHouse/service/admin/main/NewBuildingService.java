@@ -1,9 +1,6 @@
 package RoyalHouse.service.admin.main;
 
-import RoyalHouse.model.building.Address;
-import RoyalHouse.model.building.Details;
-import RoyalHouse.model.building.Information;
-import RoyalHouse.model.building.NewBuilding;
+import RoyalHouse.model.building.*;
 import RoyalHouse.model.modelEnum.Status;
 import RoyalHouse.repository.building.DetailsRepository;
 import RoyalHouse.repository.building.AddressRepository;
@@ -86,6 +83,17 @@ public class NewBuildingService implements PaginationService<NewBuilding> {
         return newBuildingRepository.findByNameContainingIgnoreCase(query);
     }
 
+    public void deleteNewBuilding(Long id) {
+        NewBuilding newBuilding = getNewBuildingById(id);
+
+        photoService.deleteSpecificPhotos(newBuilding.getPhotoUrls());
+        photoService.deleteSpecificPhoto(newBuilding.getBannerUrl());
+        photoService.deleteSpecificPhoto(newBuilding.getPanoramaUrl());
+        photoService.deleteSpecificPhotos(newBuilding.getInformation().getInfrastructurePhotoUrls());
+
+        newBuildingRepository.delete(newBuilding);
+    }
+
     public void saveMainDetails(NewBuilding newBuilding, Details details) {
         if ("ACTIVE".equals(newBuilding.getStatus())) {
             newBuilding.setStatus(Status.ACTIVE.toString());
@@ -95,7 +103,10 @@ public class NewBuildingService implements PaginationService<NewBuilding> {
 
         setSortingOrder(newBuilding);
         newBuilding.setName(newBuilding.getName());
-        newBuilding.setDetails(details);
+        newBuilding.setNumApartment(newBuilding.getNumApartment());
+
+        newBuilding.getDetails().setYearBuilt(details.getYearBuilt());
+        newBuilding.getDetails().setNumFloors(details.getNumFloors());
     }
 
     public void saveDescriptionDetails(NewBuilding newBuilding, Information information) {
@@ -110,41 +121,49 @@ public class NewBuildingService implements PaginationService<NewBuilding> {
     public void saveInfrastructureDetails(NewBuilding newBuilding, Information information, Details details) {
         newBuilding.getInformation().setInfrastructure(information.getInfrastructure());
 
-        newBuilding.getDetails().setNumRooms(details.getNumRooms());
+        newBuilding.getDetails().setNumCommercialPremises(details.getNumCommercialPremises());
+        newBuilding.getDetails().setNumRecreationAreas(details.getNumRecreationAreas());
         newBuilding.getDetails().setNumParkingSpaces(details.getNumParkingSpaces());
-        newBuilding.getDetails().setNumTerracesBalconies(details.getNumTerracesBalconies());
-        newBuilding.getDetails().setPlayground(details.getPlayground());
-        newBuilding.getDetails().setFitness(details.getFitness());
-        newBuilding.getDetails().setSwimmingPool(details.getSwimmingPool());
+
+        newBuilding.getDetails().setPlayground(Objects.nonNull(details.getPlayground()) ? details.getPlayground() : false);
+        newBuilding.getDetails().setFitness(Objects.nonNull(details.getFitness()) ? details.getFitness() : false);
+        newBuilding.getDetails().setSwimmingPool(Objects.nonNull(details.getSwimmingPool()) ? details.getSwimmingPool() : false);
     }
 
 
-    public void saveSpecificationDetails(NewBuilding newBuilding, String specificationText) {
-        newBuilding.getInformation().setSpecification(specificationText);
+    public void saveSpecificationDetails(NewBuilding newBuilding, List<String> specifications) {
+        newBuilding.getInformation().setSpecifications(specifications);
     }
 
     public void create(NewBuilding newBuilding) {
-        detailsRepository.save(newBuilding.getDetails());
-        addressRepository.save(newBuilding.getAddress());
-        informationRepository.save(newBuilding.getInformation());
         newBuildingRepository.save(newBuilding);
     }
 
     public void addAllPhotoUrls(NewBuilding newBuilding, Map<String, MultipartFile> url, Map<String, List<MultipartFile>> urls) {
         if (Objects.nonNull(url.get("bannerUrl"))) {
-            String bannerUrl = photoService.saveNewBuildingBanner(url.get("banner"), newBuilding.getName(), newBuilding.getId());
+            String bannerUrl = photoService.saveNewBuildingBanner(url.get("bannerUrl"), newBuilding.getName(), newBuilding.getId());
             newBuilding.setBannerUrl(bannerUrl);
         }
 
         if (Objects.nonNull(urls.get("photoUrls"))) {
-            List<String> photosUrls = photoService.saveNewBuildingPhotos(urls.get("photos"), newBuilding.getName(), newBuilding.getId());
+            List<String> photosUrls = photoService.saveNewBuildingPhotos(urls.get("photoUrls"), newBuilding.getName(), newBuilding.getId());
             newBuilding.setPhotoUrls(photosUrls);
+        }
+
+        if (newBuilding.getInformation().getId() == null) {
+            informationRepository.save(newBuilding.getInformation());
         }
 
         if (Objects.nonNull(urls.get("infrastructurePhotoUrls"))) {
             List<String> photosUrls = photoService.saveInfrastructurePhotos(urls.get("infrastructurePhotoUrls"), newBuilding.getName(), newBuilding.getId());
-            newBuilding.setPhotoUrls(photosUrls);
+            newBuilding.getInformation().setInfrastructurePhotoUrls(photosUrls);
         }
+
+        if (Objects.nonNull(url.get("panoramaUrl"))) {
+            String panoramaUrl = photoService.saveNewBuildingPanorama(url.get("panoramaUrl"), newBuilding.getName(), newBuilding.getId());
+            newBuilding.setPanoramaUrl(panoramaUrl);
+        }
+        newBuildingRepository.save(newBuilding);
     }
 
     private void setSortingOrder(NewBuilding newBuilding) {

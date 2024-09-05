@@ -92,13 +92,12 @@ public class RealEstateController {
     @PostMapping("/delete/{id}")
     public String deleteRealEstate(@PathVariable Long id,
                                    @RequestParam(defaultValue = "1") int page,
-                                   @RequestParam(defaultValue = "5") int size,
                                    @RequestParam(value = "name", required = false) String name,
                                    @RequestParam(value = "type", required = false) String type,
                                    @RequestParam(value = "room", required = false) Integer room) {
         realEstateService.deleteRealEstate(id);
 
-        return String.format("redirect:/admin/main/real-estates?page=%d&size=%d&name=%s&type=%s&room=%s",
-                page, size, name, type, room != null ? room.toString() : "");
+        return String.format("redirect:/admin/main/real-estates?page=%d&name=%s&type=%s&room=%s",
+                page, name, type, room != null ? room.toString() : "");
     }
 }

@@ -136,3 +136,100 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+
+
+
+/* Styling for the text editor block */
+.text-editor-block {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.text-editor-block label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #aaa;
+}
+
+/* Styling for the TinyMCE text area container */
+.text-editor-block textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #4FC3A1; /* Updated border color */
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    color: #f1f1f1;
+    font-size: 14px;
+    resize: none;
+}
+
+/* Toolbar background and border styling */
+.tox .tox-toolbar__primary,
+.tox .tox-toolbar-overlord {
+    background-color: #1f1f1f !important;
+}
+
+/* Editor header background and border styling */
+.tox .tox-editor-header {
+    background-color: #1f1f1f !important;
+    border-bottom: 1px solid #444 !important;
+}
+
+/* General TinyMCE editor container styling */
+.tox .tox-editor-container {
+    background-color: #2e2e2e !important;
+    border: 1px solid #444 !important;
+    border-radius: 5px !important;
+}
+
+/* Status bar background and border styling */
+.tox .tox-statusbar {
+    background-color: #1f1f1f !important;
+    border-top: 1px solid #444 !important;
+    color: #4FC3A1 !important; /* Updated text color */
+}
+
+/* Menu bar background and border styling */
+.tox .tox-menubar {
+    background-color: #1f1f1f !important;
+    border-bottom: 1px solid #444 !important;
+}
+
+/* Menu bar button styling */
+.tox .tox-menubar .tox-mbtn,
+.tox .tox-mbtn {
+    background-color: #4FC3A1 !important; /* Updated button background color */
+    color: #1f1f1f !important; /* Updated text color */
+    cursor: pointer !important; /* Added pointer cursor */
+}
+
+/* Pop-up menu background and text styling */
+.tox .tox-pop,
+.tox .tox-pop--upper,
+.tox .tox-pop--lower {
+    background-color: #2e2e2e !important;
+    border: 1px solid #444 !important;
+    color: #f1f1f1 !important;
+}
+
+/* Toolbar button styling */
+.tox .tox-toolbar__group button {
+    background-color: #4FC3A1 !important; /* Updated button background color */
+    color: #1f1f1f !important; /* Updated text color */
+    cursor: pointer !important; /* Added pointer cursor */
+}
+
+.tox .tox-button:hover {
+    background-color: #4FC3A1 !important; /* Hover effect for buttons */
+    color: #1f1f1f !important; /* Hover text color */
+}
+
+/* Text color for word count in the status bar */
+.tox .tox-statusbar__wordcount {
+    color: #4FC3A1 !important; /* Updated word count text color */
+}
