@@ -39,6 +39,10 @@ public class RealEstate {
     @Column(name = "photo_url")
     private List<String> photoUrls;
 
+    @ManyToOne()
+    @JoinColumn(name = "new_building_id")
+    private NewBuilding newBuilding;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "details_id")
     private Details details;
@@ -46,10 +50,6 @@ public class RealEstate {
     @ManyToOne
     @JoinColumn(name = "address_id")
     private Address address;
-
-    @ManyToOne()
-    @JoinColumn(name = "new_building_id")
-    private NewBuilding newBuilding;
 
     @PrePersist
     protected void onCreate() {

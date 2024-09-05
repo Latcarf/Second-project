@@ -13,9 +13,14 @@ public class Service {
     @Column(name = "service_id")
     private Long id;
 
-    @Column(name = "heading", length = 100)
+    @Column(name = "heading", nullable = false, length = 100)
     private String heading;
 
-    @Column(name = "banner_text", nullable = false, length = 100)
-    private String bannerText;
+    @Column(name = "description", columnDefinition = "TEXT")
+    private String description;
+
+    @Column(name = "banner_url")
+    private String bannerUrl;
+
+
 }
