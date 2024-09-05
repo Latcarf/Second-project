@@ -45,6 +45,16 @@ public class PhotoService {
         return savePhotos(files, directoryPath);
     }
 
+    public String saveServicePhoto(MultipartFile file, String name, Long id) {
+        String directoryPath = String.format("entity/Service/%s_%d/photo", name, id);
+        return savePhotoFile(file, directoryPath);
+    }
+
+    public String saveServiceBanner(MultipartFile file, String name, Long id) {
+        String directoryPath = String.format("entity/Service/%s_%d/banner", name, id);
+        return savePhotoFile(file, directoryPath);
+    }
+
     private String savePhotoFile(MultipartFile file, String directoryPath) {
         try {
             String uniqueFileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();

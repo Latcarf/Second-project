@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>New Building</title>
+    <title>Service</title>
 
     <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
     <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
 
-    <link rel="stylesheet" th:href="@{/css/admin/main/new-building.css}"/>
+    <link rel="stylesheet" th:href="@{/css/admin/main/service.css}"/>
 </head>
 
 <body>
@@ -15,16 +15,16 @@
 
 <div class="content-wrapper">
     <div class="page-header">
-        <h2 class="page-title">New Buildings</h2>
+        <h2 class="page-title">Service</h2>
         <div class="breadcrumb">
             <a th:href="@{/admin/menu}">Home</a> >
-            <a th:href="@{/admin/main/new-buildings}">New Buildings</a>
+            <a th:href="@{/admin/main/services}">Service</a>
         </div>
     </div>
 
     <div class="actions">
-        <form th:action="@{/admin/main/new-buildings/create-main}" method="get">
-            <button class="btn btn-create" type="submit">Create new New Building</button>
+        <form th:action="@{/admin/main/services/create}" method="get">
+            <button class="btn btn-create" type="submit">Create new Service</button>
         </form>
     </div>
 
@@ -32,17 +32,17 @@
         <table class="fl-table">
             <thead>
             <tr>
-                <th>Sorting order</th>
                 <th>Name</th>
-                <th>Address</th>
+                <th>Description</th>
+                <th>Date</th>
                 <th>Status</th>
                 <th></th>
             </tr>
             <tr class="filters">
-                <form th:action="@{/admin/main/new-buildings}" method="get" style="display: contents;">
-                    <td></td>
+                <form th:action="@{/admin/main/services}" method="get" style="display: contents;">
                     <td><input type="text" class="filter-input filter-name" name="name" th:value="${filterParams['name']}" placeholder="Name"/></td>
-                    <td><input type="text" class="filter-input filter-name" name="address" th:value="${filterParams['address']}" placeholder="Address"/></td>
+                    <td></td>
+                    <td></td>
                     <td>
                         <select class="filter-select" name="status">
                             <option value="" th:selected="${filterParams['status'] == ''}">All</option>
@@ -53,7 +53,7 @@
                     <td>
                         <div class="btn btn-group-table">
                             <button class="btn btn-filter" type="submit">Filter</button>
-                            <a class="btn btn-clear" th:href="@{/admin/main/new-buildings}">Clear</a>
+                            <a class="btn btn-clear" th:href="@{/admin/main/services}">Clear</a>
                         </div>
                     </td>
                 </form>
@@ -61,30 +61,28 @@
             </thead>
 
             <tbody>
-            <tr th:each="newBuilding : ${newBuildings}">
-                <td th:text="${newBuilding.sortingOrder}"></td>
-                <td th:text="${newBuilding.name}"></td>
-                <td th:text="${newBuilding.address.city} + ', ' + ${newBuilding.address.district}"></td>
+            <tr th:each="service : ${services}">
+                <td th:text="${service.name}"></td>
+                <td th:utext="${#strings.abbreviate(service.description, 30)}"></td>
+                <td th:text="${#temporals.format(service.date, 'dd.MM.yyyy - HH:mm')}"></td>
                 <td>
-                    <form th:action="@{/admin/main/new-buildings/changeStatus/{id}(id=${newBuilding.id})}" method="get">
+                    <form th:action="@{/admin/main/services/changeStatus/{id}(id=${service.id})}" method="get">
                         <input type="hidden" name="page" th:value="${pagination.currentPage}"/>
                         <input type="hidden" name="name" th:value="${filterParams['name']}"/>
-                        <input type="hidden" name="address" th:value="${filterParams['address']}"/>
                         <input type="hidden" name="status" th:value="${filterParams['status']}"/>
-                        <button class="btn btn-status" th:classappend="' ' + ${newBuilding.status.toLowerCase()}"
-                                th:text="${newBuilding.status}" type="submit"></button>
+                        <button class="btn btn-status" th:classappend="' ' + ${service.status.toLowerCase()}"
+                                th:text="${service.status}" type="submit"></button>
                     </form>
                 </td>
                 <td>
                     <div class="btn btn-group-table">
-                        <form th:action="@{/admin/main/new-buildings/edit/{id}(id=${newBuilding.id})}" method="get"
+                        <form th:action="@{/admin/main/services/edit/{id}(id=${service.id})}" method="get"
                               style="display:inline;">
-                            <button class="btn btn-action" type="submit">View</button>
+                            <button class="btn btn-action" type="submit">Edit</button>
                         </form>
-                        <form th:action="@{/admin/main/new-buildings/delete/{id}(id=${newBuilding.id})}" method="post" style="display:inline;">
+                        <form th:action="@{/admin/main/services/delete/{id}(id=${service.id})}" method="post" style="display:inline;">
                             <input type="hidden" name="page" th:value="${pagination.currentPage}"/>
                             <input type="hidden" name="name" th:value="${filterParams['name']}"/>
-                            <input type="hidden" name="address" th:value="${filterParams['address']}"/>
                             <input type="hidden" name="status" th:value="${filterParams['status']}"/>
                             <button class="btn btn-delete" type="submit">Delete</button>
                         </form>
@@ -96,18 +94,18 @@
 
         <div class="pagination">
             <span th:if="${pagination.startPage > 1}">
-                <a th:href="@{/admin/main/new-buildings(page=${pagination.startPage - 1 > 0 ? pagination.startPage - 1 : 1}, name=${filterParams['name']}, address=${filterParams['address']}, status=${filterParams['status']})}">
+                <a th:href="@{/admin/main/services(page=${pagination.startPage - 1 > 0 ? pagination.startPage - 1 : 1}, name=${filterParams['name']}, status=${filterParams['status']})}">
             &lt;&lt;
                 </a>
             </span>
 
             <span th:each="i : ${#numbers.sequence(pagination.startPage, pagination.endPage)}">
-                <a th:href="@{/admin/main/new-buildings(page=${i}, name=${filterParams['name']}, address=${filterParams['address']}, status=${filterParams['status']})}"
-                    th:text="${i}" th:classappend="${i == pagination.currentPage} ? 'active' : ''"></a>
+                <a th:href="@{/admin/main/services(page=${i}, name=${filterParams['name']}, status=${filterParams['status']})}"
+                   th:text="${i}" th:classappend="${i == pagination.currentPage} ? 'active' : ''"></a>
             </span>
 
             <span th:if="${pagination.endPage < pagination.totalPages}">
-                <a th:href="@{/admin/main/new-buildings(page=${pagination.endPage + 1}, name=${filterParams['name']}, address=${filterParams['address']}, status=${filterParams['status']})}">
+                <a th:href="@{/admin/main/services(page=${pagination.endPage + 1}, name=${filterParams['name']}, status=${filterParams['status']})}">
             &gt;&gt;
                 </a>
             </span>

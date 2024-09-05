@@ -5,144 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="Full creating the NewBuilding">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/banner/54848cc4-69bf-430f-8365-45f9af681051_high-buildings-with-cloudy-blue-sky-1024x537.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/panorama/d00dd4ea-927d-4ac1-aa9f-6c5c0bd0e140_shot-panoramic-composition-living-room (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/photos/0917ff7a-6a6b-470e-8865-d444d27d776e_4bf5ece53a38dff97a3ac8aff4f84b52.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/photos/4f178051-4cb2-4193-8071-613fa3e5db0a_9d566f94294339.5e7b4deaabec3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/photos/bfaf9728-7da7-4262-aba3-c34bfa5acc50_4_ptich.2e16d0ba.fill-840x450.format-jpeg.jpegquality-90_i4f9rg1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/infrastructure/New Building 4_31/599e2bdd-739e-4619-9abf-aadbef5366d5_b61c8fe5-77ae-49c5-8383-87737a9183a3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/infrastructure/New Building 4_31/d6b0c2a4-1e3f-4f60-bcca-1e175c9d2eb5_pexels-kelly-lacy-2655864.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/infrastructure/New Building 4_31/ff05a84e-3cd4-4b92-8fd1-8e19523db363_stwCorkanPix4Web_750s-03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartamanet 4_70/63269907-fe30-42b9-8729-7cd15c04d1d6_APARTMENT-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartamanet 4_70/710bef0a-7944-4ea1-9e7f-70383fafc37b_HOUSE-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartamanet 4_70/dd4d0690-e097-42d6-871b-f4fa8ea10525_HOUSE-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/1_72/0818fa6d-42c0-4c3f-808c-83390c76d1ff_APARTMENT-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/1_72/1ccd468e-f3a9-47f3-a734-7891c93cd25a_APARTMENT-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/1_72/721b4188-9a77-4796-a396-edf78e5fc304_APARTMENT-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/1_73/53798611-94a5-4f28-9f2c-087477ed17bf_screencapture-localhost-8080-admin-main-new-buildings-create-panorama-2024-09-03-16_10_40.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/1_73/af8d88e3-5bbd-408a-870d-3b97646d12cb_screencapture-localhost-8080-admin-main-new-buildings-create-infrastructure-2024-09-03-16_09_45.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/icons/default/icons.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/langs/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/license.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/models/dom/model.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/accordion/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/advlist/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/anchor/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/autolink/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/autoresize/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/autosave/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/charmap/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/code/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/codesample/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/directionality/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/emoticons/js/emojiimages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/emoticons/js/emojiimages.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/emoticons/js/emojis.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/emoticons/js/emojis.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/emoticons/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/fullscreen/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/ar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/bg_BG.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/cs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/da.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/de.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/el.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/es.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/eu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/fa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/fi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/fr_FR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/he_IL.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/hi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/hr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/hu_HU.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/id.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/it.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/ja.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/kk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/ko_KR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/ms.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/nb_NO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/nl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/pl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/pt_BR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/pt_PT.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/ro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/ru.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/sk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/sl_SI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/sv_SE.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/th_TH.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/tr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/uk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/vi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/zh_CN.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/js/i18n/keynav/zh_TW.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/help/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/image/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/importcss/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/insertdatetime/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/link/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/lists/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/media/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/nonbreaking/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/pagebreak/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/preview/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/quickbars/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/save/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/searchreplace/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/table/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/template/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/visualblocks/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/visualchars/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/plugins/wordcount/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/content/dark/content.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/content/default/content.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/content/document/content.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/content/tinymce-5-dark/content.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/content/tinymce-5/content.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/content/writer/content.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/oxide-dark/content.inline.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/oxide-dark/content.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/oxide-dark/skin.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/oxide-dark/skin.shadowdom.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/oxide/content.inline.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/oxide/content.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/oxide/skin.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/oxide/skin.shadowdom.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/tinymce-5-dark/content.inline.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/tinymce-5-dark/content.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/tinymce-5-dark/skin.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/tinymce-5-dark/skin.shadowdom.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/tinymce-5/content.inline.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/tinymce-5/content.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/tinymce-5/skin.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/skins/ui/tinymce-5/skin.shadowdom.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/themes/silver/theme.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/tinymce.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/tinymce/js/tinymce/tinymce.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-specification.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/ServiceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/ServiceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/specification/ServiceSpecification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/main/service.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/util/photo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/util/tinyMCE.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/Service/Service 1_1/banner/aab2830b-24a5-43a3-9572-f60b34a4d356_service-1019821_640.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/Service/Service 1_2/banner/26b4e47f-fcb5-4b50-8e63-e2f64ee8969c_service-1019821_640.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/Service/Service 1_2/photo/bb5e316e-feb2-4291-b548-77f755b4114c_istockphoto-184400002-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/service/create-service.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/service/update-service.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RealEstateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/newBuildingController/CreateNewBuildingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/newBuildingController/CreateNewBuildingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/newBuildingController/NewBuildingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/newBuildingController/NewBuildingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Information.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Information.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/ServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/setting/SecondaryMarketController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/setting/SnapObjectController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/company/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/company/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/PhotoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/admin/main/new-building.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/main/new-building.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/admin/menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/new-buildings-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/new-buildings-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-panorama.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-panorama.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/util/forms.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/util/forms.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-description.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-description.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-specification.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/create/create-specification.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/new-buildings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/new-buildings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estate-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estate-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/service/services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,10 +45,10 @@
         <option value="Less File" />
         <option value="Enum" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
         <option value="CSS File" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -206,7 +95,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.TestProjectApplication.executor": "Debug",
+    "Spring Boot.TestProjectApplication.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/IT/Java/projects/RoyalHouse",
@@ -230,11 +119,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IT\Java\projects\RoyalHouse\src\main\resources\templates\admin\main\service" />
       <recent name="D:\IT\Java\projects\RoyalHouse\src\main\resources\static\js" />
       <recent name="D:\IT\Java\projects\RoyalHouse\src\main\resources\static\images\examples" />
       <recent name="D:\IT\Java\projects\RoyalHouse\src\main\resources\static\css\util" />
       <recent name="D:\IT\Java\projects\RoyalHouse\src\main\resources\static\css\admin\main" />
-      <recent name="D:\IT\Java\projects\RoyalHouse\src\main\resources\static\css\admin\setting" />
     </key>
   </component>
   <component name="RunManager">
@@ -346,7 +235,8 @@
       <workItem from="1725351599689" duration="12042000" />
       <workItem from="1725381146061" duration="8628000" />
       <workItem from="1725436509471" duration="19253000" />
-      <workItem from="1725517472952" duration="15630000" />
+      <workItem from="1725517472952" duration="25103000" />
+      <workItem from="1725558741435" duration="8724000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />
@@ -516,7 +406,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725352194677</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Full creating the NewBuilding">
+      <option name="closed" value="true" />
+      <created>1725540353900</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1725540353900</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,8 +480,27 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java</url>
-          <line>152</line>
+          <line>151</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/ServiceController.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/ServiceController.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/ServiceService.java</url>
+          <line>65</line>
+          <properties class="RoyalHouse.service.admin.main.ServiceService" method="createService">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

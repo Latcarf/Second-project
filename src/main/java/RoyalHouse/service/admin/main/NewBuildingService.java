@@ -1,9 +1,12 @@
 package RoyalHouse.service.admin.main;
 
-import RoyalHouse.model.building.*;
+import RoyalHouse.model.building.Address;
+import RoyalHouse.model.building.Details;
+import RoyalHouse.model.building.Information;
+import RoyalHouse.model.building.NewBuilding;
 import RoyalHouse.model.modelEnum.Status;
-import RoyalHouse.repository.building.DetailsRepository;
 import RoyalHouse.repository.building.AddressRepository;
+import RoyalHouse.repository.building.DetailsRepository;
 import RoyalHouse.repository.building.InformationRepository;
 import RoyalHouse.repository.building.NewBuildingRepository;
 import RoyalHouse.service.PaginationService;
@@ -24,17 +27,13 @@ import java.util.Objects;
 @Service
 public class NewBuildingService implements PaginationService<NewBuilding> {
     private final NewBuildingRepository newBuildingRepository;
-    private final DetailsRepository detailsRepository;
-    private final AddressRepository addressRepository;
     private final InformationRepository informationRepository;
 
     private final PhotoService photoService;
 
 
-    public NewBuildingService(NewBuildingRepository newBuildingRepository, DetailsRepository detailsRepository, AddressRepository addressRepository, InformationRepository informationRepository, PhotoService photoService) {
+    public NewBuildingService(NewBuildingRepository newBuildingRepository, InformationRepository informationRepository, PhotoService photoService) {
         this.newBuildingRepository = newBuildingRepository;
-        this.detailsRepository = detailsRepository;
-        this.addressRepository = addressRepository;
         this.informationRepository = informationRepository;
         this.photoService = photoService;
     }
