@@ -34,7 +34,7 @@ public class NewBuilding {
 
     @Column(name = "banner_url")
     private String bannerUrl;
-
+    
     @Column(name = "panorama_url")
     private String panoramaUrl;
 

@@ -149,10 +149,6 @@ public class NewBuildingService implements PaginationService<NewBuilding> {
             newBuilding.setPhotoUrls(photosUrls);
         }
 
-        if (newBuilding.getInformation().getId() == null) {
-            informationRepository.save(newBuilding.getInformation());
-        }
-
         if (Objects.nonNull(urls.get("infrastructurePhotoUrls"))) {
             List<String> photosUrls = photoService.saveInfrastructurePhotos(urls.get("infrastructurePhotoUrls"), newBuilding.getName(), newBuilding.getId());
             newBuilding.getInformation().setInfrastructurePhotoUrls(photosUrls);

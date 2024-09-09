@@ -1,9 +1,6 @@
 package RoyalHouse.controller.admin.main;
 
 import RoyalHouse.dto.Pagination;
-import RoyalHouse.model.building.Address;
-import RoyalHouse.model.building.Details;
-import RoyalHouse.model.building.RealEstate;
 import RoyalHouse.model.company.Service;
 import RoyalHouse.service.PhotoService;
 import RoyalHouse.service.admin.main.ServiceService;
@@ -80,6 +77,24 @@ public class ServiceController {
 
         return "redirect:/admin/main/services";
     }
+
+    @GetMapping("/edit/{id}")
+    public String showUpdateForm(@PathVariable Long id, Model model) {
+        model.addAttribute("service", serviceService.getServiceById(id));
+        return "/admin/main/service/edit-service";
+    }
+
+    @PostMapping("/edit")
+    public String updateService(@ModelAttribute Service service,
+                                @RequestParam("preview") MultipartFile preview,
+                                @RequestParam("banner") MultipartFile banner) {
+
+        serviceService.editService(service, preview, banner);
+
+        return "redirect:/admin/main/services";
+    }
+
+
 
     @PostMapping("/delete/{id}")
     public String deleteNewBuilding(@PathVariable Long id,

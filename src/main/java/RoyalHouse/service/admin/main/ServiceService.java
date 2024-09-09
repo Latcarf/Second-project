@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
@@ -64,13 +65,40 @@ public class ServiceService implements PaginationService<RoyalHouse.model.compan
 
     @Transactional
     public void createService(RoyalHouse.model.company.Service service) {
-        if ("ACTIVE".equals(service.getStatus())) {
+        if (Status.ACTIVE.toString().equals(service.getStatus())) {
             service.setStatus(Status.ACTIVE.toString());
         } else {
             service.setStatus(Status.DEACTIVATED.toString());
         }
 
         serviceRepository.save(service);
+    }
+
+    public void editService(RoyalHouse.model.company.Service service, MultipartFile preview, MultipartFile banner) {
+        RoyalHouse.model.company.Service existingService = getServiceById(service.getId());
+
+        existingService.setName(service.getName());
+        existingService.setDescription(service.getDescription());
+
+        if (Status.ACTIVE.toString().equals(service.getStatus())) {
+            existingService.setStatus(Status.ACTIVE.toString());
+        } else {
+            existingService.setStatus(Status.DEACTIVATED.toString());
+        }
+
+        if (!preview.isEmpty()) {
+            photoService.deleteSpecificPhoto(existingService.getPhotoUrl());
+            String photoUrl = photoService.saveServicePhoto(preview, existingService.getName(), existingService.getId());
+            existingService.setPhotoUrl(photoUrl);
+        }
+
+        if (!banner.isEmpty()) {
+            photoService.deleteSpecificPhoto(existingService.getBannerUrl());
+            String bannerUrl = photoService.saveServiceBanner(banner, existingService.getName(), existingService.getId());
+            existingService.setBannerUrl(bannerUrl);
+        }
+
+        serviceRepository.save(existingService);
     }
 
     public void deleteService(Long id) {
