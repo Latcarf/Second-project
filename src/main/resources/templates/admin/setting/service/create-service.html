@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Update Service</title>
+    <title>Create Service</title>
 
     <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
     <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
 
-    <link rel="stylesheet" th:href="@{/css/admin/main/service.css}"/>
+    <link rel="stylesheet" th:href="@{/css/admin/setting/service.css}"/>
 </head>
 
 <body>
@@ -15,27 +15,25 @@
 
 <div class="content-wrapper">
     <div class="page-header">
-        <h2 class="page-title">Edit Service</h2>
+        <h2 class="page-title">Create New Service</h2>
         <div class="breadcrumb">
             <a th:href="@{/admin/menu}">Home</a> >
-            <a th:href="@{/admin/main/services}">Services</a> >
-            <a th:href="@{/admin/main/services/edit/{id}(id=${service.id})}">Edit Service</a>
+            <a th:href="@{/admin/setting/services}">Services</a> >
+            <a th:href="@{/admin/setting/services/create-service}">Create Service</a>
         </div>
     </div>
 
-    <form th:action="@{/admin/main/services/edit}" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="id" th:value="${service.id}" />
-
+    <form th:action="@{/admin/setting/services/create}" method="post" enctype="multipart/form-data">
         <div class="photos-row">
             <div class="photo-upload">
                 <div class="form-group">
                     <label for="banner">Banner</label>
                 </div>
                 <div class="photo-preview">
-                    <img th:src="@{'/images' + ${service.bannerUrl}}" alt="Banner Image" id="banner-preview" />
+                    <img src="/images/examples/1920x800.jpg" alt="Banner Image" id="banner-preview" />
                 </div>
                 <label class="custom-file-upload">
-                    <input type="file" id="banner" name="banner" accept="image/*">
+                    <input type="file" id="banner" name="banner" accept="image/*" required>
                     <span id="file-chosen1">Select file</span>
                 </label>
                 <p class="recommended-size">Recommended size: (1920x800)</p>
@@ -46,10 +44,10 @@
                     <label for="preview">Preview</label>
                 </div>
                 <div class="photo-preview">
-                    <img th:src="@{'/images' + ${service.photoUrl}}" alt="Preview Image" id="preview-preview" />
+                    <img src="/images/examples/1920x800.jpg" alt="Preview Image" id="preview-preview" />
                 </div>
                 <label class="custom-file-upload">
-                    <input type="file" id="preview" name="preview" accept="image/*">
+                    <input type="file" id="preview" name="preview" accept="image/*" required>
                     <span id="file-chosen2">Select file</span>
                 </label>
                 <p class="recommended-size">Recommended size: (500x350)</p>
@@ -75,13 +73,13 @@
         <div class="form-group">
             <div class="service-section">
                 <h3>Description</h3>
-                <textarea id="description" name="description" th:text="${service.description}" placeholder="Enter description..." rows="5" required> </textarea>
+                <textarea id="description" name="description" th:value="${service.description}" placeholder="Enter description..." rows="5" required></textarea>
             </div>
         </div>
 
         <div class="form-actions">
-            <a th:href="@{/admin/main/services}" class="btn btn-cancel">Cancel</a>
-            <button type="submit" class="btn btn-primary">Edit</button>
+            <a th:href="@{/admin/setting/services}" class="btn btn-cancel">Cancel</a>
+            <button type="submit" class="btn btn-primary">Save</button>
         </div>
     </form>
 </div>

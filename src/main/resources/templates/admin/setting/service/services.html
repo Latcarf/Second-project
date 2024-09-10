@@ -7,7 +7,7 @@
     <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
     <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
 
-    <link rel="stylesheet" th:href="@{/css/admin/main/service.css}"/>
+    <link rel="stylesheet" th:href="@{/css/admin/setting/service.css}"/>
 </head>
 
 <body>
@@ -18,12 +18,12 @@
         <h2 class="page-title">Service</h2>
         <div class="breadcrumb">
             <a th:href="@{/admin/menu}">Home</a> >
-            <a th:href="@{/admin/main/services}">Service</a>
+            <a th:href="@{/admin/setting/services}">Service</a>
         </div>
     </div>
 
     <div class="actions">
-        <form th:action="@{/admin/main/services/create}" method="get">
+        <form th:action="@{/admin/setting/services/create}" method="get">
             <button class="btn btn-create" type="submit">Create new Service</button>
         </form>
     </div>
@@ -39,7 +39,7 @@
                 <th></th>
             </tr>
             <tr class="filters">
-                <form th:action="@{/admin/main/services}" method="get" style="display: contents;">
+                <form th:action="@{/admin/setting/services}" method="get" style="display: contents;">
                     <td><input type="text" class="filter-input filter-name" name="name" th:value="${filterParams['name']}" placeholder="Name"/></td>
                     <td></td>
                     <td></td>
@@ -53,7 +53,7 @@
                     <td>
                         <div class="btn btn-group-table">
                             <button class="btn btn-filter" type="submit">Filter</button>
-                            <a class="btn btn-clear" th:href="@{/admin/main/services}">Clear</a>
+                            <a class="btn btn-clear" th:href="@{/admin/setting/services}">Clear</a>
                         </div>
                     </td>
                 </form>
@@ -66,7 +66,7 @@
                 <td th:utext="${#strings.abbreviate(service.description, 30)}"></td>
                 <td th:text="${#temporals.format(service.date, 'dd.MM.yyyy - HH:mm')}"></td>
                 <td>
-                    <form th:action="@{/admin/main/services/changeStatus/{id}(id=${service.id})}" method="get">
+                    <form th:action="@{/admin/setting/services/changeStatus/{id}(id=${service.id})}" method="get">
                         <input type="hidden" name="page" th:value="${pagination.currentPage}"/>
                         <input type="hidden" name="name" th:value="${filterParams['name']}"/>
                         <input type="hidden" name="status" th:value="${filterParams['status']}"/>
@@ -76,11 +76,11 @@
                 </td>
                 <td>
                     <div class="btn btn-group-table">
-                        <form th:action="@{/admin/main/services/edit/{id}(id=${service.id})}" method="get"
+                        <form th:action="@{/admin/setting/services/edit/{id}(id=${service.id})}" method="get"
                               style="display:inline;">
                             <button class="btn btn-action" type="submit">Edit</button>
                         </form>
-                        <form th:action="@{/admin/main/services/delete/{id}(id=${service.id})}" method="post" style="display:inline;">
+                        <form th:action="@{/admin/setting/services/delete/{id}(id=${service.id})}" method="post" style="display:inline;">
                             <input type="hidden" name="page" th:value="${pagination.currentPage}"/>
                             <input type="hidden" name="name" th:value="${filterParams['name']}"/>
                             <input type="hidden" name="status" th:value="${filterParams['status']}"/>
@@ -94,18 +94,18 @@
 
         <div class="pagination">
             <span th:if="${pagination.startPage > 1}">
-                <a th:href="@{/admin/main/services(page=${pagination.startPage - 1 > 0 ? pagination.startPage - 1 : 1}, name=${filterParams['name']}, status=${filterParams['status']})}">
+                <a th:href="@{/admin/setting/services(page=${pagination.startPage - 1 > 0 ? pagination.startPage - 1 : 1}, name=${filterParams['name']}, status=${filterParams['status']})}">
             &lt;&lt;
                 </a>
             </span>
 
             <span th:each="i : ${#numbers.sequence(pagination.startPage, pagination.endPage)}">
-                <a th:href="@{/admin/main/services(page=${i}, name=${filterParams['name']}, status=${filterParams['status']})}"
+                <a th:href="@{/admin/setting/services(page=${i}, name=${filterParams['name']}, status=${filterParams['status']})}"
                    th:text="${i}" th:classappend="${i == pagination.currentPage} ? 'active' : ''"></a>
             </span>
 
             <span th:if="${pagination.endPage < pagination.totalPages}">
-                <a th:href="@{/admin/main/services(page=${pagination.endPage + 1}, name=${filterParams['name']}, status=${filterParams['status']})}">
+                <a th:href="@{/admin/setting/services(page=${pagination.endPage + 1}, name=${filterParams['name']}, status=${filterParams['status']})}">
             &gt;&gt;
                 </a>
             </span>

@@ -1,9 +1,9 @@
-package RoyalHouse.controller.admin.main;
+package RoyalHouse.controller.admin.setting;
 
 import RoyalHouse.dto.Pagination;
 import RoyalHouse.model.company.Service;
 import RoyalHouse.service.PhotoService;
-import RoyalHouse.service.admin.main.ServiceService;
+import RoyalHouse.service.admin.setting.ServiceService;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @Controller
-@RequestMapping("/admin/main/services")
+@RequestMapping("/admin/setting/services")
 public class ServiceController {
 
     private final ServiceService serviceService;
@@ -41,7 +41,7 @@ public class ServiceController {
         model.addAttribute("pagination", pagination);
         model.addAttribute("filterParams", filterParams);
 
-        return "admin/main/service/services";
+        return "admin/setting/service/services";
     }
 
     @GetMapping("/changeStatus/{id}")
@@ -51,14 +51,14 @@ public class ServiceController {
                                    @RequestParam(value = "status", required = false) String status) {
         serviceService.changeStatus(id);
 
-        return String.format("redirect:/admin/main/services?page=%d&name=%s&status=%s",
+        return String.format("redirect:/admin/setting/services?page=%d&name=%s&status=%s",
                 page, name, status);
     }
 
     @GetMapping("/create")
     public String showCreateForm(Model model) {
         model.addAttribute("service", new Service());
-        return "admin/main/service/create-service";
+        return "admin/setting/service/create-service";
     }
 
     @Transactional
@@ -75,13 +75,13 @@ public class ServiceController {
         service.setPhotoUrl(photoUrl);
         service.setBannerUrl(bannerUrl);
 
-        return "redirect:/admin/main/services";
+        return "redirect:/admin/setting/services";
     }
 
     @GetMapping("/edit/{id}")
     public String showUpdateForm(@PathVariable Long id, Model model) {
         model.addAttribute("service", serviceService.getServiceById(id));
-        return "/admin/main/service/edit-service";
+        return "/admin/setting/service/edit-service";
     }
 
     @PostMapping("/edit")
@@ -91,7 +91,7 @@ public class ServiceController {
 
         serviceService.editService(service, preview, banner);
 
-        return "redirect:/admin/main/services";
+        return "redirect:/admin/setting/services";
     }
 
 
@@ -103,7 +103,7 @@ public class ServiceController {
                                     @RequestParam(value = "status", required = false) String status) {
         serviceService.deleteService(id);
 
-        return String.format("redirect:/admin/main/services?page=%d&name=%s&status=%s",
+        return String.format("redirect:/admin/setting/services?page=%d&name=%s&status=%s",
                 page, name, status);
     }
 }

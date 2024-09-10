@@ -1,4 +1,4 @@
-package RoyalHouse.service.admin.main;
+package RoyalHouse.service.admin.setting;
 
 import RoyalHouse.model.modelEnum.Status;
 import RoyalHouse.repository.ServiceRepository;

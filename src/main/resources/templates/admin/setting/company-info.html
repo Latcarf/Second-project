@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Company Info</title>
+
+    <th:block th:insert="~{fragments/favicon :: favicon}"></th:block>
+    <th:block th:insert="~{fragments/css-fragment :: css-fragment}"></th:block>
+
+    <link rel="stylesheet" th:href="@{/css/admin/setting/company-info.css}"/>
+    <link rel="stylesheet" th:href="@{/css/util/tinyMCE.css}"/>
+
+    <script src="https://cdn.tiny.cloud/1/hno225mqy4b8nylclzlwyghyq9oblbnzdl8166vswww2d78o/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+
+<body>
+<div th:replace="~{admin/menu :: menu}"></div>
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h2 class="page-title">Create Company Information</h2>
+        <div class="breadcrumb">
+            <a th:href="@{/admin/menu}">Home</a> >
+            <a th:href="@{/admin/setting/company-info/create}">Company Info</a>
+        </div>
+    </div>
+
+    <form th:action="@{/admin/setting/company-info/create}" method="post" enctype="multipart/form-data">
+
+        <!-- Баннер -->
+        <div class="photo-upload banner-upload">
+            <div class="form-group">
+                <label for="banner">Banner</label>
+            </div>
+            <div class="photo-preview">
+                <img src="/images/examples/1920x800.jpg" alt="Banner Image" id="banner-preview" />
+            </div>
+            <label class="custom-file-upload">
+                <input type="file" id="banner" name="banner" accept="image/*" required>
+                <span id="file-chosen1">Select file</span>
+            </label>
+            <p class="recommended-size">Recommended size: (1920x800)</p>
+        </div>
+
+        <!-- Фото -->
+        <div class="photos-row">
+            <div class="photo-upload">
+                <div class="form-group">
+                    <label for="photo1">Photo 1</label>
+                </div>
+                <div class="photo-preview">
+                    <img src="/images/examples/1920x800.jpg" alt="Image" id="photo1-preview" />
+                </div>
+                <label class="custom-file-upload">
+                    <input type="file" id="photo1" name="photos" accept="image/*" required>
+                    <span id="file-chosen2">Select file</span>
+                </label>
+            </div>
+
+            <div class="photo-upload">
+                <div class="form-group">
+                    <label for="photo2">Photo 2</label>
+                </div>
+                <div class="photo-preview">
+                    <img src="/images/examples/1920x800.jpg" alt="Image" id="photo2-preview" />
+                </div>
+                <label class="custom-file-upload">
+                    <input type="file" id="photo2" name="photos" accept="image/*" required>
+                    <span id="file-chosen3">Select file</span>
+                </label>
+            </div>
+
+            <div class="photo-upload">
+                <div class="form-group">
+                    <label for="photo3">Photo 3</label>
+                </div>
+                <div class="photo-preview">
+                    <img src="/images/examples/1920x800.jpg" alt="Image" id="photo3-preview" />
+                </div>
+                <label class="custom-file-upload">
+                    <input type="file" id="photo3" name="photos" accept="image/*" required>
+                    <span id="file-chosen4">Select file</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="company-info-section">
+                <h3>Heading</h3>
+                <input type="text" id="heading" name="heading" placeholder="Heading" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="company-info-section">
+                <h3>Description</h3>
+                <textarea id="description" class="tinymce" name="description" placeholder="Enter company description..." rows="5" required></textarea>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <a th:href="@{/admin/setting/company-info/create}" class="btn btn-cancel">Cancel</a>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    tinymce.init({
+        selector: 'textarea.tinymce',
+        plugins: [
+            'autolink', 'lists', 'charmap', 'searchreplace', 'wordcount', 'visualblocks',
+            'casechange', 'formatpainter', 'permanentpen', 'powerpaste', 'advcode', 'advtemplate', 'mentions', 'footnotes', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+        ],
+        menubar: '',
+        toolbar: 'undo redo | bold italic underline strikethrough | align lineheight | checklist numlist bullist indent outdent | removeformat',
+        height: 200,
+        content_style: "body { background-color: #2e2e2e; color: #f1f1f1; font-size: 14px; }"
+    });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/menu-toggle.js"></script>
+<script src="/js/submenu-toggle.js"></script>
+<script src="/js/add-file.js"></script>
+
+</body>
+</html>

@@ -98,7 +98,8 @@
 
 .checkbox-right {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 /* Description section similar to new-building */
