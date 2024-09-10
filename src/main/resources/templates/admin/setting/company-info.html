@@ -94,7 +94,7 @@
         <div class="form-group">
             <div class="company-info-section">
                 <h3>Description</h3>
-                <textarea id="description" class="tinymce" name="description" placeholder="Enter company description..." rows="5" required></textarea>
+                <textarea id="description" class="tinymce" name="description" placeholder="Enter company description..." rows="5"></textarea>
             </div>
         </div>
 
@@ -116,6 +116,14 @@
         toolbar: 'undo redo | bold italic underline strikethrough | align lineheight | checklist numlist bullist indent outdent | removeformat',
         height: 200,
         content_style: "body { background-color: #2e2e2e; color: #f1f1f1; font-size: 14px; }"
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', function () {
+            tinymce.triggerSave();
+        });
     });
 </script>
 

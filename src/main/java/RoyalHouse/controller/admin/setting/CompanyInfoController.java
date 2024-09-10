@@ -4,6 +4,7 @@ import RoyalHouse.model.company.CompanyInfo;
 import RoyalHouse.model.company.Service;
 import RoyalHouse.service.PhotoService;
 import RoyalHouse.service.admin.setting.CompanyInfoService;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,6 +27,7 @@ public class CompanyInfoController {
         return "admin/setting/company-info";
     }
 
+    @Transactional
     @PostMapping("/create")
     public String createCompanyInfo(@ModelAttribute CompanyInfo companyInfo,
                                     @RequestParam("banner") MultipartFile banner,
@@ -38,6 +40,6 @@ public class CompanyInfoController {
         companyInfo.setBannerUrl(bannerUrl);
         companyInfo.setPhotoUrls(photoUrls);
 
-        return "redirect:/admin/setting/company-info";
+        return "redirect:/admin/menu";
     }
 }
