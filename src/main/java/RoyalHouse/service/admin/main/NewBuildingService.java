@@ -5,9 +5,6 @@ import RoyalHouse.model.building.Details;
 import RoyalHouse.model.building.Information;
 import RoyalHouse.model.building.NewBuilding;
 import RoyalHouse.model.modelEnum.Status;
-import RoyalHouse.repository.building.AddressRepository;
-import RoyalHouse.repository.building.DetailsRepository;
-import RoyalHouse.repository.building.InformationRepository;
 import RoyalHouse.repository.building.NewBuildingRepository;
 import RoyalHouse.service.PaginationService;
 import RoyalHouse.service.PhotoService;
@@ -27,14 +24,12 @@ import java.util.Objects;
 @Service
 public class NewBuildingService implements PaginationService<NewBuilding> {
     private final NewBuildingRepository newBuildingRepository;
-    private final InformationRepository informationRepository;
 
     private final PhotoService photoService;
 
 
-    public NewBuildingService(NewBuildingRepository newBuildingRepository, InformationRepository informationRepository, PhotoService photoService) {
+    public NewBuildingService(NewBuildingRepository newBuildingRepository, PhotoService photoService) {
         this.newBuildingRepository = newBuildingRepository;
-        this.informationRepository = informationRepository;
         this.photoService = photoService;
     }
 
@@ -61,6 +56,10 @@ public class NewBuildingService implements PaginationService<NewBuilding> {
 
     public List<NewBuilding> getNewBuildings() {
         return newBuildingRepository.findAll();
+    }
+
+    public List<NewBuilding> getAllSortedNewBuildings() {
+        return newBuildingRepository.findAllByOrderBySortingOrderAsc();
     }
 
     public NewBuilding getNewBuildingById(Long id) {

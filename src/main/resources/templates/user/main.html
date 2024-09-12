@@ -1,10 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Main</title>
+    <meta charset="UTF-8"/>
+    <title>Main Page</title>
+    <link rel="stylesheet" th:href="@{/css/util/normalize.css}"/>
+    <link rel="stylesheet" th:href="@{/css/user/main.css}"/>
 </head>
 <body>
- <h1>MAIN</h1>
+
+<div th:replace="~{fragments/main-nav-fragment :: main-nav}"></div>
+
+<main class="content">
+    <section class="new-buildings">
+        <div class="building-grid">
+            <div class="building-card" th:each="newBuilding : ${newBuildings}">
+                <a th:href="@{main/new-building-details/{id}(id=${newBuilding.id})}">
+                    <img th:src="@{'/images' + ${newBuilding.bannerUrl}}" alt="Building Image">
+                    <h3 th:text="${newBuilding.name}"></h3>
+                    <p th:text="${newBuilding.address.city + ', ' + newBuilding.address.district}"></p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="apartments">
+        <h2 class="section-title">Different apartments</h2>
+        <div class="apartment-grid">
+            <div class="apartment-card" th:each="apartment : ${randomApartments}">
+                <div class="apartment-slider">
+                    <input type="radio" name="slider-group-${apartment.id}" id="img1-${apartment.id}" checked>
+                    <input type="radio" name="slider-group-${apartment.id}" id="img2-${apartment.id}">
+                    <input type="radio" name="slider-group-${apartment.id}" id="img3-${apartment.id}">
+
+                    <div class="apartment-images">
+                        <img th:src="@{'/images' + ${apartment.photoUrls[0]}}" alt="Apartment Image 1">
+                        <img th:src="@{'/images' + ${apartment.photoUrls[1]}}" alt="Apartment Image 2">
+                        <img th:src="@{'/images' + ${apartment.photoUrls[2]}}" alt="Apartment Image 3">
+                    </div>
+
+                    <div class="gallery-controls">
+                        <label for="img1-${apartment.id}"></label>
+                        <label for="img2-${apartment.id}"></label>
+                        <label for="img3-${apartment.id}"></label>
+                    </div>
+                </div>
+
+                <div class="apartment-details">
+                    <a th:href="@{main/apartment-details/{id}(id=${apartment.id})}">
+                        <h3 th:text="${apartment.name}"></h3>
+                    </a>
+
+                    <p><img src="/images/svg/map-pointer.svg" class="icon">
+                        <span th:text="${apartment.address.city + ' ' + apartment.address.district}"></span></p>
+                    <p><img src="/images/svg/floor.svg" class="icon">
+                        <span th:text="${apartment.details.numRooms + ' rooms / ' + apartment.storey + ' storey'}"></span></p>
+                    <p><img src="/images/svg/SqM.svg" class="icon">
+                        <span th:text="${apartment.areaSqM + ' SqM / ' + apartment.priceSqM + ' $/SqM'}"></span></p>
+                    <p><img src="/images/svg/real-estate-svg/dollar-sign-svgrepo-com.svg" class="icon">
+                        <span th:text="${apartment.totalPrice + ' $'}"></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
 </body>
 </html>

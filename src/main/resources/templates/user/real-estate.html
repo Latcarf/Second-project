@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Real Estate</title>
+    <link rel="stylesheet" th:href="@{/css/util/normalize.css}"/>
+    <link rel="stylesheet" th:href="@{/css/user/main.css}"/>
+</head>
+<body>
+
+<div th:replace="~{fragments/main-nav-fragment :: main-nav}"></div>
+
+<main class="content">
+    <section class="filter-tabs">
+        <ul class="tabs">
+            <li class="tab" th:classappend="${filterParams['type'] == 'APARTMENT'} ? 'active'">
+                <a th:href="@{/main/real-estates(type='APARTMENT')}">
+                    Apartments <span class="count" th:text="${realEstateCounts['APARTMENT']}">0</span>
+                </a>
+            </li>
+            <li class="tab" th:classappend="${filterParams['type'] == 'HOUSE'} ? 'active'">
+                <a th:href="@{/main/real-estates(type='HOUSE')}">
+                    Houses <span class="count" th:text="${realEstateCounts['HOUSE']}">0</span>
+                </a>
+            </li>
+            <li class="tab" th:classappend="${filterParams['type'] == 'COMMERCIAL'} ? 'active'">
+                <a th:href="@{/main/real-estates(type='COMMERCIAL')}">
+                    Commercial <span class="count" th:text="${realEstateCounts['COMMERCIAL']}">0</span>
+                </a>
+            </li>
+            <li class="tab" th:classappend="${filterParams['type'] == 'PLOT'} ? 'active'">
+                <a th:href="@{/main/real-estates(type='PLOT')}">
+                    Plot <span class="count" th:text="${realEstateCounts['PLOT']}">0</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section class="filters">
+        <form method="get" th:action="@{/main/real-estates}">
+            <input type="hidden" name="type" th:value="${filterParams['type']}"/>
+
+            <div class="filter-horizontal">
+                <div class="filter-group city-filter">
+                    <label class="filter-label" onclick="toggleDropdown(this)">City</label>
+                    <div class="filter-dropdown hidden">
+                        <div class="checkbox-wrapper-10">
+                            <span>City1</span>
+                            <input class="tgl tgl-flip" id="cb1" type="checkbox" name="city[]" value="City1"
+                                   th:checked="${filterParams['city'] != null && #lists.contains((filterParams['city']), 'City1')}"/>
+                            <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb1"></label>
+                        </div>
+                        <div class="checkbox-wrapper-10">
+                            <span>City2</span>
+                            <input class="tgl tgl-flip" id="cb2" type="checkbox" name="city[]" value="City2"
+                                   th:checked="${filterParams['city'] != null && #lists.contains((filterParams['city']), 'City2')}"/>
+                            <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb2"></label>
+                        </div>
+                        <div class="checkbox-wrapper-10">
+                            <span>City3</span>
+                            <input class="tgl tgl-flip" id="cb3" type="checkbox" name="city[]" value="City3"
+                                   th:checked="${filterParams['city'] != null && #lists.contains((filterParams['city']), 'City3')}"/>
+                            <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb3"></label>
+                        </div>
+                        <div class="checkbox-wrapper-10">
+                            <span>City4</span>
+                            <input class="tgl tgl-flip" id="cb4" type="checkbox" name="city[]" value="City4"
+                                   th:checked="${filterParams['city'] != null && #lists.contains((filterParams['city']), 'City4')}"/>
+                            <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb4"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group district-filter">
+                    <label class="filter-label" onclick="toggleDropdown(this)">District</label>
+                    <div class="filter-dropdown hidden">
+                        <div class="checkbox-wrapper-10">
+                            <span>District1</span>
+                            <input class="tgl tgl-flip" id="cb5" type="checkbox" name="district[]" value="District1"
+                                   th:checked="${filterParams['district'] != null && #lists.contains((filterParams['district']), 'District1')}"/>
+                            <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb5"></label>
+                        </div>
+                        <div class="checkbox-wrapper-10">
+                            <span>District2</span>
+                            <input class="tgl tgl-flip" id="cb6" type="checkbox" name="district[]" value="District2"
+                                   th:checked="${filterParams['district'] != null && #lists.contains((filterParams['district']), 'District2')}"/>
+                            <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb6"></label>
+                        </div>
+                        <div class="checkbox-wrapper-10">
+                            <span>District3</span>
+                            <input class="tgl tgl-flip" id="cb7" type="checkbox" name="district[]" value="District3"
+                                   th:checked="${filterParams['district'] != null && #lists.contains((filterParams['district']), 'District3')}"/>
+                            <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb7"></label>
+                        </div>
+                        <div class="checkbox-wrapper-10">
+                            <span>District4</span>
+                            <input class="tgl tgl-flip" id="cb8" type="checkbox" name="district[]" value="District4"
+                                   th:checked="${filterParams['district'] != null && #lists.contains((filterParams['district']), 'District4')}"/>
+                            <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb8"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group housing-filter">
+                    <label class="filter-label" onclick="toggleDropdown(this)">Housing stock</label>
+                    <div class="filter-dropdown hidden">
+                        <div class="checkbox-wrapper-10">
+                            <span>Before 2000</span>
+                            <input class="tgl tgl-flip" id="cb9" type="checkbox" name="housingStatus[]" value="Before 2000"
+                                   th:checked="${filterParams['housingStatus'] != null && #lists.contains((filterParams['housingStatus']), 'Before 2000')}"/>
+                            <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb9"></label>
+                        </div>
+                        <div class="checkbox-wrapper-10">
+                            <span>After 2020</span>
+                            <input class="tgl tgl-flip" id="cb10" type="checkbox" name="housingStatus[]" value="After 2020"
+                                   th:checked="${filterParams['housingStatus'] != null && #lists.contains((filterParams['housingStatus']), 'After 2020')}"/>
+                            <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb10"></label>
+                        </div>
+                        <div class="checkbox-wrapper-10">
+                            <span>Under construction</span>
+                            <input class="tgl tgl-flip" id="cb11" type="checkbox" name="housingStatus[]" value="underConstruction"
+                                   th:checked="${filterParams['housingStatus'] != null && #lists.contains((filterParams['housingStatus']), 'underConstruction')}"/>
+                            <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb11"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-buttons">
+                <button type="submit" class="apply-filter-btn">Filter</button>
+                <a th:href="@{/main/real-estates}" class="reset-filter-btn">Reset filter</a>
+            </div>
+        </form>
+
+    </section>
+
+    <section class="real-estate-list">
+        <div class="apartment-grid">
+            <div class="apartment-card" th:each="realEstate : ${realEstates}">
+                <div class="apartment-slider">
+                    <input type="radio" name="slider-group-${realEstate.id}" id="img1-${realEstate.id}" checked>
+                    <input type="radio" name="slider-group-${realEstate.id}" id="img2-${realEstate.id}">
+                    <input type="radio" name="slider-group-${realEstate.id}" id="img3-${realEstate.id}">
+
+                    <div class="apartment-images">
+                        <img th:src="@{'/images' + ${realEstate.photoUrls[0]}}" alt="Apartment Image 1">
+                        <img th:src="@{'/images' + ${realEstate.photoUrls[1]}}" alt="Apartment Image 2">
+                        <img th:src="@{'/images' + ${realEstate.photoUrls[2]}}" alt="Apartment Image 3">
+                    </div>
+
+                    <div class="gallery-controls">
+                        <label for="img1-${realEstate.id}"></label>
+                        <label for="img2-${realEstate.id}"></label>
+                        <label for="img3-${realEstate.id}"></label>
+                    </div>
+                </div>
+
+                <div class="apartment-details">
+                    <a th:href="@{main/apartment-details/{id}(id=${realEstate.id})}">
+                        <h3 th:text="${realEstate.name}"></h3>
+                    </a>
+                    <p><img src="/images/svg/map-pointer.svg" class="icon">
+                        <span th:text="${realEstate.address.city + ' ' + realEstate.address.district}"></span></p>
+                    <p><img src="/images/svg/floor.svg" class="icon">
+                        <span th:text="${realEstate.details.numRooms + ' rooms / ' + realEstate.storey + ' storey'}"></span></p>
+                    <p><img src="/images/svg/SqM.svg" class="icon">
+                        <span th:text="${realEstate.areaSqM + ' SqM / ' + realEstate.priceSqM + ' $/SqM'}"></span></p>
+                    <p><img src="/images/svg/real-estate-svg/dollar-sign-svgrepo-com.svg" class="icon">
+                        <span th:text="${realEstate.totalPrice + ' $'}"></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    function toggleDropdown(element) {
+        const dropdown = element.nextElementSibling;
+        dropdown.classList.toggle('hidden');
+    }
+</script>
+
+</body>
+</html>

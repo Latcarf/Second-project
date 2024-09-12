@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Main Navigation</title>
+
+    <link rel="stylesheet" th:href="@{/css/util/normalize.css}"/>
+    <link rel="stylesheet" th:href="@{/css/user/main.css}"/>
+</head>
+
+<body>
+<div th:fragment="main-nav">
+    <header class="header">
+        <h1 class="header-title">Royal House</h1>
+        <h3 class="header-subtitle">Muzychuk Dmytro</h3>
+    </header>
+
+    <aside class="sidebar">
+        <div class="logo-container">
+            <a href="/main"><img class="header-logo" th:src="@{/images/svg/logo.svg}" alt="Royal House Logo"/></a>
+        </div>
+
+        <nav class="menu sidebar-nav">
+            <ul>
+                <li class="menu-item"><a th:href="@{/main}" th:classappend="${currentURI == '/main'} ? 'active' : ''">New buildings</a></li>
+                <li class="menu-item"><a th:href="@{/main/real-estates}" th:classappend="${currentURI == '/main/real-estates'} ? 'active' : ''">Real estate</a></li>
+                <li class="menu-item"><a th:href="@{main/service}" th:classappend="${currentURI == 'main/service'} ? 'active' : ''">Service</a></li>
+                <li class="menu-item"><a th:href="@{main/company-info}" th:classappend="${currentURI == 'main/company-info'} ? 'active' : ''">About company</a></li>
+                <li class="menu-item"><a th:href="@{main/request}" th:classappend="${currentURI == 'main/request'} ? 'active' : ''">Leave a request</a></li>
+            </ul>
+        </nav>
+
+        <div class="contact-info">
+            <p>
+                <img class="icon" th:src="@{/images/svg/icons8-phone.svg}" alt="Phone Icon"/>
+                <a th:href="'tel:' + ${contact.phone}" th:text="${contact.phone}">Phone number</a>
+            </p>
+            <p>
+                <img class="icon" th:src="@{/images/svg/icons8-gmail.svg}" alt="Email Icon"/>
+                <a th:href="'mailto:' + ${contact.email}" th:text="${contact.email}">Email</a>
+            </p>
+
+            <div class="social-links">
+                <a th:href="${contact.telegram}">
+                    <img class="icon" th:src="@{/images/svg/icons8-telegram.svg}" alt="Telegram Icon"/> Telegram
+                </a>
+                <a th:href="${contact.instagram}">
+                    <img class="icon" th:src="@{/images/svg/icons8-instagram.svg}" alt="Instagram Icon"/> Instagram
+                </a>
+                <a th:href="${contact.facebook}">
+                    <img class="icon" th:src="@{/images/svg/icons8-facebook.svg}" alt="Facebook Icon"/> Facebook
+                </a>
+                <a th:href="${contact.viber}">
+                    <img class="icon" th:src="@{/images/svg/icons8-viber.svg}" alt="Viber Icon"/> Viber
+                </a>
+            </div>
+        </div>
+
+        <div class="address-info">
+            <span th:text="${contact.address}">Address
+                <img class="icon" th:src="@{/images/svg/map-pointer.svg}" alt="Address"/> Address
+            </span>
+        </div>
+    </aside>
+</div>
+</body>
+</html>

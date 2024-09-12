@@ -19,10 +19,7 @@ public class Details {
     @Column(name = "num_floors")
     private Integer numFloors;
 
-    @Column(name = "num_storeys")
-    private Integer numStoreys;
-
-    @Column(name = "num_rooms", nullable = false)
+    @Column(name = "num_rooms")
     private Integer numRooms;
 
     @Column(name = "num_parking_spaces")

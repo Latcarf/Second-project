@@ -31,6 +31,9 @@ public class RealEstate {
     @Column(name = "total_price", nullable = false, precision = 15, scale = 2)
     private Integer totalPrice;
 
+    @Column(name = "storey")
+    private Integer storey;
+
     @Column(name = "date", nullable = false)
     private LocalDateTime date;
 

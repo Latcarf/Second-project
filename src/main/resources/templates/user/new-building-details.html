@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>New Building Details</title>
+    <link rel="stylesheet" th:href="@{/css/util/normalize.css}"/>
+    <link rel="stylesheet" th:href="@{/css/user/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/user/new-building-details.css}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+</head>
+<body>
+
+<div th:replace="~{fragments/main-nav-fragment :: main-nav}"></div>
+
+<main class="content">
+    <section class="new-building-banner">
+        <img th:src="@{'/images' + ${newBuilding.bannerUrl}}" alt="New Building Banner">
+    </section>
+
+    <section class="new-building-info">
+        <ul>
+            <li>
+                <img th:if="${newBuilding.numApartment == null || newBuilding.numApartment == 0}" th:src="@{/images/svg/red-x.svg}" class="icon">
+                <img th:if="${newBuilding.numApartment != null && newBuilding.numApartment > 0}" th:src="@{/images/svg/new-building-svg/apartment.svg}" class="icon">
+                <span th:text="${newBuilding.numApartment != null && newBuilding.numApartment > 0 ? newBuilding.numApartment + ' apartments' : 'No apartments'}"></span>
+            </li>
+            <li>
+                <img th:src="@{/images/svg/floor.svg}" class="icon">
+                <span th:text="${newBuilding.details.numFloors} + ' floors'"></span>
+            </li>
+            <li>
+                <img th:if="${apartmentsSqMArray[0] == null || apartmentsSqMArray[0] == 0}" th:src="@{/images/svg/red-x.svg}" class="icon">
+                <img th:if="${apartmentsSqMArray[0] != null && apartmentsSqMArray[0] > 0}" th:src="@{/images/svg/SqM.svg}" class="icon">
+                <span th:text="${apartmentsSqMArray[0] != null && apartmentsSqMArray[1] != null ? 'from ' + apartmentsSqMArray[0] + ' to ' + apartmentsSqMArray[1] : 'No size info'}"></span>
+            </li>
+            <li>
+                <img th:src="@{/images/svg/new-building-svg/year-built.svg}" class="icon">
+                <span th:text="${newBuilding.details.yearBuilt} + ' built year'"></span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="new-building-description">
+        <h2 class="section-title">About Project</h2>
+        <p th:text="${newBuilding.information.description}"></p>
+    </section>
+
+    <section class="new-building-gallery">
+        <div class="gallery-slider">
+            <input type="radio" name="slider" id="img1" checked>
+            <input type="radio" name="slider" id="img2">
+            <input type="radio" name="slider" id="img3">
+
+            <div class="gallery-images">
+                <img th:src="@{'/images' + ${newBuilding.photoUrls[0]}}" alt="Image 1" class="slide">
+                <img th:src="@{'/images' + ${newBuilding.photoUrls[1]}}" alt="Image 2" class="slide">
+                <img th:src="@{'/images' + ${newBuilding.photoUrls[2]}}" alt="Image 3" class="slide">
+            </div>
+
+            <div class="gallery-controls">
+                <label for="img1"></label>
+                <label for="img2"></label>
+                <label for="img3"></label>
+            </div>
+        </div>
+    </section>
+
+    <section class="new-building-description">
+        <h2 class="section-title">Location</h2>
+        <p th:text="${newBuilding.information.location}"></p>
+        <div id="map" style="height: 400px; width: 100%;"></div>
+    </section>
+
+    <section class="new-building-description">
+        <h2 class="section-title">Infrastructure</h2>
+        <p th:text="${newBuilding.information.infrastructure}"></p>
+    </section>
+
+    <section class="new-building-gallery">
+        <div class="gallery-slider">
+            <input type="radio" name="infrastructure-slider-${newBuilding.id}" id="infrastructureImg1" checked>
+            <input type="radio" name="infrastructure-slider-${newBuilding.id}" id="infrastructureImg2">
+            <input type="radio" name="infrastructure-slider-${newBuilding.id}" id="infrastructureImg3">
+
+            <div class="gallery-images">
+                <img th:src="@{'/images' + ${newBuilding.information.infrastructurePhotoUrls[0]}}" alt="Image infrastructure 1" class="slide">
+                <img th:src="@{'/images' + ${newBuilding.information.infrastructurePhotoUrls[1]}}" alt="Image infrastructure 2" class="slide">
+                <img th:src="@{'/images' + ${newBuilding.information.infrastructurePhotoUrls[2]}}" alt="Image infrastructure 3" class="slide">
+            </div>
+
+            <div class="gallery-controls">
+                <label for="infrastructureImg1"></label>
+                <label for="infrastructureImg2"></label>
+                <label for="infrastructureImg3"></label>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="new-building-info">
+        <ul>
+            <li>
+                <img th:if="${newBuilding.details.playground == null || newBuilding.details.playground == false}" th:src="@{/images/svg/red-x.svg}" class="icon">
+                <img th:if="${newBuilding.details.playground != null && newBuilding.details.playground == true}" th:src="@{/images/svg/new-building-svg/playground.svg}" class="icon">
+                <span th:text="${newBuilding.details.playground != null && newBuilding.details.playground ? 'Playground' : 'No playground'}"></span>
+            </li>
+            <li>
+                <img th:if="${newBuilding.details.numCommercialPremises == null || newBuilding.details.numCommercialPremises == 0}" th:src="@{/images/svg/red-x.svg}" class="icon">
+                <img th:if="${newBuilding.details.numCommercialPremises != null && newBuilding.details.numCommercialPremises > 0}" th:src="@{/images/svg/new-building-svg/commercial-premises.svg}" class="icon">
+                <span th:text="${newBuilding.details.numCommercialPremises != null && newBuilding.details.numCommercialPremises > 0 ? newBuilding.details.numCommercialPremises + ' commercial premises' : 'No commercial premises'}"></span>
+            </li>
+            <li>
+                <img th:if="${newBuilding.details.numRecreationAreas == null || newBuilding.details.numRecreationAreas == 0}" th:src="@{/images/svg/red-x.svg}" class="icon">
+                <img th:if="${newBuilding.details.numRecreationAreas != null && newBuilding.details.numRecreationAreas > 0}" th:src="@{/images/svg/new-building-svg/recreation-areas.svg}" class="icon">
+                <span th:text="${newBuilding.details.numRecreationAreas != null && newBuilding.details.numRecreationAreas > 0 ? newBuilding.details.numRecreationAreas + ' recreation areas' : 'No recreation areas'}"></span>
+            </li>
+            <li>
+                <img th:if="${newBuilding.details.numParkingSpaces == null || newBuilding.details.numParkingSpaces == 0}" th:src="@{/images/svg/red-x.svg}" class="icon">
+                <img th:if="${newBuilding.details.numParkingSpaces != null && newBuilding.details.numParkingSpaces > 0}" th:src="@{/images/svg/new-building-svg/parking-spaces.svg}" class="icon">
+                <span th:text="${newBuilding.details.numParkingSpaces != null && newBuilding.details.numParkingSpaces > 0 ? newBuilding.details.numParkingSpaces + ' parking spaces' : 'No parking spaces'}"></span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="new-building-info">
+        <ul>
+            <li>
+                <img th:if="${newBuilding.details.fitness == null || newBuilding.details.fitness == false}" th:src="@{/images/svg/red-x.svg}" class="icon">
+                <img th:if="${newBuilding.details.fitness != null && newBuilding.details.fitness == true}" th:src="@{/images/svg/new-building-svg/fitness.svg}" class="icon">
+                <span th:text="${newBuilding.details.fitness != null && newBuilding.details.fitness ? 'Fitness' : 'No fitness'}"></span>
+            </li>
+            <li>
+                <img th:if="${newBuilding.details.swimmingPool == null || newBuilding.details.swimmingPool == false}" th:src="@{/images/svg/red-x.svg}" class="icon">
+                <img th:if="${newBuilding.details.swimmingPool != null && newBuilding.details.swimmingPool == true}" th:src="@{/images/svg/new-building-svg/swimming-pool.svg}" class="icon">
+                <span th:text="${newBuilding.details.swimmingPool != null && newBuilding.details.swimmingPool ? 'Swimming pool' : 'No swimming pool'}"></span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="apartments">
+        <h2 class="section-title">Apartments in this building</h2>
+        <div class="apartment-grid">
+            <div class="apartment-card" th:each="apartment : ${apartments}">
+                <div class="apartment-slider">
+                    <input type="radio" name="slider-${apartment.id}-group" id="img1-${apartment.id}" checked>
+                    <input type="radio" name="slider-${apartment.id}-group" id="img2-${apartment.id}">
+                    <input type="radio" name="slider-${apartment.id}-group" id="img3-${apartment.id}">
+
+                    <div class="apartment-images">
+                        <img th:src="@{'/images' + ${apartment.photoUrls[0]}}" alt="Apartment Image 1" class="slide">
+                        <img th:src="@{'/images' + ${apartment.photoUrls[1]}}" alt="Apartment Image 2" class="slide">
+                        <img th:src="@{'/images' + ${apartment.photoUrls[2]}}" alt="Apartment Image 3" class="slide">
+                    </div>
+
+                    <div class="gallery-controls">
+                        <label for="img1-${apartment.id}"></label>
+                        <label for="img2-${apartment.id}"></label>
+                        <label for="img3-${apartment.id}"></label>
+                    </div>
+                </div>
+
+                <div class="apartment-details">
+                    <a th:href="@{main/real-estate-details/{id}(id=${apartment.id})}">
+                        <h3 th:text="${apartment.name}"></h3>
+                    </a>
+
+                    <p><img src="/images/svg/map-pointer.svg" class="icon">
+                        <span th:text="${apartment.address.city + ' ' + apartment.address.district}"></span></p>
+                    <p><img src="/images/svg/floor.svg" class="icon">
+                        <span th:text="${apartment.details.numRooms + ' rooms / ' + apartment.storey + ' storey'}"></span>
+                    </p>
+                    <p><img src="/images/svg/SqM.svg" class="icon">
+                        <span th:text="${apartment.areaSqM + ' SqM / ' + apartment.priceSqM + ' $/SqM'}"></span></p>
+                    <p><img src="/images/svg/real-estate-svg/dollar-sign-svgrepo-com.svg" class="icon">
+                        <span th:text="${apartment.totalPrice + ' $'}"></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="new-building-panorama">
+        <h2 class="section-title">Panorama</h2>
+        <div class="photo-preview">
+            <div id="panorama" style="width: 100%; height: 400px;"></div>
+        </div>
+    </section>
+
+    <section class="new-building-specifications">
+        <h2 class="section-title">Specifications</h2>
+        <div class="specifications-slider">
+            <input type="radio" name="specifications-slider-${newBuilding.id}" id="spec1" checked>
+            <input type="radio" name="specifications-slider-${newBuilding.id}" id="spec2">
+            <input type="radio" name="specifications-slider-${newBuilding.id}" id="spec3">
+
+            <div class="specifications-content">
+                <div class="specification-block">
+                    <div th:each="specification, status : ${newBuilding.information.specifications}"
+                         th:if="${status.index == 0}"
+                         th:utext="${specification}"></div>
+                </div>
+
+                <div class="specification-block">
+                    <div th:each="specification, status : ${newBuilding.information.specifications}"
+                         th:if="${status.index == 1}"
+                         th:utext="${specification}"></div>
+                </div>
+
+                <div class="specification-block">
+                    <div th:each="specification, status : ${newBuilding.information.specifications}"
+                         th:if="${status.index == 2}"
+                         th:utext="${specification}"></div>
+                </div>
+            </div>
+
+            <div class="specifications-controls">
+                <label for="spec1"></label>
+                <label for="spec2"></label>
+                <label for="spec3"></label>
+            </div>
+        </div>
+    </section>
+
+    <section class="new-buildings">
+        <h2 class="section-title">Another buildings</h2>
+        <div class="building-grid">
+            <div class="building-card" th:each="newBuilding : ${newBuildings}">
+                <a th:href="@{main/new-building-details/{id}(id=${newBuilding.id})}">
+                    <img th:src="@{'/images' + ${newBuilding.bannerUrl}}" alt="Building Image">
+                    <h3 th:text="${newBuilding.name}"></h3>
+                    <p th:text="${newBuilding.address.city + ', ' + newBuilding.address.district}"></p>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
+<script>
+    var latitude = [[${newBuilding.address.latitude}]];
+    var longitude = [[${newBuilding.address.longitude}]];
+
+    var map = L.map('map').setView([latitude, longitude], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    var panoramaUrl = '[[${newBuilding.panoramaUrl}]]';
+    pannellum.viewer('panorama', {
+        "type": "equirectangular",
+        "panorama": '/images' + panoramaUrl,
+        "autoLoad": true
+    });
+</script>
+
+</body>
+</html>

@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface NewBuildingRepository extends JpaRepository<NewBuilding, Long>, JpaSpecificationExecutor<NewBuilding> {
     List<NewBuilding> findByNameContainingIgnoreCase(String name);
+
+    List<NewBuilding> findAllByOrderBySortingOrderAsc();
 }

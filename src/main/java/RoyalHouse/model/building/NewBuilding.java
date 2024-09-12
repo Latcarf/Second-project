@@ -49,6 +49,5 @@ public class NewBuilding {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "information_id")
     private Information information;
-
 }
 

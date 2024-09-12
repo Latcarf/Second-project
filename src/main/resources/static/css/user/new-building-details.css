@@ -1,0 +1,203 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #191B1C;
+    color: #f1f1f1;
+}
+
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.new-building-banner img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.new-building-info ul {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.new-building-info li {
+    list-style: none;
+    text-align: center;
+    color: #aaa;
+}
+
+/* General style for section titles */
+.section-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #4FC3A1;
+    padding-bottom: 10px;
+}
+
+/* Project description */
+.new-building-description {
+    margin: 50px 0;
+}
+
+.new-building-description p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #d3d3d3;
+    margin-bottom: 20px;
+}
+
+/* Image gallery */
+.gallery-slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.gallery-images {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 300%;
+}
+
+.gallery-images .slide {
+    flex: 0 0 33.33%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Infrastructure slider animation */
+#infrastructureImg1:checked ~ .gallery-images {
+    transform: translateX(0);
+}
+
+#infrastructureImg2:checked ~ .gallery-images {
+    transform: translateX(-33.33%);
+}
+
+#infrastructureImg3:checked ~ .gallery-images {
+    transform: translateX(-66.66%);
+}
+
+input#infrastructureImg1:checked ~ .gallery-controls label[for="infrastructureImg1"],
+input#infrastructureImg2:checked ~ .gallery-controls label[for="infrastructureImg2"],
+input#infrastructureImg3:checked ~ .gallery-controls label[for="infrastructureImg3"] {
+    background-color: #4FC3A1;
+}
+
+/* Hide default radio buttons */
+input[type="radio"] {
+    display: none;
+}
+
+#img1:checked ~ .gallery-images {
+    transform: translateX(0);
+}
+
+#img2:checked ~ .gallery-images {
+    transform: translateX(-33.33%);
+}
+
+#img3:checked ~ .gallery-images {
+    transform: translateX(-66.66%);
+}
+
+/* Icon styles */
+.icon {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Specifications section */
+.specifications-slider {
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.specifications-content {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 300%;
+}
+
+.specifications-content .specification-block {
+    width: 33.33%;
+    padding: 20px;
+    background-color: #111311;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #d1d1d1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+
+/* Specifications slider animation */
+#spec1:checked ~ .specifications-content {
+    transform: translateX(0);
+}
+
+#spec2:checked ~ .specifications-content {
+    transform: translateX(-33.33%);
+}
+
+#spec3:checked ~ .specifications-content {
+    transform: translateX(-66.66%);
+}
+
+.specifications-controls {
+    text-align: center;
+
+}
+
+.specifications-controls label {
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background-color: #555;
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+
+input#spec1:checked ~ .specifications-controls label[for="spec1"],
+input#spec2:checked ~ .specifications-controls label[for="spec2"],
+input#spec3:checked ~ .specifications-controls label[for="spec3"] {
+    background-color: #4FC3A1;
+}
+
+/* Map styling */
+#map {
+    margin: 50px 0;
+    border: 1px solid #555;
+}
+
+/* Panorama section */
+.new-building-panorama {
+    margin: 50px 0;
+}
+
+/* Buttons */
+.new-building-info li {
+    font-size: 16px;
+    padding: 10px;
+    color: #f1f1f1;
+}
