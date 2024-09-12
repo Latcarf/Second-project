@@ -48,6 +48,10 @@ public class ServiceService implements PaginationService<RoyalHouse.model.compan
         return serviceRepository.findAll();
     }
 
+    public List<RoyalHouse.model.company.Service> getActiveService() {
+        return serviceRepository.findByStatus(Status.ACTIVE.toString());
+    }
+
     public RoyalHouse.model.company.Service getServiceById(Long id) {
         return serviceRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("No Service found with id: " + id));

@@ -510,3 +510,42 @@ h2 {
     left: 0;
     background: #7FC6A6;
 }
+
+
+.real-estate-card {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.real-estate-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.real-estate-section p {
+    font-size: 18px;
+    color: #f1f1f1;
+    margin: 0;
+}
+
+.real-estate-section strong {
+    color: #4FC3A1;
+    font-weight: bold;
+}
+
+.section-divider {
+    border: none;
+    height: 1px;
+    background-color: #444;
+    margin: 20px 0;
+}
+
+
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+
+    <link rel="stylesheet" th:href="@{/css/user/service.css}">
+    <link rel="stylesheet" th:href="@{/css/user/main.css}"/>
+</head>
+<body>
+
+<div th:replace="~{fragments/main-nav-fragment :: main-nav}"></div>
+
+<main>
+    <h2 class="section-title">Our services</h2>
+    <div class="service-container" th:each="service : ${services}">
+        <div class="service-item">
+            <div class="service-image">
+                <img th:src="@{'/images' + ${service.bannerUrl}}" alt="Banner">
+            </div>
+            <div class="service-content">
+                <h2 th:text="${service.name}">Service name</h2>
+                <p th:utext="${#strings.abbreviate(service.description, 600)}"></p>
+                <a th:href="@{/main/service-details/{id}(id=${service.id})}" class="service-link">Details</a>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

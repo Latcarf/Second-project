@@ -4,112 +4,60 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="Full ADMIN SIDE. Corrected some problem.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/user/NavigationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/RealEstateType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/user/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/user/new-building-details.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/CompanyInfo/Lorem ipsum dolor sit amet, consectetur adipiscing_5/banner/cba3ab7c-6e19-4a0d-b13e-4778d1963b4d_pexels-fauxels-3184424.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/CompanyInfo/Lorem ipsum dolor sit amet, consectetur adipiscing_5/photos/6d71ebdc-9d2c-4df1-bef7-efec86151d73_pexels-bertellifotografia-2467506.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/CompanyInfo/Lorem ipsum dolor sit amet, consectetur adipiscing_5/photos/de627589-2e66-4d02-9fa6-f988180fd5d2_pexels-pixabay-269077.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/CompanyInfo/Lorem ipsum dolor sit amet, consectetur adipiscing_5/photos/f75cc3cc-f7d6-4e34-973f-d205d09b45bb_pexels-seven11nash-380769.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-1_1/infrastructure/41da703e-7096-4a45-85cb-cf3a378ab954_infrastructure2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-1_1/infrastructure/4d8d52e7-d390-4b80-829b-368009ea518b_infrastructure3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-1_1/infrastructure/a9efffa2-5d54-447a-96e1-ac1d3a8c7f3c_infrastructure1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-1_1/panorama/53cabb1b-ce5c-4e0c-a151-3a55149a7bf1_New-building-panorama.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-1_1/photos/49d52179-2b2f-4022-8dc4-654c6de11276_New-building-photo-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-1_1/photos/93fc67af-e94b-4f6e-a68c-0d922d23e20e_New-building-photo-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-1_1/photos/9507585e-659e-4757-8ba8-c4ccd321ae94_New-building-photo-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-3_3/banner/1d212df7-84d4-4095-807d-d8beaaab71dc_New-building-banner-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-3_3/infrastructure/1aa3697f-2cad-43fa-b9a5-fe5bf728f088_infrastructure1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-3_3/infrastructure/33b6c8ea-eb05-4d7e-8e57-06647e6726bb_infrastructure2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-3_3/infrastructure/78f47b1b-0548-4b69-9ace-161bf9354c9c_infrastructure3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-3_3/panorama/0b891817-02e6-409e-8bb2-270b454afe11_New-building-panorama.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-3_3/photos/12da9960-b594-4c37-810e-9e1bb9c50714_New-building-photo-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-3_3/photos/6805881a-0f5b-431c-9a4f-5db643e31bcf_New-building-photo-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-3_3/photos/b7ff3a8d-e1b7-4c33-b3a4-ce152e06a7b3_New-building-photo-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-4_4/banner/405b575f-7141-44a2-993f-c9ed247fbc54_New-building-banner-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-4_4/infrastructure/07f5a6ac-5772-406c-9db9-05a3c3b4fce2_infrastructure2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-4_4/infrastructure/0e860951-acdd-49aa-b7bf-bb1f2f1ed6b3_infrastructure3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-4_4/infrastructure/ec08c0d6-127c-4235-ab95-313ff1d4205e_infrastructure1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-4_4/panorama/b43a0b8d-5f6e-4b65-83dc-d66870e10d44_New-building-panorama.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-4_4/photos/0c9a6221-f899-4299-b69e-dd6ec933eaf6_New-building-photo-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-4_4/photos/54128994-a7fa-4bf4-b365-f0b0ea7beb00_New-building-photo-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-4_4/photos/73bf2d7f-5de6-43ff-9f45-e6dd84e73d8c_New-building-photo-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-1_2/958fdecd-f0f9-4de5-84ec-ef408b23b4c5_APARTMENT-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-1_2/d00b8963-490c-4668-ad1c-8612477fc5b3_APARTMENT-3.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-2_3/2a2c4bbf-4950-4c09-9259-0c759b21c43f_APARTMENT-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-2_3/888ed98f-dfd2-44c4-af10-cd8836c13e7c_APARTMENT-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-2_3/fc88ee28-d098-41d5-b0bd-5a23821d601f_APARTMENT-3.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-3_4/1b9e45dc-b469-448d-84bd-d80e5d7e36b7_APARTMENT-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-3_4/83768ed8-7549-4ffb-9d9f-0552db874070_Apartment-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-3_4/b7e50466-c57f-40b1-8237-cf01da63d58a_APARTMENT-3.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-4_5/08802bf2-dadf-46c8-a2dd-2bc318e18905_APARTMENT-3.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-4_5/1e185ab1-7c3a-4da3-ba8c-29f5306c7c0a_Apartment-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-4_5/daf50211-ab71-49d2-9d4d-d268b9bf5fb9_APARTMENT-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-5_6/14f6c647-f5d5-4504-bbfc-455a7772251d_Apartment-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-5_6/3d3c90d2-d2f4-4bfb-8b89-7747915fad45_APARTMENT-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-5_6/5a44047a-6871-4712-9342-a9df159f32d1_APARTMENT-3.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-6_8/14f6c647-f5d5-4504-bbfc-455a7772251d_Apartment-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-6_8/958fdecd-f0f9-4de5-84ec-ef408b23b4c5_APARTMENT-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-6_8/d00b8963-490c-4668-ad1c-8612477fc5b3_APARTMENT-3.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-7_9/1b9e45dc-b469-448d-84bd-d80e5d7e36b7_APARTMENT-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-7_9/83768ed8-7549-4ffb-9d9f-0552db874070_Apartment-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-7_9/b7e50466-c57f-40b1-8237-cf01da63d58a_APARTMENT-3.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/Service/Service 1_8/banner/2e1d949a-091f-4b78-9faf-8b5ee5d515b5_service-1019821_640.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/Service/Service 2_9/banner/f892960f-912d-4793-b231-0dc00e2980d5_service-1019821_640.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/Service/Service 2_9/photo/a1c91230-fc2d-4ef0-9a4e-fdd12b449615_istockphoto-184400002-612x612.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/Service/Service 3_10/banner/1a063bfc-94ba-484b-b418-328fc7fbfd99_istockphoto-184400002-612x612.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/Service/Service 3_10/photo/3257ffe0-6b25-4d97-882e-cb85a3d1e979_service-1019821_640.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/svg/icons8-facebook.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/svg/icons8-gmail.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/svg/icons8-instagram.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/svg/icons8-phone.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/svg/icons8-telegram.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/svg/icons8-viber.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/svg/map-pointer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/main-nav-fragment.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/new-building-details.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/real-estate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="Added: main, new-building-details, real-estates.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/user/MainServiceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/user/service.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/COMMERCIAL/Commercial-1_28/01888198-ba77-4f0e-a53a-386738698423_COMMERCIAL-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/COMMERCIAL/Commercial-1_28/156c48b5-44fd-4ed5-a457-6b7282939d38_COMMERCIAL-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/COMMERCIAL/Commercial-1_28/2d16317d-cce4-4f34-ad6d-cf1e517da80d_COMMERCIAL-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/COMMERCIAL/Commercial-2_29/25c7131a-07fd-4225-b24c-48ae7cac3237_COMMERCIAL-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/COMMERCIAL/Commercial-2_29/6fd022bc-dce2-4047-a37e-467ee2eefc7e_COMMERCIAL-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/COMMERCIAL/Commercial-2_29/76876023-f949-44bc-bcaa-cf6d30dd3317_COMMERCIAL-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/COMMERCIAL/Commercial-3_30/5c08b52e-8963-46db-96bd-149972df4b32_COMMERCIAL-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/COMMERCIAL/Commercial-3_30/6886ff52-3c0b-49b7-af0d-9251654b76fb_COMMERCIAL-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/COMMERCIAL/Commercial-3_30/b231b82b-3433-4ded-a606-bc64d8ab2b93_COMMERCIAL-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/House-1_24/8c8c1c7d-5cbd-4a95-9adc-1ed548ba868f_HOUSE-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/House-2_25/b894ef3a-a768-47a9-a0ae-ebac24865a66_HOUSE-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/House-2_25/bbd97690-2141-4389-82f1-df93021bf618_HOUSE-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/House-3_26/7d058ca5-d416-4db4-a5ad-50fef37e04ea_HOUSE-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/House-3_26/b435a805-9e35-41f2-a6fa-8ca7259427a3_HOUSE-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/House-3_26/caad202a-c7a4-476e-baaa-8c8b5ceca692_HOUSE-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/PLOT/Plot-1_27/1b2fcb02-c32e-4c5c-b276-161b4c54340f_PLOT-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/PLOT/Plot-1_27/6c14c60e-d8bb-415e-96ce-781d7c5b3981_PLOT-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/PLOT/Plot-1_27/8ff30604-494b-4826-91f6-c05989cfaec4_PLOT-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/real-estate-details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/service-details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/services.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/TestProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/TestProjectApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/user/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/user/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Details.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/Details.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/NewBuilding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/RealEstate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/model/building/RealEstate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/building/NewBuildingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/building/NewBuildingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/building/RealEstateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/building/RealEstateRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/NewBuildingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RealEstateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RealEstateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/specification/RealEstateSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/specification/RealEstateSpecification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/ServiceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/repository/ServiceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/setting/ServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/setting/ServiceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/avatar.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/svg/avatar.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/banner/54848cc4-69bf-430f-8365-45f9af681051_high-buildings-with-cloudy-blue-sky-1024x537.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New-building-1_1/banner/cd74a0c8-646d-4b04-af99-af1b8bb3b7cc_New-building-banner-1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/panorama/d00dd4ea-927d-4ac1-aa9f-6c5c0bd0e140_shot-panoramic-composition-living-room (1).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/Apartment2_2/panorama/eab438b3-5694-4aa2-9455-324f3d1ca72d_New-building-panorama.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/photos/0917ff7a-6a6b-470e-8865-d444d27d776e_4bf5ece53a38dff97a3ac8aff4f84b52.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/Apartment2_2/photos/b1be7f5e-1ac1-4cf1-bad0-01fc9678fff8_New-building-photo-2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/photos/4f178051-4cb2-4193-8071-613fa3e5db0a_9d566f94294339.5e7b4deaabec3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/Apartment2_2/photos/78b0dbde-59f6-416d-8464-b47a10ed9cb5_New-building-photo-3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/photos/bfaf9728-7da7-4262-aba3-c34bfa5acc50_4_ptich.2e16d0ba.fill-840x450.format-jpeg.jpegquality-90_i4f9rg1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/Apartment2_2/photos/c6f3483d-32c6-4d7b-984d-2e0e4a52abf0_New-building-photo-1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/infrastructure/New Building 4_31/599e2bdd-739e-4619-9abf-aadbef5366d5_b61c8fe5-77ae-49c5-8383-87737a9183a3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/Apartment2_2/infrastructure/f406df84-ca62-4e0a-a209-dd1c7881db1f_infrastructure1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/infrastructure/New Building 4_31/d6b0c2a4-1e3f-4f60-bcca-1e175c9d2eb5_pexels-kelly-lacy-2655864.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/Apartment2_2/infrastructure/133d2c1f-e7e5-4cde-bd9a-0f11f136361c_infrastructure3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/infrastructure/New Building 4_31/ff05a84e-3cd4-4b92-8fd1-8e19523db363_stwCorkanPix4Web_750s-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/Apartment2_2/infrastructure/3e5a78f7-c968-46c6-a21f-47670195fab5_infrastructure2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartamanet 4_70/63269907-fe30-42b9-8729-7cd15c04d1d6_APARTMENT-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/Apartment2_2/banner/3a620f83-02c6-4ba3-b3e3-b9c2d8386982_New-building-banner-2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartamanet 4_70/710bef0a-7944-4ea1-9e7f-70383fafc37b_HOUSE-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartamanet 4_70/dd4d0690-e097-42d6-871b-f4fa8ea10525_HOUSE-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/1_72/0818fa6d-42c0-4c3f-808c-83390c76d1ff_APARTMENT-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartment-1_2/63b5fc87-2e77-4bc0-9dce-5182193a08cd_APARTMENT-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/user/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/user/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/banner/54848cc4-69bf-430f-8365-45f9af681051_high-buildings-with-cloudy-blue-sky-1024x537.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/panorama/d00dd4ea-927d-4ac1-aa9f-6c5c0bd0e140_shot-panoramic-composition-living-room (1).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/photos/0917ff7a-6a6b-470e-8865-d444d27d776e_4bf5ece53a38dff97a3ac8aff4f84b52.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/photos/4f178051-4cb2-4193-8071-613fa3e5db0a_9d566f94294339.5e7b4deaabec3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/New Building 4_31/photos/bfaf9728-7da7-4262-aba3-c34bfa5acc50_4_ptich.2e16d0ba.fill-840x450.format-jpeg.jpegquality-90_i4f9rg1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/infrastructure/New Building 4_31/599e2bdd-739e-4619-9abf-aadbef5366d5_b61c8fe5-77ae-49c5-8383-87737a9183a3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/infrastructure/New Building 4_31/d6b0c2a4-1e3f-4f60-bcca-1e175c9d2eb5_pexels-kelly-lacy-2655864.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/NewBuilding/infrastructure/New Building 4_31/ff05a84e-3cd4-4b92-8fd1-8e19523db363_stwCorkanPix4Web_750s-03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartamanet 4_70/63269907-fe30-42b9-8729-7cd15c04d1d6_APARTMENT-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartamanet 4_70/710bef0a-7944-4ea1-9e7f-70383fafc37b_HOUSE-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/House-1_24/5ac13c93-dae0-4c82-9c38-2cac6f6e18de_HOUSE-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/APARTMENT/Apartamanet 4_70/dd4d0690-e097-42d6-871b-f4fa8ea10525_HOUSE-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/House-1_24/3d63f580-63c0-4363-ab75-3c6ba057a8ac_HOUSE-3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/1_72/0818fa6d-42c0-4c3f-808c-83390c76d1ff_APARTMENT-2.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/1_72/1ccd468e-f3a9-47f3-a734-7891c93cd25a_APARTMENT-3.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/1_72/721b4188-9a77-4796-a396-edf78e5fc304_APARTMENT-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/1_73/53798611-94a5-4f28-9f2c-087477ed17bf_screencapture-localhost-8080-admin-main-new-buildings-create-panorama-2024-09-03-16_10_40.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/RealEstate/HOUSE/1_73/af8d88e3-5bbd-408a-870d-3b97646d12cb_screencapture-localhost-8080-admin-main-new-buildings-create-infrastructure-2024-09-03-16_09_45.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/Service/Service 1_1/banner/aab2830b-24a5-43a3-9572-f60b34a4d356_service-1019821_640.webp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/Service/Service 1_2/banner/26b4e47f-fcb5-4b50-8e63-e2f64ee8969c_service-1019821_640.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/Service/Service 1_2/photo/bb5e316e-feb2-4291-b548-77f755b4114c_istockphoto-184400002-612x612.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/entity/Service/Service 1_8/photo/058c41cb-cfb5-4d92-8f41-f70f03e58a22_istockphoto-184400002-612x612.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/svg/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/create-real-estate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estate-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estate-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estates.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/real-estate/real-estates.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/favicon.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/favicon.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/entity/Service/Service 1_2/photo/bb5e316e-feb2-4291-b548-77f755b4114c_istockphoto-184400002-612x612.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/main-nav-fragment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/main-nav-fragment.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/new-building-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/new-building-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/real-estate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/real-estate.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,10 +71,10 @@
         <option value="Less File" />
         <option value="JavaScript File" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
         <option value="CSS File" />
         <option value="HTML File" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -321,7 +269,8 @@
       <workItem from="1725909671328" duration="4223000" />
       <workItem from="1725954201899" duration="34468000" />
       <workItem from="1726042415142" duration="44709000" />
-      <workItem from="1726130614250" duration="25204000" />
+      <workItem from="1726130614250" duration="31571000" />
+      <workItem from="1726177723451" duration="3542000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />
@@ -531,7 +480,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725982139795</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added: main, new-building-details, real-estates.">
+      <option name="closed" value="true" />
+      <created>1726170376806</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1726170376806</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +519,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="create all for frontend" />
     <MESSAGE value="upd: menu" />
     <MESSAGE value="upd: menu, requests" />
     <MESSAGE value="upd: requests" />
@@ -587,7 +543,8 @@
     <MESSAGE value="Full edit the Service" />
     <MESSAGE value="Full ADMIN SIDE" />
     <MESSAGE value="Full ADMIN SIDE. Corrected some problem." />
-    <option name="LAST_COMMIT_MESSAGE" value="Full ADMIN SIDE. Corrected some problem." />
+    <MESSAGE value="Added: main, new-building-details, real-estates." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added: main, new-building-details, real-estates." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -93,6 +93,6 @@ public class MainController {
     public String realEstateDetails(@PathVariable Long id, Model model) {
         RealEstate realEstate = realEstateService.getRealEstateById(id);
         model.addAttribute("realEstate", realEstate);
-        return "admin/main/real-estate/real-estate-details";
+        return "user/real-estate-details";
     }
 }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Detail</title>
+
+    <link rel="stylesheet" th:href="@{/css/user/main.css}">
+    <link rel="stylesheet" th:href="@{/css/user/service.css}">
+</head>
+<body>
+
+<div th:replace="~{fragments/main-nav-fragment :: main-nav}"></div>
+
+<main class="content">
+    <h2 class="section-title" th:text="${service.name}">Service Name</h2>
+
+    <!-- Красиво отформатированное изображение -->
+    <div class="service-banner">
+        <div class="image-wrapper">
+            <img th:src="@{'/images' + ${service.photoUrl}}" alt="Service Banner">
+        </div>
+    </div>
+
+    <!-- Блок с текстом, закругленным на 20px и с фоном #111311 -->
+    <div class="service-description">
+        <p th:utext="${service.description}">Service Description</p>
+    </div>
+</main>
+
+</body>
+</html>

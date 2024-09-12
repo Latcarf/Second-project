@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Real Estate Details</title>
+
+    <link rel="stylesheet" th:href="@{/css/util/normalize.css}"/>
+    <link rel="stylesheet" th:href="@{/css/user/new-building-details.css}"/>
+    <link rel="stylesheet" th:href="@{/css/user/main.css}"/>
+
+</head>
+
+<body>
+<div th:replace="~{fragments/main-nav-fragment :: main-nav}"></div>
+
+<main class="content">
+    <h2 class="section-title">Real Estate Details</h2>
+
+    <section class="new-building-gallery">
+        <div class="gallery-slider">
+            <input type="radio" name="slider" id="img1" checked>
+            <input type="radio" name="slider" id="img2">
+            <input type="radio" name="slider" id="img3">
+
+            <div class="gallery-images">
+                <img th:src="@{'/images' + ${realEstate.photoUrls[0]}}" alt="Image 1" class="slide">
+                <img th:src="@{'/images' + ${realEstate.photoUrls[1]}}" alt="Image 2" class="slide">
+                <img th:src="@{'/images' + ${realEstate.photoUrls[2]}}" alt="Image 3" class="slide">
+            </div>
+
+            <div class="gallery-controls">
+                <label for="img1"></label>
+                <label for="img2"></label>
+                <label for="img3"></label>
+            </div>
+        </div>
+    </section>
+
+    <section class="real-estate-card">
+        <div class="real-estate-section">
+            <p><strong>Name:</strong> <span th:text="${realEstate.name}"></span></p>
+            <p><strong>Type:</strong> <span th:text="${realEstate.type}"></span></p>
+            <p><strong>Rooms:</strong> <span th:text="${realEstate.details.numRooms}"></span></p>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="real-estate-section">
+            <p><strong>Area (sq.m.):</strong> <span th:text="${realEstate.areaSqM}"></span></p>
+            <p><strong>Price per sq.m ($):</strong> <span th:text="${realEstate.priceSqM}"></span></p>
+            <p><strong>Total Price ($):</strong> <span th:text="${realEstate.totalPrice}"></span></p>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="real-estate-section">
+            <p><strong>Floor:</strong> <span th:text="${realEstate.details.numFloors}"></span></p>
+            <p><strong>Storey:</strong> <span th:text="${realEstate.storey}"></span></p>
+            <p><strong>Terraces/Balconies:</strong> <span th:text="${realEstate.details.numTerracesBalconies}"></span></p>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="real-estate-section">
+            <p><strong>Year Built:</strong> <span th:text="${realEstate.details.yearBuilt}"></span></p>
+            <p><strong>Address:</strong> <span th:text="${realEstate.address.city + ', ' + realEstate.address.district}"></span></p>
+
+            <p th:if="${realEstate.newBuilding != null}">
+                <strong>New Building Name:</strong> <span th:text="${realEstate.newBuilding.name}"></span>
+            </p>
+        </div>
+    </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/menu-toggle.js"></script>
+<script src="/js/submenu-toggle.js"></script>
+</body>
+</html>
