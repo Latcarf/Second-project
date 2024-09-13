@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #191B1C;
+    color: #f1f1f1;
+}
+
+main {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.banner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.section-title-centre {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 2px solid #4FC3A1;
+    padding-bottom: 10px;
+}
+
+.company-info {
+    margin: 0 auto;
+    max-width: 1200px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+.photo-block {
+    margin-bottom: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+.photo-block img {
+    width: 40%;
+    float: left;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.photo-block img:hover {
+    transform: scale(1.05);
+}
+
+.photo-block.right img {
+    float: right;
+    margin-left: 20px;
+    margin-right: 0;
+}
+
+.photo-block p {
+    overflow: hidden;
+    text-align: justify;
+    color: #f1f1f1;
+}
+
+footer {
+    background-color: #111311;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}

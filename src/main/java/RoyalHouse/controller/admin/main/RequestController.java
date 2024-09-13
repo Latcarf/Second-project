@@ -36,23 +36,6 @@ public class RequestController {
         this.exportService = exportService;
     }
 
-    @GetMapping("/new")
-    public String showCreateForm(Model model) {
-        model.addAttribute("request", new Request());
-        return "admin/main/create-request";
-    }
-
-    @PostMapping("/new")
-    public String createRequest(@ModelAttribute Request request, Model model) {
-        try {
-            requestService.createRequest(request);
-            return "redirect:/admin/main/requests";
-        } catch (Exception e) {
-            model.addAttribute("error", "Failed to create request. Please try again.");
-            return "admin/main/create-request";
-        }
-    }
-
     @GetMapping
     public String getRequests(@RequestParam(defaultValue = "1") int page,
                               @RequestParam(value = "name", required = false) String name,

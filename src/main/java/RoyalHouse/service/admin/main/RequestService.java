@@ -32,7 +32,7 @@ public class RequestService implements PaginationService<Request> {
     public void createRequest(Request request) {
         logger.info("Creating a request for a user with email: {}", request.getEmail());
 
-        validateRequest(request);
+//        validateRequest(request);
 
         Request newRequest = Request.builder()
                 .userName(request.getUserName())

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Form</title>
+    <link rel="stylesheet" th:href="@{/css/user/main.css}">
+    <link rel="stylesheet" th:href="@{/css/user/request.css}">
+</head>
+<body>
+
+<div th:replace="~{fragments/main-nav-fragment :: main-nav}"></div>
+
+<main class="content">
+    <div class="form-wrapper">
+        <h2 class="form-title">Request</h2>
+        <form th:action="@{/main/new-request}" method="post" class="request-form">
+            <div class="input-group">
+                <input type="text" name="userName" placeholder="Name" required>
+            </div>
+            <div class="input-group">
+                <input type="text" name="phone" placeholder="Phone" required>
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Email">
+            </div>
+            <div class="input-group">
+                <textarea name="description" placeholder="Your message"></textarea>
+            </div>
+            <div class="form-action">
+                <button type="submit">Send</button>
+            </div>
+        </form>
+
+    </div>
+</main>
+
+</body>
+</html>

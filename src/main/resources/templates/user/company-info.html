@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Company</title>
+    <link rel="stylesheet" th:href="@{/css/user/main.css}">
+    <link rel="stylesheet" th:href="@{/css/user/company-info.css}">
+</head>
+<body>
+
+<div th:replace="~{fragments/main-nav-fragment :: main-nav}"></div>
+
+<main class="content">
+    <div class="banner">
+        <img th:src="@{'/images' + ${companyInfo.bannerUrl}}" alt="Company Banner">
+    </div>
+
+    <h2 class="section-title-centre" th:text="${companyInfo.heading}">Company Heading</h2>
+
+    <div class="company-info">
+        <div th:each="photo, iterStat : ${companyInfo.photoUrls}">
+            <div class="photo-block" th:classappend="${iterStat.index % 2 == 0} ? 'left' : 'right'">
+                <img th:src="@{'/images' + ${photo}}" alt="Company Photo">
+                <p th:utext="${companyInfo.description}"></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

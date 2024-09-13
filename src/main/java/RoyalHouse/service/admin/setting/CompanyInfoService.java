@@ -9,15 +9,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class CompanyInfoService {
     private final CompanyInfoRepository companyInfoRepository;
-    private final PhotoService photoService;
 
-    public CompanyInfoService(CompanyInfoRepository companyInfoRepository, PhotoService photoService) {
+    public CompanyInfoService(CompanyInfoRepository companyInfoRepository) {
         this.companyInfoRepository = companyInfoRepository;
-        this.photoService = photoService;
     }
 
     @Transactional
     public void createCompanyInfo(CompanyInfo companyInfo) {
         companyInfoRepository.save(companyInfo);
+    }
+
+    public CompanyInfo getCompanyInfo() {
+        return companyInfoRepository.findAll().get(0);
     }
 }
