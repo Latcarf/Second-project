@@ -77,10 +77,9 @@
                 </td>
                 <td>
                     <div class="btn btn-group-table">
-                        <form th:action="@{/admin/main/new-buildings/edit/{id}(id=${newBuilding.id})}" method="get"
-                              style="display:inline;">
+                        <a href="/main">
                             <button class="btn btn-action" type="submit">View</button>
-                        </form>
+                        </a>
                         <form th:action="@{/admin/main/new-buildings/delete/{id}(id=${newBuilding.id})}" method="post" style="display:inline;">
                             <input type="hidden" name="page" th:value="${pagination.currentPage}"/>
                             <input type="hidden" name="name" th:value="${filterParams['name']}"/>

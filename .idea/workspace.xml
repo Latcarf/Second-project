@@ -4,22 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="Added: services and service-details">
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/user/MainCompanyInfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/user/MainRequestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/user/company-info.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/user/request.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/company-info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/request-form.html" afterDir="false" />
+    <list default="true" id="f26fa004-0cb6-456d-b143-69945f38dfd1" name="Changes" comment="I DID IT :)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/controller/admin/main/RequestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/main/RequestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/setting/CompanyInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RoyalHouse/service/admin/setting/CompanyInfoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/user/service.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/user/service.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/main-nav-fragment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/main-nav-fragment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/service-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/service-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/diagrams/ERD.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/new-buildings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/main/new-building/new-buildings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +223,9 @@
       <workItem from="1726042415142" duration="44709000" />
       <workItem from="1726130614250" duration="31571000" />
       <workItem from="1726177723451" duration="3739000" />
-      <workItem from="1726215286928" duration="4028000" />
+      <workItem from="1726215286928" duration="6099000" />
+      <workItem from="1726290353053" duration="6926000" />
+      <workItem from="1726484303604" duration="5836000" />
     </task>
     <task id="LOCAL-00001" summary="Request service and controller 66%">
       <option name="closed" value="true" />
@@ -459,7 +451,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726181454649</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="I DID IT :)">
+      <option name="closed" value="true" />
+      <created>1726252243332</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1726252243332</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +490,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="upd: menu, requests" />
     <MESSAGE value="upd: requests" />
     <MESSAGE value="upd: requests and OOP" />
     <MESSAGE value="Fully completed and working: menu, requests, request detail" />
@@ -515,7 +514,8 @@
     <MESSAGE value="Full ADMIN SIDE. Corrected some problem." />
     <MESSAGE value="Added: main, new-building-details, real-estates." />
     <MESSAGE value="Added: services and service-details" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added: services and service-details" />
+    <MESSAGE value="I DID IT :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="I DID IT :)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

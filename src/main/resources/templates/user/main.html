@@ -28,9 +28,9 @@
         <div class="apartment-grid">
             <div class="apartment-card" th:each="apartment : ${randomApartments}">
                 <div class="apartment-slider">
-                    <input type="radio" name="slider-group-${apartment.id}-1" id="img1-${apartment.id}" checked>
-                    <input type="radio" name="slider-group-${apartment.id}-2" id="img2-${apartment.id}">
-                    <input type="radio" name="slider-group-${apartment.id}-3" id="img3-${apartment.id}">
+                    <input type="radio" name="slider-group-${apartment.id}" id="img1-${apartment.id}" checked>
+                    <input type="radio" name="slider-group-${apartment.id}" id="img2-${apartment.id}">
+                    <input type="radio" name="slider-group-${apartment.id}" id="img3-${apartment.id}">
 
                     <div class="apartment-images">
                         <img th:src="@{'/images' + ${apartment.photoUrls[0]}}" alt="Apartment Image 1">
