@@ -23,9 +23,6 @@ The website is designed for real estate manipulation, featuring two main categor
 ## Technology Stack
 
 - **Version Control:** GitHub was used for version control throughout the project lifecycle.
-
-- **Web Server:** Tomcat for application deployment and management.
-
 - **RESTful API:** Used for interaction between the frontend and backend, as well as for integration with external services.
 
 ### Backend Technologies
