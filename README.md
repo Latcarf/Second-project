@@ -1,38 +1,48 @@
-# Main Project
+# Second Project
 
-This is a Spring Boot Java web application developed using the MVC architecture. The application features both admin and user interfaces, providing a comprehensive set of functionalities including creating, viewing, deleting, and editing various objects on the website.
+This project is a comprehensive Java web application developed using Spring Boot and follows the MVC architecture. It includes both admin and public-facing sections, providing functionality for managing real estate objects and handling user requests. The admin interface is designed to manage various entities and respond to user submissions, while the user interface allows browsing and submitting requests for real estate properties.
+
+## Project Idea
+
+The website is designed for real estate manipulation, featuring two main categories: new buildings and various real estate properties. Users can browse through listings, view detailed information, and submit requests. The admin panel provides a full suite of tools for managing real estate listings, user requests, and responding to inquiries.
 
 ## Key Features
 
-- **Admin and User Interfaces**: Separate sections for admin and user interactions.
-- **CRUD Operations**: Create, read, update, and delete functionalities for various entities.
-- **Tables with Information**: Dynamic tables displaying different types of information with filtering options for sorting.
-- **Export to Excel**: Ability to export table data to an Excel file, which is then emailed to you.
-- **Pagination**: Efficient handling of large datasets with pagination.
-- **Photo Uploading**: Users can upload and manage photos.
-- **Field Validation**: Robust field validation using regular expressions.
-- **Rich Frontend**: Developed with high-quality HTML, CSS, and Thymeleaf templates.
-- **JavaScript**: Includes a small piece of JavaScript to enhance user experience.
+- **Admin and User Interfaces**: Clear separation between admin and user roles, with a dedicated admin panel for managing content and requests.
+- **Advanced CRUD Operations**: Create, Read, Update, and Delete (CRUD) functionality is available for real estate listings and requests, with optimized data management.
+- **Dynamic Tables with Filtering**: The system displays dynamic tables with advanced filtering, sorting, and pagination options for effective data handling.
+- **Export to Excel**: Users can export data from tables into Excel files, with the option to email the exported files directly.
+- **Photo Management**: Integrated photo upload and management system, allowing users to upload photos for real estate properties.
+- **Field Validation**: Validation mechanisms are in place to ensure data integrity, including regular expressions for accurate field validation.
 
 ## Additional Resources
 
-- **UML Diagrams**: The project includes comprehensive **ERD diagrams for the entire database schema** and **UML diagrams for the object-oriented programming (OOP) classes and their relationships.**
+- **UML Diagrams**: The project includes comprehensive ERD diagrams for the entire database schema and UML diagrams for the object-oriented programming (OOP) classes and their relationships.
 - **Project Timeline**: A summary table detailing the planned versus actual time spent on the project.
-- **Screenshot of the entire site and various details on app.moqups**: https://app.moqups.com/x8MG8MGLC8DvPtEwgbXnQbxCRWoSFKUh/view/page/a4e8a059f
 
-## Technologies Used
+## Technology Stack
 
-- **Spring Boot Starter Web**
-- **Spring Boot Starter Security**
-- **Spring Boot Starter Data JPA**
-- **Spring Boot Starter Thymeleaf**
-- **Spring Boot Starter Mail**
-- **Spring Boot Starter OAuth2 Client**
-- **Spring Boot Starter Validation**
-- **PostgreSQL JDBC Driver**
-- **Apache POI for Excel**
+- **Version Control:** GitHub was used for version control throughout the project lifecycle.
+
+- **Web Server:** Tomcat for application deployment and management.
+
+- **RESTful API:** Used for interaction between the frontend and backend, as well as for integration with external services.
+
+### Backend Technologies
+
+- **Spring Framework**
+  - Spring Boot
+  - Thymeleaf
+- **PostgreSQL**
 - **Lombok**
+- **Apache POI** for generating and managing Excel files.
 
-## My LinkedIn
+### Frontend Technologies
 
-**www.linkedin.com/in/muzychuk-dmytro**
+- **HTML/CSS**
+- **JavaScript**
+
+## My Contacts
+
+- **[LinkedIn](www.linkedin.com/in/muzychuk-dmytro)**
+- **[Portfolio](https://whimsical.com/portfolio-NZHGEcNknCP1gKbSYdNhTb)**
